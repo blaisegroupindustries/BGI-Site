@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar | BGI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Montserrat', sans-serif; padding: 100px 8%; background: #fff; }
+        nav { position: fixed; top: 30px; left: 8%; }
+        nav a { text-decoration: none; color: #999; font-size: 0.8rem; letter-spacing: 1px; }
+        
+        .form-container { max-width: 600px; margin: 0 auto; }
+        h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 40px; text-align: center; }
+        .serif { font-style: italic; }
+
+        form { display: flex; flex-direction: column; gap: 20px; }
+        .field { display: flex; flex-direction: column; gap: 8px; }
+        label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; color: #666; }
+        input, textarea, select { padding: 15px; border: 1px solid #ddd; background: #fdfdfd; font-family: inherit; }
+        button { background: #000; color: #fff; padding: 20px; border: none; cursor: pointer; font-weight: 600; letter-spacing: 2px; margin-top: 10px; }
+        button:hover { background: #333; }
+    </style>
+</head>
+<body>
+    <nav><a href="index.html">← VOLTAR AO SITE</a></nav>
+
+    <div class="form-container">
+        <h1>Solicitar <span class="serif">Reunião</span></h1>
+        <form>
+            <div class="field"><label>Nome</label><input type="text" required></div>
+            <div class="field"><label>E-mail Corporativo</label><input type="email" required></div>
+            <div class="field">
+                <label>Serviço</label>
+                <select>
+                    <option>Branding de Elite</option>
+                    <option>Web Engineering</option>
+                </select>
+            </div>
+            <div class="field"><label>Mensagem</label><textarea rows="4"></textarea></div>
+            <button type="submit">ENVIAR SOLICITAÇÃO</button>
+        </form>
+    </div>
+</body>
+</html>
