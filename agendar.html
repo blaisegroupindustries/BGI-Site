@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agendar Consultoria | BGI</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { 
             --bg: #ffffff; 
@@ -34,16 +34,18 @@
 
         /* Seleção de Serviços Dinâmica */
         .services-selection { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 50px; }
-        .service-opt { border: 1px solid #eee; padding: 30px 20px; text-align: center; cursor: pointer; transition: var(--transition); border-radius: 8px; background: #fff; }
+        .service-opt { border: 1px solid #eee; padding: 30px 20px; text-align: center; cursor: pointer; transition: var(--transition); border-radius: 8px; background: #fff; position: relative; }
         .service-opt i { font-size: 2rem; color: #ccc; margin-bottom: 15px; transition: 0.3s; }
         .service-opt h4 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--sec); }
         
-        /* Efeito de Selecionado */
+        /* Checkbox Invisível para o Formspree captar os serviços */
+        .service-opt input { position: absolute; opacity: 0; cursor: pointer; }
+
         .service-opt.selected { border-color: var(--brand-color); background: var(--soft-blue); transform: translateY(-5px); }
         .service-opt.selected i { color: var(--brand-color); }
         .service-opt.selected h4 { color: var(--brand-color); }
 
-        /* Formulário de Autoridade */
+        /* Formulário */
         .booking-container { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
         .form-side { background: #fff; padding: 40px; border-radius: 4px; box-shadow: 0 40px 80px rgba(0,0,0,0.05); }
         .input-group { margin-bottom: 25px; }
@@ -54,7 +56,7 @@
         .btn-submit { width: 100%; padding: 20px; background: var(--brand-color); color: #fff; border: none; border-radius: 50px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: 0.4s; margin-top: 20px; }
         .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(34, 85, 128, 0.2); }
 
-        /* Lado de Informação */
+        /* Informação */
         .info-side h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 30px; }
         .contact-item { display: flex; align-items: center; gap: 20px; margin-bottom: 30px; }
         .contact-item i { font-size: 1.5rem; color: var(--brand-color); background: var(--soft-blue); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
@@ -85,90 +87,99 @@
     </header>
 
     <section>
-        <div class="reveal">
-            <h3 style="text-align: center; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">Selecione o(s) serviço(s)</h3>
-            <div class="services-selection">
-                <div class="service-opt" onclick="toggleService(this)">
-                    <i class="fa fa-diamond"></i>
-                    <h4>Branding</h4>
-                </div>
-                <div class="service-opt" onclick="toggleService(this)">
-                    <i class="fa fa-code"></i>
-                    <h4>Web Design</h4>
-                </div>
-                <div class="service-opt" onclick="toggleService(this)">
-                    <i class="fa fa-rocket"></i>
-                    <h4>Marketing</h4>
-                </div>
-                <div class="service-opt" onclick="toggleService(this)">
-                    <i class="fa fa-lightbulb-o"></i>
-                    <h4>Consultoria</h4>
-                </div>
-                <div class="service-opt" onclick="toggleService(this)">
-                    <i class="fa fa-gears"></i>
-                    <h4>Automação</h4>
+        <form action="https://formspree.io/f/xojjvvjk" method="POST">
+            
+            <div class="reveal">
+                <h3 style="text-align: center; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">Selecione o(s) serviço(s)</h3>
+                <div class="services-selection">
+                    <label class="service-opt" onclick="toggleService(this)">
+                        <input type="checkbox" name="servico_branding" value="Sim">
+                        <i class="fa fa-gem"></i>
+                        <h4>Branding</h4>
+                    </label>
+                    <label class="service-opt" onclick="toggleService(this)">
+                        <input type="checkbox" name="servico_webdesign" value="Sim">
+                        <i class="fa fa-code"></i>
+                        <h4>Web Design</h4>
+                    </label>
+                    <label class="service-opt" onclick="toggleService(this)">
+                        <input type="checkbox" name="servico_marketing" value="Sim">
+                        <i class="fa fa-rocket"></i>
+                        <h4>Marketing</h4>
+                    </label>
+                    <label class="service-opt" onclick="toggleService(this)">
+                        <input type="checkbox" name="servico_consultoria" value="Sim">
+                        <i class="fa fa-lightbulb"></i>
+                        <h4>Consultoria</h4>
+                    </label>
+                    <label class="service-opt" onclick="toggleService(this)">
+                        <input type="checkbox" name="servico_automacao" value="Sim">
+                        <i class="fa fa-gears"></i>
+                        <h4>Automação</h4>
+                    </label>
                 </div>
             </div>
-        </div>
 
-        <div class="booking-container">
-            <div class="form-side reveal">
-                <form action="#">
+            <div class="booking-container">
+                <div class="form-side reveal">
                     <div class="input-group">
                         <label>Nome Completo</label>
-                        <input type="text" placeholder="Como devemos chamá-lo?" required>
+                        <input type="text" name="nome" placeholder="Como devemos chamá-lo?" required>
                     </div>
                     <div class="input-group">
                         <label>E-mail Corporativo</label>
-                        <input type="email" placeholder="exemplo@suaempresa.com" required>
+                        <input type="email" name="email" placeholder="exemplo@suaempresa.com" required>
                     </div>
                     <div class="input-group">
                         <label>WhatsApp / Telefone</label>
-                        <input type="tel" placeholder="+258 ..." required>
+                        <input type="tel" name="telefone" placeholder="+258 ..." required>
                     </div>
                     <div class="input-group">
                         <label>Faturamento Mensal (Opcional)</label>
-                        <select>
-                            <option>Abaixo de 100k</option>
-                            <option>100k - 500k</option>
-                            <option>Acima de 500k</option>
+                        <select name="faturamento">
+                            <option value="Abaixo de 100k">Abaixo de 100k</option>
+                            <option value="100k - 500k">100k - 500k</option>
+                            <option value="Acima de 500k">Acima de 500k</option>
                         </select>
                     </div>
                     <div class="input-group">
                         <label>Mensagem / Objetivo</label>
-                        <textarea rows="4" placeholder="Fale-nos brevemente sobre o seu desafio atual."></textarea>
+                        <textarea name="mensagem" rows="4" placeholder="Fale-nos brevemente sobre o seu desafio atual."></textarea>
                     </div>
+                    
+                    <input type="text" name="_gotcha" style="display:none">
+                    
                     <button type="submit" class="btn-submit">Enviar para Análise</button>
-                </form>
-            </div>
+                </div>
 
-            <div class="info-side reveal">
-                <h2>Porquê a <span style="color: var(--brand-color)">BGI</span>?</h2>
-                <p style="color: var(--sec); margin-bottom: 40px;">Não somos uma agência de "volume". Aceitamos um número limitado de projetos por trimestre para garantir que cada cliente receba atenção total dos nossos engenheiros e estrategistas.</p>
-                
-                <div class="contact-item">
-                    <i class="fa fa-whatsapp"></i>
-                    <div>
-                        <strong>Linha Direta</strong>
-                        <p>+258 86 440 0354</p>
+                <div class="info-side reveal">
+                    <h2>Porquê a <span style="color: var(--brand-color)">BGI</span>?</h2>
+                    <p style="color: var(--sec); margin-bottom: 40px;">Não somos uma agência de "volume". Aceitamos um número limitado de projetos por trimestre para garantir que cada cliente receba atenção total dos nossos engenheiros e estrategistas.</p>
+                    
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <strong>Linha Direta</strong>
+                            <p>+258 86 440 0354</p>
+                        </div>
                     </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fa fa-envelope-o"></i>
-                    <div>
-                        <strong>E-mail</strong>
-                        <p>contacto@bgi.co.mz</p>
+                    <div class="contact-item">
+                        <i class="far fa-envelope"></i>
+                        <div>
+                            <strong>E-mail</strong>
+                            <p>contacto@bgi.co.mz</p>
+                        </div>
                     </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fa fa-map-marker"></i>
-                    <div>
-                        <strong>Hub</strong>
-                        <p>Maputo, Moçambique</p>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Hub</strong>
+                            <p>Maputo, Moçambique</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </section>
 
     <footer>
@@ -176,9 +187,11 @@
     </footer>
 
     <script>
-        // Função para selecionar serviços de forma dinâmica
+        // Função para selecionar serviços e marcar o checkbox oculto
         function toggleService(element) {
             element.classList.toggle('selected');
+            const checkbox = element.querySelector('input[type="checkbox"]');
+            checkbox.checked = !checkbox.checked;
         }
 
         // Sistema de Reveal
