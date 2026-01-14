@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branding & Identidade | BGI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/all.min.css">
+    <style>
+        :root { 
+            --bg: #ffffff; 
+            --text: #1a1a1a; 
+            --sec: #666; 
+            --brand-color: #225580; 
+            --accent: #d4af37; /* Dourado suave */
+            --soft-gray: #f9f9f9;
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+
+        /* Navigation */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; position: fixed; width: 100%; top: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(15px); z-index: 2000; border-bottom: 1px solid #eee; }
+        .logo img { height: 40px; }
+        .nav-links { display: flex; list-style: none; gap: 30px; }
+        .nav-links a { text-decoration: none; color: var(--text); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; transition: 0.3s; }
+        .nav-links a:hover { color: var(--brand-color); }
+
+        /* Hero Branding */
+        .branding-hero { height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; background: var(--soft-gray); }
+        .hero-img-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.15; z-index: 0; }
+        .hero-content { position: relative; z-index: 1; padding: 0 8%; }
+        .branding-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 10vw, 5.5rem); line-height: 1.1; margin-bottom: 20px; color: var(--text); }
+        .branding-hero p { max-width: 700px; margin: 0 auto; color: var(--sec); font-size: 1.1rem; letter-spacing: 1px; }
+
+        section { padding: 100px 8%; }
+
+        /* O Poder da Marca */
+        .split-section { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .split-image { position: relative; }
+        .split-image img { width: 100%; height: 600px; object-fit: cover; border-radius: 4px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
+        .serif { font-family: 'Playfair Display', serif; font-style: italic; color: var(--brand-color); }
+
+        /* Metodologia */
+        .method-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 60px; }
+        .method-card { padding: 50px; background: #fff; border: 1px solid #eee; transition: var(--transition); border-radius: 8px; }
+        .method-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); border-color: var(--brand-color); }
+        .method-number { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--brand-color); margin-bottom: 20px; display: block; opacity: 0.3; }
+        .method-card h3 { margin-bottom: 15px; letter-spacing: 1px; font-weight: 600; }
+
+        /* Galeria */
+        .gallery-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; }
+        .gallery-item { position: relative; overflow: hidden; border-radius: 4px; background: #eee; }
+        .item-1 { grid-column: span 7; height: 450px; }
+        .item-2 { grid-column: span 5; height: 450px; }
+        .item-3 { grid-column: span 5; height: 400px; }
+        .item-4 { grid-column: span 7; height: 400px; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 1.5s ease; }
+        .gallery-item:hover img { transform: scale(1.05); }
+
+        /* CTA */
+        .cta-branding { text-align: center; background: var(--brand-color); padding: 90px 8%; border-radius: 8px; color: #fff; }
+        .btn-white { display: inline-block; padding: 20px 50px; background: #fff; color: var(--brand-color); text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; border-radius: 50px; transition: 0.3s; margin-top: 30px; }
+        .btn-white:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+
+        /* Animations */
+        .reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
+        .visible { opacity: 1; transform: translateY(0); }
+
+        footer { padding: 60px 8%; border-top: 1px solid #eee; text-align: center; background: var(--soft-gray); }
+
+        @media (max-width: 768px) {
+            .split-section { grid-template-columns: 1fr; }
+            .item-1, .item-2, .item-3, .item-4 { grid-column: span 12; height: 300px; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><a href="index.html"><img src="BGI_logo.png" alt="BGI"></a></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="website.html">Website</a></li>
+            <li><a href="marketing.html">Marketing</a></li>
+            <li><a href="agendar.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <header class="branding-hero">
+        <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=2000" class="hero-img-bg" alt="Branding Concept">
+        <div class="hero-content">
+            <h1 class="reveal">Identidade de <br><span class="serif">Alto Valor.</span></h1>
+            <p class="reveal">Projetamos a estética do sucesso através de sistemas visuais inteligentes.</p>
+        </div>
+    </header>
+
+    <section class="split-section">
+        <div class="split-image reveal">
+            <img src="https://images.unsplash.com/photo-1509343256512-d77a5cb3791b?q=80&w=1000" alt="Design Minimalista">
+        </div>
+        <div class="split-text reveal">
+            <h2 class="serif" style="text-align: left; font-size: 2.8rem; margin-bottom: 30px; color: var(--text);">A Psicologia por trás do <span style="color: var(--brand-color)">Impacto</span>.</h2>
+            <p style="color: var(--sec); margin-bottom: 25px;">Não escolhemos cores apenas porque são bonitas. Na BGI, cada traço tipográfico e cada código hexadecimal é selecionado para evocar uma resposta emocional específica no seu cliente ideal.</p>
+            <p style="color: var(--sec);">Branding é o que as pessoas dizem de si quando não está na sala. Nós garantimos que elas falem sobre <strong>confiança, liderança e exclusividade</strong>.</p>
+        </div>
+    </section>
+
+    <section style="background: var(--soft-gray);">
+        <h2 class="reveal">Engenharia de <span class="serif">Marca</span></h2>
+        <div class="method-grid">
+            <div class="method-card reveal">
+                <span class="method-number">01</span>
+                <h3>Análise Genética</h3>
+                <p style="color: var(--sec); font-size: 0.95rem;">Identificamos o núcleo do seu negócio para criar uma base visual autêntica e inabalável.</p>
+            </div>
+            <div class="method-card reveal">
+                <span class="method-number">02</span>
+                <h3>Construção Visual</h3>
+                <p style="color: var(--sec); font-size: 0.95rem;">Desenvolvimento de logotipos e ativos que mantêm a clareza em qualquer suporte ou escala.</p>
+            </div>
+            <div class="method-card reveal">
+                <span class="method-number">03</span>
+                <h3>Consistência de Elite</h3>
+                <p style="color: var(--sec); font-size: 0.95rem;">Manuais de marca detalhados para que a sua autoridade nunca seja diluída ou mal interpretada.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="reveal" style="margin-bottom: 10px;">Portfólio de <span class="serif">Conceitos</span></h2>
+        <p class="reveal" style="text-align: center; color: var(--sec); margin-bottom: 60px;">Onde a clareza encontra a sofisticação.</p>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item item-1 reveal">
+                <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=1000" alt="Estúdio de Design">
+            </div>
+            <div class="gallery-item item-2 reveal">
+                <img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=1000" alt="Texturas">
+            </div>
+            <div class="gallery-item item-3 reveal">
+                <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1000" alt="Digital Branding">
+            </div>
+            <div class="gallery-item item-4 reveal">
+                <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1000" alt="Minimalist Work">
+            </div>
+        </div>
+    </section>
+
+    <section class="reveal">
+        <div class="cta-branding">
+            <h2 class="serif" style="color: #fff; font-size: 2.5rem;">Pronto para ser Referência?</h2>
+            <p style="opacity: 0.9; margin-top: 10px;">Transforme a sua percepção de mercado com um branding de autoridade.</p>
+            <a href="agendar.html" class="btn-white">Solicitar Diagnóstico de Marca</a>
+        </div>
+    </section>
+
+    <footer>
+        <p style="opacity: 0.5; font-size: 0.8rem; color: var(--text);">© 2026 BGI Hub. Projetando o futuro das marcas.</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

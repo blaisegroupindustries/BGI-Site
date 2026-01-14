@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Estratégico | BGI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/all.min.css">
+    <style>
+        :root { 
+            --bg: #ffffff; 
+            --text: #1a1a1a; 
+            --sec: #666; 
+            --brand-color: #225580; 
+            --accent: #00c853;
+            --soft-blue: #f8fabb;
+            --transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+
+        /* Nav */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 8%; position: fixed; width: 100%; top: 0; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); z-index: 2000; border-bottom: 1px solid #f0f0f0; }
+        .logo img { height: 40px; }
+        .nav-links { display: flex; list-style: none; gap: 25px; }
+        .nav-links a { text-decoration: none; color: var(--sec); font-size: 0.75rem; text-transform: uppercase; font-weight: 600; letter-spacing: 1px; }
+
+        /* Hero com Parallax Suave */
+        .mkt-hero { height: 85vh; display: flex; align-items: center; justify-content: center; position: relative; background: #f4f7f6; overflow: hidden; }
+        .hero-image-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426') center/cover; opacity: 0.1; z-index: 1; transform: scale(1.1); transition: transform 2s ease; }
+        .mkt-hero:hover .hero-image-overlay { transform: scale(1); }
+        .hero-content { position: relative; z-index: 2; text-align: center; padding: 0 8%; }
+        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 8vw, 5.5rem); line-height: 1; margin-bottom: 20px; color: var(--brand-color); }
+        .hero-content p { max-width: 650px; margin: 0 auto 40px; font-size: 1.2rem; color: var(--sec); }
+
+        /* Section Layouts */
+        section { padding: 120px 8%; }
+        .reveal { opacity: 0; transform: translateY(40px); transition: var(--transition); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Cards de Estratégia */
+        .strategy-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 60px; }
+        .strategy-card { background: #fff; padding: 60px 40px; border: 1px solid #eee; position: relative; overflow: hidden; transition: var(--transition); }
+        .strategy-card::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--brand-color); transform: scaleY(0); transition: 0.4s; transform-origin: bottom; }
+        .strategy-card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(0,0,0,0.05); }
+        .strategy-card:hover::before { transform: scaleY(1); }
+        .strategy-card i { font-size: 2.5rem; color: var(--brand-color); margin-bottom: 20px; display: block; }
+        .strategy-card h3 { margin-bottom: 15px; font-family: 'Playfair Display', serif; font-size: 1.8rem; }
+
+        /* Imagem de Impacto com Texto Lateral */
+        .impact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; }
+        .impact-image { position: relative; }
+        .impact-image img { width: 100%; border-radius: 4px; box-shadow: 30px 30px 0 var(--brand-color); }
+        .impact-text h2 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 30px; }
+
+        /* Números de Performance */
+        .numbers-strip { background: var(--brand-color); color: #fff; display: flex; justify-content: space-around; padding: 80px 8%; text-align: center; margin: 60px 0; }
+        .num-item h3 { font-size: 3.5rem; font-family: 'Playfair Display', serif; }
+        .num-item p { text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; opacity: 0.8; }
+
+        /* CTA Final */
+        .cta-final { text-align: center; background: #fafafa; border-radius: 4px; padding: 100px 8%; }
+        .btn-mkt { display: inline-block; padding: 22px 60px; background: var(--brand-color); color: #fff; text-decoration: none; border-radius: 50px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; transition: 0.4s; }
+        .btn-mkt:hover { transform: scale(1.05); box-shadow: 0 20px 40px rgba(34, 85, 128, 0.3); }
+
+        footer { text-align: center; padding: 60px; border-top: 1px solid #eee; font-size: 0.8rem; color: #999; }
+
+        @media (max-width: 992px) { .impact-grid { grid-template-columns: 1fr; } .numbers-strip { flex-direction: column; gap: 50px; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><a href="index.html"><img src="BGI_logo.png" alt="BGI"></a></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="branding.html">Branding</a></li>
+            <li><a href="website.html">Web Design</a></li>
+            <li><a href="agendar.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <header class="mkt-hero">
+        <div class="hero-image-overlay"></div>
+        <div class="hero-content">
+            <h1 class="reveal">Marketing <br>de Influência e <span style="font-style: italic;">Dados.</span></h1>
+            <p class="reveal">Escalamos negócios através de funis de alta conversão e inteligência de mercado. O seu ROI é a nossa métrica principal.</p>
+            <div class="reveal"><a href="#start" class="btn-mkt" style="padding: 15px 40px; font-size: 0.8rem;">Ver Metodologia</a></div>
+        </div>
+    </header>
+
+    <section id="start">
+        <div class="impact-grid">
+            <div class="impact-image reveal">
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070" alt="Marketing BGI">
+            </div>
+            <div class="impact-text reveal">
+                <h2>Venda mais, <br>gaste menos.</h2>
+                <p style="margin-bottom: 20px; font-size: 1.1rem; color: var(--sec);">Muitas empresas "queimam" dinheiro em anúncios que não convertem. Na BGI, aplicamos **Engenharia de Aquisição**. Cada cêntimo investido é rastreado, otimizado e transformado em lucro líquido.</p>
+                <p style="color: var(--sec);">Combinamos psicologia do consumidor com tráfego pago avançado para dominar os algoritmos de Google e Meta.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="numbers-strip reveal">
+        <div class="num-item"><h3>+15M</h3><p>Impressões Geradas</p></div>
+        <div class="num-item"><h3>4.8x</h3><p>ROI Médio Global</p></div>
+        <div class="num-item"><h3>100%</h3><p>Foco em Performance</p></div>
+    </div>
+
+    <section>
+        <h2 style="text-align: center; margin-bottom: 60px; font-family: 'Playfair Display', serif;">Nossos Pilares de <span style="color: var(--brand-color)">Crescimento</span></h2>
+        <div class="strategy-container">
+            <div class="strategy-card reveal">
+                <i class="fa fa-line-chart"></i>
+                <h3>Tráfego Pago</h3>
+                <p style="color: var(--sec);">Google Ads, Meta e LinkedIn. Colocamos a sua marca na frente de quem já quer comprar.</p>
+            </div>
+            <div class="strategy-card reveal">
+                <i class="fa fa-envelope-o"></i>
+                <h3>Funis de Vendas</h3>
+                <p style="color: var(--sec);">Automação que trabalha 24h por dia para converter leads em clientes fiéis.</p>
+            </div>
+            <div class="strategy-card reveal">
+                <i class="fa fa-bar-chart"></i>
+                <h3>Data Intelligence</h3>
+                <p style="color: var(--sec);">Relatórios em tempo real. Você saberá exatamente de onde vem cada venda.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="reveal">
+        <div class="cta-final">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 20px;">Sua concorrência já está a investir. <br>E você?</h2>
+            <p style="margin-bottom: 40px; color: var(--sec);">Não deixe a sua quota de mercado nas mãos dos outros. Agende a sua consultoria estratégica agora.</p>
+            <a href="agendar.html" class="btn-mkt">Quero Escalar Agora</a>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 BGI - Blaise Group Industries. Todos os direitos reservados.
+    </footer>
+
+    <script>
+        // Sistema de Reveal (Igual à primeira página)
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const reveal = () => {
+            revealElements.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                const elementVisible = 100;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    el.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', reveal);
+        // Trigger inicial
+        reveal();
+    </script>
+</body>
+</html>
