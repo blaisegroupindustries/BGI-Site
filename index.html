@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BGI | Hub de Autoridade Digital</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { 
             --bg: #ffffff; 
@@ -12,222 +13,234 @@
             --sec: #666; 
             --brand-color: #225580; 
             --brand-soft: rgba(34, 85, 128, 0.05);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
         
-        /* 1. Barra de Progresso Superior */
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            background: var(--brand-color);
-            width: 0%;
-            z-index: 2000;
-            transition: width 0.1s ease;
+        .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--brand-color); width: 0%; z-index: 3000; transition: width 0.1s ease; }
+
+        /* WhatsApp Pulsação CORRIGIDO */
+        .whatsapp-float { 
+            position: fixed; 
+            width: 65px; 
+            height: 65px; 
+            bottom: 30px; 
+            right: 30px; 
+            background-color: #25d366; 
+            color: #FFF; 
+            border-radius: 50px; 
+            text-align: center; 
+            font-size: 32px; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2); 
+            z-index: 2500; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-decoration: none; 
+            transition: all 0.3s ease; 
         }
-
-        /* Navegação */
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 8%; position: fixed; width: 100%; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid #f0f0f0; }
-        .logo img { height: 45px; width: auto; display: block; transition: 0.3s; }
-        .logo img:hover { transform: scale(1.05); }
-
-        .nav-links { display: flex; list-style: none; gap: 30px; align-items: center; }
-        .nav-links a { text-decoration: none; color: var(--sec); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; font-weight: 600; }
-        .nav-links a:hover { color: var(--brand-color); }
-        
-        .btn-nav { border: 2px solid var(--brand-color); padding: 10px 25px; border-radius: 50px; color: var(--brand-color) !important; font-weight: 600; transition: 0.4s; }
-        .btn-nav:hover { background: var(--brand-color); color: white !important; box-shadow: 0 5px 15px rgba(34, 85, 128, 0.3); }
-
-        /* Hero com Efeito Zoom Animado */
-        @keyframes slowZoom {
-            from { transform: scale(1); }
-            to { transform: scale(1.1); }
+        .whatsapp-float::before { 
+            content: ''; 
+            position: absolute; 
+            width: 100%; 
+            height: 100%; 
+            border-radius: 50%; 
+            background: #25d366; 
+            opacity: 0.5; 
+            z-index: -1; 
+            animation: pulse-border 2s infinite; 
         }
-
-        .hero-container { position: relative; height: 100vh; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-        
-        .hero-bg {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2070&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            animation: slowZoom 20s infinite alternate ease-in-out;
-            z-index: 0;
+        @keyframes pulse-border { 
+            0% { transform: scale(1); opacity: 0.6; } 
+            100% { transform: scale(1.5); opacity: 0; } 
         }
+        .whatsapp-float:hover { transform: scale(1.1); color: #fff; }
 
-        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.85); z-index: 1; }
-        .hero-content { position: relative; z-index: 2; text-align: center; padding: 0 8%; }
-        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 8vw, 5.5rem); line-height: 1.1; margin-bottom: 25px; color: var(--text); }
-        .serif { font-style: italic; font-weight: 400; color: var(--brand-color); }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 8%; position: fixed; width: 100%; top: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); z-index: 2000; border-bottom: 1px solid #f0f0f0; }
+        .logo img { height: 45px; }
+        .nav-links { display: flex; list-style: none; gap: 25px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--sec); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+        .btn-nav { border: 2px solid var(--brand-color); padding: 10px 25px; border-radius: 50px; color: var(--brand-color) !important; }
 
-        /* Secções */
-        section { padding: 120px 8% 80px; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
-        h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 3.5rem); margin-bottom: 50px; text-align: center; }
+        /* Hero */
+        .hero-container { position: relative; height: 100vh; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; }
+        .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070'); background-size: cover; background-position: center; z-index: 0; }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.88); z-index: 1; }
+        .hero-content { position: relative; z-index: 2; padding: 0 8%; }
+        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 8vw, 5rem); line-height: 1.1; margin-bottom: 30px; }
+        .serif { font-style: italic; color: var(--brand-color); }
 
-        /* Serviços */
-        .grid-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .service-card { background: #fff; border: 1px solid #eee; transition: 0.4s; overflow: hidden; position: relative; }
-        .service-card:hover { transform: translateY(-10px); border-color: var(--brand-color); box-shadow: 0 20px 40px rgba(34, 85, 128, 0.1); }
-        .service-img { width: 100%; height: 220px; object-fit: cover; filter: grayscale(100%); transition: 0.5s; }
-        .service-card:hover .service-img { filter: grayscale(0%); }
-        .service-info { padding: 30px; }
-        .service-info h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 15px; color: var(--brand-color); }
-        .service-list { list-style: none; font-size: 0.85rem; color: var(--sec); }
-        .service-list li { margin-bottom: 8px; display: flex; align-items: center; }
-        .service-list li::before { content: "—"; margin-right: 10px; color: var(--brand-color); font-weight: bold; }
+        section { padding: 100px 8%; position: relative; }
+        h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.2rem); margin-bottom: 60px; text-align: center; }
 
-        /* Planos */
-        .plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
-        .plan-card { padding: 50px 40px; border: 1px solid #eee; text-align: center; transition: 0.4s; background: #fff; }
-        .plan-card.featured { border: 2px solid var(--brand-color); background: var(--brand-soft); transform: scale(1.05); z-index: 5; }
-        .plan-price { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin: 20px 0; color: var(--brand-color); }
-        .btn-plan { text-decoration: none; color: #fff; background: var(--brand-color); padding: 15px 30px; display: block; font-weight: 600; font-size: 0.8rem; letter-spacing: 1px; transition: 0.3s; border-radius: 2px; }
-        .btn-plan:hover { filter: brightness(1.2); box-shadow: 0 5px 15px rgba(34, 85, 128, 0.3); }
+        /* Cards e Imagens */
+        .grid-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .service-card { background: #fff; border: 1px solid #f2f2f2; transition: var(--transition); overflow: hidden; text-decoration: none; color: inherit; display: block; border-radius: 4px; }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .service-img { width: 100%; height: 280px; object-fit: cover; }
+        .service-info { padding: 40px; }
 
-        /* Footer */
-        footer { background: #0a0a0a; color: #fff; padding: 80px 8% 40px; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; }
-        .footer-logo img { height: 60px; filter: brightness(0) invert(1); margin-bottom: 20px; }
-        .footer-links h5 { color: var(--brand-color); margin-bottom: 20px; letter-spacing: 2px; font-size: 0.8rem; }
-        .footer-links a { color: #888; text-decoration: none; display: block; margin-bottom: 10px; transition: 0.3s; font-size: 0.9rem; }
-        .footer-links a:hover { color: var(--brand-color); padding-left: 5px; }
+        /* Stats */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center; background: var(--brand-soft); padding: 80px 8%; border-radius: 4px; }
+        .stat-item h3 { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--brand-color); }
 
-        /* Animações de Revelação */
-        .reveal { opacity: 0; transform: translateY(30px); transition: 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        /* Secções de Conteúdo */
+        .risk-section { background: #0a0a0a; color: #fff; text-align: center; }
+        .risk-content { max-width: 800px; margin: 0 auto; }
+        .risk-content h2 { color: #fff; margin-bottom: 30px; }
+
+        .dna-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .dna-image img { width: 100%; border-radius: 2px; box-shadow: 20px 20px 0px var(--brand-soft); }
+
+        .timeline { position: relative; max-width: 1000px; margin: 0 auto; padding: 40px 0; }
+        .timeline-item { padding: 20px 40px; position: relative; border-left: 2px solid var(--brand-color); margin-left: 20px; }
+        .timeline-item::before { content: ''; position: absolute; width: 16px; height: 16px; background: var(--brand-color); left: -9px; top: 28px; border-radius: 50%; }
+
+        .quote-big { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 4vw, 2.5rem); text-align: center; font-style: italic; padding: 100px 10%; background: var(--brand-soft); color: var(--brand-color); }
+
+        .final-cta { text-align: center; padding: 120px 8%; background: #fff; }
+        .btn-huge { display: inline-block; padding: 25px 60px; background: var(--brand-color); color: #fff; text-decoration: none; border-radius: 50px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; transition: 0.4s; margin-top: 40px; box-shadow: 0 15px 30px rgba(34, 85, 128, 0.3); }
+        .btn-huge:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(34, 85, 128, 0.5); }
+
+        .reveal { opacity: 0; transform: translateY(40px); transition: 1s cubic-bezier(0.16, 1, 0.3, 1); }
         .visible { opacity: 1; transform: translateY(0); }
-        
-        @media (max-width: 768px) { .nav-links { display: none; } .footer-grid { grid-template-columns: 1fr; } .plan-card.featured { transform: scale(1); } }
+
+        footer { background: #080808; color: #fff; padding: 80px 8% 40px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; }
+
+        @media (max-width: 768px) { .nav-links, .dna-grid { grid-template-columns: 1fr; } .nav-links { display: none; } }
     </style>
 </head>
 <body>
 
     <div class="progress-bar" id="myBar"></div>
 
+    <a href="https://wa.me/258864400354" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <nav>
-        <div class="logo">
-            <a href="#home"><img src="BGI_logo.png" alt="BGI Logotipo"></a>
-        </div>
+        <div class="logo"><a href="index.html"><img src="BGI_logo.png" alt="BGI"></a></div>
         <ul class="nav-links">
-            <li><a href="#home">Início</a></li>
-            <li><a href="#servicos">Serviços</a></li>
-            <li><a href="#planos">Planos</a></li>
-            <li><a href="agendar.html" class="btn-nav">Agendar Consultoria</a></li>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="branding.html">Branding</a></li>
+            <li><a href="website.html">Website</a></li>
+            <li><a href="marketing.html">Marketing</a></li>
+            <li><a href="agendar.html" class="btn-nav">Agendar</a></li>
         </ul>
     </nav>
 
     <main>
-        <div id="home" class="hero-container">
+        <div class="hero-container">
             <div class="hero-bg"></div>
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <h1 class="reveal">Elevamos marcas ao <br><span class="serif">Estado de Arte.</span></h1>
-                <p class="reveal" style="color: var(--sec); max-width: 600px; margin: 0 auto;">Estratégia, Design e Engenharia Digital para negócios que exigem autoridade absoluta.</p>
+                <h1 class="reveal">Projetamos Marcas de <br><span class="serif">Autoridade Absoluta.</span></h1>
+                <p class="reveal" style="color: var(--sec); max-width: 700px; margin: 0 auto 40px;">Não somos apenas uma agência. Somos o seu hub de engenharia digital e posicionamento de elite.</p>
+                <div class="reveal"><a href="agendar.html" class="btn-huge" style="padding: 18px 40px; font-size: 0.8rem;">Iniciar Transformação</a></div>
             </div>
         </div>
 
+        <section class="risk-section reveal">
+            <div class="risk-content">
+                <h2 class="serif" style="color:#fff">O mercado não perdoa o comum.</h2>
+                <p style="font-size: 1.2rem; opacity: 0.8;">Num mundo saturado, ser "bom" é o caminho mais rápido para a invisibilidade. Sua marca merece o Estado de Arte ou merece ser esquecida?</p>
+            </div>
+        </section>
+
+        <section class="reveal">
+            <div class="stats-grid">
+                <div class="stat-item"><h3>100%</h3><p>Foco em Resultados</p></div>
+                <div class="stat-item"><h3>High</h3><p>End Design</p></div>
+                <div class="stat-item"><h3>Elite</h3><p>Engineering</p></div>
+            </div>
+        </section>
+
         <section id="servicos">
-            <h2 class="reveal">Soluções <span class="serif">Full-Service</span></h2>
+            <h2 class="reveal">Nossas Verticais de <span class="serif">Elite</span></h2>
             <div class="grid-services">
-                <div class="service-card reveal">
-                    <img src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=800" class="service-img">
-                    <div class="service-info">
-                        <h3>Identidade & Branding</h3>
-                        <ul class="service-list">
-                            <li>Design de Logótipo Premium</li>
-                            <li>Manual de Identidade Visual</li>
-                            <li>Posicionamento de Mercado</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="service-card reveal">
-                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800" class="service-img">
-                    <div class="service-info">
-                        <h3>Engenharia Digital</h3>
-                        <ul class="service-list">
-                            <li>Websites Institucionais</li>
-                            <li>UI/UX Design Exclusivo</li>
-                            <li>Sistemas de Alta Performance</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="service-card reveal">
+                <a href="branding.html" class="service-card reveal">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=800" class="service-img">
+                    <div class="service-info"><h3>Branding de Autoridade</h3><p>Identidades que comunicam valor instantâneo.</p></div>
+                </a>
+                <a href="website.html" class="service-card reveal">
                     <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800" class="service-img">
-                    <div class="service-info">
-                        <h3>Marketing de Autoridade</h3>
-                        <ul class="service-list">
-                            <li>Gestão de SEO Avançada</li>
-                            <li>Campanhas High-Ticket</li>
-                            <li>Marketing de Conteúdo de Elite</li>
-                        </ul>
-                    </div>
+                    <div class="service-info"><h3>Engenharia Web</h3><p>Ecossistemas digitais de alta conversão.</p></div>
+                </a>
+                <a href="marketing.html" class="service-card reveal">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=800" class="service-img">
+                    <div class="service-info"><h3>Marketing Estratégico</h3><p>Escalabilidade para negócios High-Ticket.</p></div>
+                </a>
+            </div>
+        </section>
+
+        <section class="reveal">
+            <div class="dna-grid">
+                <div class="dna-image">
+                    <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=800" alt="Workplace">
+                </div>
+                <div>
+                    <h2 style="text-align: left; margin-bottom: 20px;">Nossa <span class="serif">Filosofia</span></h2>
+                    <p style="color: var(--sec); margin-bottom: 20px;">Na BGI, fundimos a precisão da engenharia com a estética do design de luxo. Cada projeto é tratado como uma peça única de arquitetura digital.</p>
                 </div>
             </div>
         </section>
 
-        <section id="planos" style="background: #fafafa;">
-            <h2 class="reveal">Nossas <span class="serif">Consultorias</span></h2>
-            <div class="plans-grid">
-                <div class="plan-card reveal">
-                    <h4 style="font-size: 0.7rem; letter-spacing: 2px;">ESSENCIAL</h4>
-                    <div class="plan-price">Consultar</div>
-                    <ul class="service-list" style="margin-bottom: 30px; list-style: none;">
-                        <li>Branding Base</li>
-                        <li>Landing Page</li>
-                        <li>SEO Técnico</li>
-                    </ul>
-                    <a href="agendar.html" class="btn-plan">SOLICITAR</a>
-                </div>
-                <div class="plan-card featured reveal">
-                    <h4 style="font-size: 0.7rem; letter-spacing: 2px;">BUSINESS ELITE</h4>
-                    <div class="plan-price">Consultar</div>
-                    <ul class="service-list" style="margin-bottom: 30px; list-style: none;">
-                        <li>Identidade Completa</li>
-                        <li>Site Multipágina</li>
-                        <li>Estratégia de Autoridade</li>
-                    </ul>
-                    <a href="agendar.html" class="btn-plan">SOLICITAR</a>
-                </div>
-                <div class="plan-card reveal">
-                    <h4 style="font-size: 0.7rem; letter-spacing: 2px;">TAILOR-MADE</h4>
-                    <div class="plan-price">Projeto</div>
-                    <ul class="service-list" style="margin-bottom: 30px; list-style: none;">
-                        <li>Soluções Sob Medida</li>
-                        <li>Software Customizado</li>
-                        <li>Acompanhamento 360º</li>
-                    </ul>
-                    <a href="agendar.html" class="btn-plan">SOLICITAR</a>
-                </div>
+        <section class="reveal" style="background: #fafafa; padding: 80px 8%;">
+            <h2>A Diferença <span class="serif">BGI</span></h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                <div style="padding: 20px; border-left: 2px solid var(--brand-color);"><h4>Visão 360º</h4><p>Análise de negócio antes do design.</p></div>
+                <div style="padding: 20px; border-left: 2px solid var(--brand-color);"><h4>Exclusividade</h4><p>Projetos limitados para foco total.</p></div>
+                <div style="padding: 20px; border-left: 2px solid var(--brand-color);"><h4>Suporte Premium</h4><p>Acompanhamento direto e estratégico.</p></div>
             </div>
+        </section>
+
+        <section class="reveal">
+            <h2>A Jornada para o <span class="serif">Topo</span></h2>
+            <div class="timeline">
+                <div class="timeline-item"><h4>01. Diagnóstico de Elite</h4><p>Entendemos as lacunas de autoridade da sua marca.</p></div>
+                <div class="timeline-item"><h4>02. Arquitetura Conceitual</h4><p>Desenhamos a estratégia visual e funcional.</p></div>
+                <div class="timeline-item"><h4>03. Engenharia e Refino</h4><p>Construímos a sua nova realidade digital.</p></div>
+                <div class="timeline-item"><h4>04. Domínio de Mercado</h4><p>Lançamento focado em conversão e status.</p></div>
+            </div>
+        </section>
+
+        <div class="quote-big reveal">
+            "Sua marca é o seu maior ativo. Construa um império digital com quem entende de autoridade."
+        </div>
+
+        <section class="final-cta reveal">
+            <h2 class="serif">Pronto para liderar?</h2>
+            <p style="max-width: 600px; margin: 0 auto; margin-bottom: 20px;">Estamos disponíveis apenas para marcas que buscam a excelência absoluta.</p>
+            <a href="agendar.html" class="btn-huge">Agendar Consultoria Gratuita</a>
         </section>
     </main>
 
     <footer>
         <div class="footer-grid">
             <div>
-                <div class="footer-logo">
-                    <img src="BGI_logo.png" alt="BGI Logo">
-                </div>
-                <p style="color:#555; font-size: 0.9rem; max-width: 300px;">Arquitetando a autoridade digital de Moçambique com precisão estratégica.</p>
+                <img src="BGI_logo.png" alt="BGI" style="height: 40px; filter: brightness(0) invert(1); margin-bottom: 20px;">
+                <p style="opacity: 0.6; font-size: 0.9rem;">BGI - Blaise Group Industries.<br>Hub de Engenharia Digital & Autoridade.</p>
             </div>
-            <div class="footer-links">
-                <h5>NAVEGAÇÃO</h5>
-                <a href="#home">Início</a><a href="#servicos">Serviços</a><a href="#planos">Planos</a>
+            <div>
+                <h5 style="margin-bottom: 20px; color: var(--brand-color);">MENU</h5>
+                <a href="index.html" style="color:#666; text-decoration:none; display:block; margin-bottom:10px;">Início</a>
+                <a href="agendar.html" style="color:#666; text-decoration:none; display:block;">Contacto</a>
             </div>
-            <div class="footer-links">
-                <h5>CONTACTO</h5>
-                <a href="mailto:contacto@bgi.co.mz">contacto@bgi.co.mz</a><br><span style="color:#888; font-size: 0.9rem;">Maputo, Moçambique</span>
+            <div>
+                <h5 style="margin-bottom: 20px; color: var(--brand-color);">PROJETO</h5>
+                <p style="opacity: 0.6; font-size: 0.9rem;">+258 86 440 0354</p>
+                <p style="opacity: 0.6; font-size: 0.9rem;">contacto@bgi.co.mz</p>
             </div>
         </div>
-        <p style="margin-top: 60px; font-size: 0.7rem; color: #333; text-align: center;">&copy; 2026 BGI Hub de Autoridade Digital. Todos os direitos reservados.</p>
+        <p style="text-align: center; margin-top: 60px; font-size: 0.7rem; opacity: 0.3;">&copy; 2026 BGI. Todos os direitos reservados.</p>
     </footer>
 
     <script>
-        // Barra de progresso ao fazer scroll
+        // Progress Bar
         window.onscroll = function() {
             let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -235,7 +248,7 @@
             document.getElementById("myBar").style.width = scrolled + "%";
         };
 
-        // Observador para revelação suave de elementos
+        // Reveal Animation
         const obs = new IntersectionObserver(entries => {
             entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
         }, { threshold: 0.1 });
