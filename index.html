@@ -163,6 +163,48 @@
         .pricing-note { text-align: center; color: #444; font-size: 0.8rem; margin-top: 40px; }
         .pricing-note a { color: var(--brand-color); text-decoration: none; }
 
+        /* ── FOUNDER BAR ── */
+        .founder-bar {
+            max-width: 1100px; margin: 0 auto 48px;
+            display: flex; align-items: center; justify-content: center;
+            gap: 16px; flex-wrap: wrap; text-align: center;
+            padding: 18px 28px; border: 1px solid var(--brand-color);
+            border-radius: 6px;
+            background: linear-gradient(135deg, #0d1f30 0%, #0a0a0a 100%);
+        }
+        .founder-badge {
+            background: var(--brand-color); color: #fff;
+            font-size: 0.65rem; font-weight: 600; letter-spacing: 2px;
+            text-transform: uppercase; padding: 6px 16px; border-radius: 50px;
+            white-space: nowrap;
+        }
+        .founder-text { font-size: 0.85rem; color: #ccc; }
+        .founder-text strong { color: #fff; }
+        .founder-count { display: flex; align-items: center; gap: 10px; font-size: 0.75rem; color: #7aafd4; font-weight: 600; }
+        .price-from { display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #7aafd4; margin-bottom: 6px; }
+
+        /* ── PRICING EXTRAS ── */
+        .price-icon { width: 44px; height: 44px; border-radius: 50%; background: rgba(34,85,128,0.18); border: 1px solid rgba(122,175,212,0.25); color: #7aafd4; display: flex; align-items: center; justify-content: center; font-size: 1rem; margin-bottom: 18px; }
+        .price-ideal { font-size: 0.8rem; color: #888; line-height: 1.6; margin-bottom: 18px; min-height: 52px; }
+        .price-card .price-note { margin-bottom: 14px; }
+        .price-founder { display: inline-flex; align-items: center; gap: 6px; font-size: 0.68rem; font-weight: 600; color: #7aafd4; background: rgba(34,85,128,0.15); border: 1px solid rgba(34,85,128,0.4); padding: 5px 12px; border-radius: 50px; margin-bottom: 24px; }
+        .pricing-block-title { text-align: center; font-family: 'Playfair Display', serif; font-size: 1.7rem; color: #fff; margin: 90px 0 12px; }
+        .pricing-block-sub { text-align: center; color: #777; font-size: 0.85rem; margin-bottom: 32px; }
+        .compare-wrap { max-width: 1100px; margin: 0 auto; overflow-x: auto; border: 1px solid #1e1e1e; border-radius: 6px; background: #0c0c0c; }
+        .compare { width: 100%; border-collapse: collapse; min-width: 640px; font-size: 0.83rem; }
+        .compare th, .compare td { padding: 16px 20px; text-align: center; border-bottom: 1px solid #161616; color: #aaa; }
+        .compare th:first-child, .compare td:first-child { text-align: left; color: #ccc; }
+        .compare thead th { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: #7aafd4; background: #0d1f30; border-bottom: 1px solid #1a2e40; }
+        .compare tbody tr:last-child td { border-bottom: none; }
+        .compare .yes { color: #7aafd4; font-weight: 700; }
+        .compare .no { color: #333; }
+        .price-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; }
+        .price-step { border: 1px solid #222; border-radius: 6px; padding: 28px; background: #0f0f0f; }
+        .price-step b { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--brand-color); display: block; margin-bottom: 8px; }
+        .price-step h4 { color: #fff; font-size: 0.95rem; margin-bottom: 6px; }
+        .price-step p { color: #777; font-size: 0.8rem; line-height: 1.7; }
+        @media (max-width: 900px) { .price-steps { grid-template-columns: 1fr; max-width: 420px; } }
+
         /* Reveal */
         .reveal { opacity: 0; transform: translateY(40px); transition: 1s cubic-bezier(0.16, 1, 0.3, 1); }
         .visible { opacity: 1; transform: translateY(0); }
@@ -292,23 +334,23 @@
                 </div>
             </div>
 
-            <!-- AJ Agência -->
+            <!-- Residencial Indelével -->
             <div class="portfolio-card reveal">
                 <div class="portfolio-img-wrap">
-                    <img src="AJ_ex.jpg" alt="AJ Agência Aduaneira">
-                    <div class="portfolio-tag">Website + IA + Marketing</div>
+                    <img src="REI_ex.jpg" alt="Residencial Indelével">
+                    <div class="portfolio-tag">Website + Reservas</div>
                 </div>
                 <div class="portfolio-body">
-                    <div class="portfolio-client">AJ Agência Aduaneira</div>
-                    <div class="portfolio-title">Site com Assistente de IA</div>
-                    <div class="portfolio-desc">Site institucional com formulário inteligente de cotações em 4 passos, assistente IA disponível 24h, estratégia Facebook e configuração WhatsApp Business.</div>
+                    <div class="portfolio-client">Residencial Indelével — Nampula</div>
+                    <div class="portfolio-title">Site com Reservas via WhatsApp</div>
+                    <div class="portfolio-desc">Site para residencial com 11 quartos, fotografias reais, filtro de disponibilidade e formulários de reserva ligados directamente ao WhatsApp.</div>
                     <div class="portfolio-tags">
                         <span class="ptag">Site</span>
-                        <span class="ptag">IA Integrada</span>
-                        <span class="ptag">Facebook</span>
-                        <span class="ptag">Estratégia</span>
+                        <span class="ptag">Reservas</span>
+                        <span class="ptag">WhatsApp</span>
+                        <span class="ptag">Design</span>
                     </div>
-                    <a href="#" class="portfolio-link">Ver detalhes <i class="fas fa-arrow-right" style="font-size:0.7rem;"></i></a>
+                    <a href="https://blaisegroupindustries.github.io/ResidencialIndelevel/" target="_blank" class="portfolio-link">Ver site <i class="fas fa-arrow-right" style="font-size:0.7rem;"></i></a>
                 </div>
             </div>
 
@@ -381,13 +423,25 @@
     <section id="precos">
         <h2 class="reveal">Investimento <span class="serif">Transparente</span></h2>
         <p class="pricing-sub reveal">Sem custos escondidos. Escolha o pacote certo para o seu negócio.</p>
+
+        <!-- SELO CLIENTE FUNDADOR -->
+        <div class="founder-bar reveal">
+            <span class="founder-badge">Cliente Fundador</span>
+            <span class="founder-text"><strong>Preço de Cliente Fundador</strong> — oferta de lançamento válida até 31 de Dezembro de 2026</span>
+            <span class="founder-count" id="founderLabel"></span>
+        </div>
+
         <div class="pricing-grid reveal">
 
             <div class="price-card">
+                <div class="price-icon"><i class="fas fa-rocket"></i></div>
                 <div class="price-tier">Tier 01</div>
                 <div class="price-name">Start</div>
-                <div class="price-amount">5.000 – 10.000 <span>MT</span></div>
+                <p class="price-ideal">Ideal para quem quer começar a ser encontrado online com um site profissional.</p>
+                <span class="price-from">A partir de</span>
+                <div class="price-amount">5.000 <span>MT</span></div>
                 <div class="price-note">Pagamento único</div>
+                <div class="price-founder"><i class="fas fa-star"></i> Preço Fundador disponível</div>
                 <div class="price-divider"></div>
                 <ul class="price-features">
                     <li>Site institucional (até 5 páginas)</li>
@@ -402,10 +456,14 @@
 
             <div class="price-card featured">
                 <div class="price-badge">Mais Popular</div>
+                <div class="price-icon"><i class="fas fa-chart-line"></i></div>
                 <div class="price-tier">Tier 02</div>
                 <div class="price-name">Growth</div>
-                <div class="price-amount">12.000 – 20.000 <span>MT</span></div>
+                <p class="price-ideal">Ideal para negócios que querem vender mais, com IA, catálogo e pagamentos móveis.</p>
+                <span class="price-from">A partir de</span>
+                <div class="price-amount">12.000 <span>MT</span></div>
                 <div class="price-note">Setup + 1 mês incluído</div>
+                <div class="price-founder"><i class="fas fa-star"></i> Preço Fundador disponível</div>
                 <div class="price-divider"></div>
                 <ul class="price-features">
                     <li>Tudo do plano Start</li>
@@ -421,10 +479,14 @@
             </div>
 
             <div class="price-card">
+                <div class="price-icon"><i class="fas fa-handshake"></i></div>
                 <div class="price-tier">Tier 03</div>
                 <div class="price-name">Pro Partner</div>
-                <div class="price-amount">4.000 – 7.000 <span>MT / mês</span></div>
+                <p class="price-ideal">Ideal para quem quer a BGI a cuidar do site e das redes todos os meses.</p>
+                <span class="price-from">A partir de</span>
+                <div class="price-amount">4.000 <span>MT / mês</span></div>
                 <div class="price-note">Retainer mensal (mín. 4.000 MT)</div>
+                <div class="price-founder"><i class="fas fa-star"></i> Preço Fundador disponível</div>
                 <div class="price-divider"></div>
                 <ul class="price-features">
                     <li>Gestão contínua do site</li>
@@ -438,6 +500,40 @@
             </div>
 
         </div>
+        <h3 class="pricing-block-title reveal">Compare os <span class="serif">pacotes</span></h3>
+        <p class="pricing-block-sub reveal">Veja lado a lado o que cada pacote inclui.</p>
+        <div class="compare-wrap reveal">
+            <table class="compare">
+                <thead>
+                    <tr><th></th><th>Start</th><th>Growth</th><th>Pro Partner</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Site institucional (até 5 páginas)</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td></tr>
+                    <tr><td>Design profissional responsivo</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td></tr>
+                    <tr><td>SEO</td><td>Básico</td><td>Avançado + Schema.org</td><td>Optimização contínua</td></tr>
+                    <tr><td>WhatsApp</td><td>Integração</td><td>Business configurado</td><td class="no">—</td></tr>
+                    <tr><td>Configuração Facebook Business</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td></tr>
+                    <tr><td>Assistente IA no site</td><td class="no">—</td><td class="yes">✓</td><td class="no">—</td></tr>
+                    <tr><td>Catálogo de produtos ou serviços</td><td class="no">—</td><td class="yes">✓</td><td class="no">—</td></tr>
+                    <tr><td>Integração M-Pesa / E-Mola</td><td class="no">—</td><td class="yes">✓</td><td class="no">—</td></tr>
+                    <tr><td>Estratégia de conteúdo completa</td><td class="no">—</td><td class="yes">✓</td><td class="no">—</td></tr>
+                    <tr><td>Posts</td><td class="no">—</td><td>12 templates prontos</td><td>12–16 posts por mês</td></tr>
+                    <tr><td>Gestão contínua e actualizações</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+                    <tr><td>Relatório mensal de crescimento</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+                    <tr><td>Suporte prioritário directo</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+                    <tr><td>Entrega</td><td>7–10 dias</td><td class="no">—</td><td class="no">—</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3 class="pricing-block-title reveal">Como <span class="serif">começar</span></h3>
+        <p class="pricing-block-sub reveal">Três passos simples.</p>
+        <div class="price-steps reveal">
+            <div class="price-step"><b>01</b><h4>Conversa gratuita</h4><p>Agende 15 minutos com a equipa BGI e conte-nos sobre o seu negócio.</p></div>
+            <div class="price-step"><b>02</b><h4>Escolhemos o pacote</h4><p>Dizemos exactamente o que faz sentido para si, sem custos escondidos.</p></div>
+            <div class="price-step"><b>03</b><h4>Começamos a construir</h4><p>Do site às redes sociais, acompanhamos até ao lançamento e depois dele.</p></div>
+        </div>
+
         <p class="pricing-note reveal">Preços em Meticais. Pacotes personalizados disponíveis para projectos maiores. <a href="agendar.html">Fale connosco →</a></p>
     </section>
 
@@ -508,7 +604,18 @@
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 
-
+<!-- CONTADOR CLIENTE FUNDADOR -->
+<script>
+    const FOUNDER_DEADLINE = new Date(2026, 11, 31, 23, 59, 59); // 31 Dez 2026
+    const founderBar = document.querySelector('.founder-bar');
+    const founderLabel = document.getElementById('founderLabel');
+    const daysLeft = Math.ceil((FOUNDER_DEADLINE - new Date()) / 86400000);
+    if (daysLeft <= 0) {
+        founderBar.style.display = 'none'; // oferta terminada
+    } else {
+        founderLabel.textContent = daysLeft === 1 ? 'Último dia' : 'Faltam ' + daysLeft + ' dias';
+    }
+</script>
 
 <script>
   const bgiHistory = [];
