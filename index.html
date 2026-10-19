@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BGI | Blaise Group Industries — Presença Digital em Moçambique</title>
-    <link rel="icon" href="BGI_logo.png" type="image/png">
+    <link rel="icon" type="image/png" sizes="512x512" href="favicon.png?v=3">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png?v=3">
+    <link rel="shortcut icon" href="favicon.ico?v=3">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -38,7 +41,7 @@
         .whatsapp-float:hover { transform: scale(1.1); color: #fff; }
 
         nav { display: flex; justify-content: space-between; align-items: center; padding: 10px 6%; position: fixed; width: 100%; top: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); z-index: 2000; border-bottom: 1px solid #f0f0f0; }
-        .logo img { height: 34px; }
+        .logo img { height: 54px; width: auto; display: block; }
         .menu-icon { display: none; font-size: 1.5rem; color: var(--brand-color); cursor: pointer; z-index: 2100; }
         .nav-links { display: flex; list-style: none; gap: 25px; align-items: center; transition: 0.5s ease-in-out; }
         .nav-links a { text-decoration: none; color: var(--sec); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
@@ -228,7 +231,37 @@
             .nav-links li { width: 100%; text-align: center; }
             .nav-links a { font-size: 1rem; }
         }
-    </style>
+    
+/* Pop-up na primeira página (não segue o scroll) */
+.hero-container{height:auto;min-height:100vh;padding-bottom:60px}
+.sp{position:relative;width:400px;max-width:100%;margin:40px auto 0;text-align:left;background:#fff;border-radius:20px;box-shadow:0 24px 60px rgba(34,85,128,.35);overflow:hidden;border:1px solid rgba(34,85,128,.15)}
+.sp-top{display:flex;align-items:center;gap:8px;padding:10px 16px;background:var(--brand-color);color:#fff;font-size:.78rem;font-weight:600}
+.sp-top i{width:8px;height:8px;border-radius:50%;background:#f5a63c;animation:spPulse 1.6s infinite}
+@keyframes spPulse{0%{box-shadow:0 0 0 0 rgba(245,166,60,.8)}100%{box-shadow:0 0 0 9px rgba(245,166,60,0)}}
+.sp-s{display:none}
+.sp-s.on{display:block;animation:spIn .5s}
+@keyframes spIn{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:none}}
+.sp-img{position:relative;height:180px;background-size:cover;background-position:top center;background-color:#dfe8f0}
+.sp-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,30,50,.65),transparent 55%)}
+.sp-badge{position:absolute;top:12px;right:12px;z-index:2;background:#f5a63c;color:#0b2239;font-weight:700;font-size:.8rem;padding:6px 13px;border-radius:99px;box-shadow:0 6px 16px rgba(0,0,0,.3)}
+.sp-cap{position:absolute;left:14px;bottom:10px;z-index:2;color:#fff;font-size:.72rem}
+.sp-dash{background:linear-gradient(135deg,#0b2239,#225580);display:flex;align-items:flex-end;gap:10px;padding:0 26px 22px}
+.sp-dash i{flex:1;background:rgba(255,255,255,.85);border-radius:6px 6px 0 0;z-index:1}
+.sp-dash i:nth-child(1){height:45%}.sp-dash i:nth-child(2){height:70%}.sp-dash i:nth-child(3){height:55%}.sp-dash i:nth-child(4){height:92%;background:#f5a63c}
+.sp-b{padding:16px 20px 6px}
+.sp-b h4{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--text);margin-bottom:4px}
+.sp-b p{font-size:.84rem;color:var(--sec);margin-bottom:14px;line-height:1.5}
+.sp-b a{display:inline-flex;align-items:center;gap:8px;background:var(--brand-color);color:#fff;padding:10px 20px;border-radius:999px;font-size:.84rem;font-weight:600;text-decoration:none;transition:transform .2s}
+.sp-b a:hover{transform:translateY(-2px)}
+.sp-nav{position:absolute;top:92px;z-index:3;width:32px;height:32px;border-radius:50%;border:0;background:rgba(255,255,255,.9);color:var(--brand-color);cursor:pointer;font-size:.8rem;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+.sp-prev{left:10px}.sp-next{right:10px}
+.sp-d{display:flex;gap:6px;padding:10px 20px 14px}
+.sp-d button{width:8px;height:8px;border-radius:50%;border:0;background:#d5dde5;cursor:pointer;padding:0}
+.sp-d button.on{background:var(--brand-color);width:22px;border-radius:99px}
+.sp-bar{height:3px;background:#f5a63c;width:0}
+.sp-bar.run{width:100%;transition:width 5s linear}
+@media(prefers-reduced-motion:reduce){.sp-s.on,.sp-top i{animation:none}.sp-bar.run{transition:none}}
+</style>
 </head>
 <body>
 
@@ -239,7 +272,7 @@
 </a>
 
 <nav>
-    <div class="logo"><a href="index.html"><img src="BGI_logo.png" alt="BGI"></a></div>
+    <div class="logo"><a href="index.html"><img src="BGI_logo.png?v=2" alt="BGI"></a></div>
     <div class="menu-icon" onclick="toggleMenu()"><i class="fa fa-bars"></i></div>
     <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Início</a></li>
@@ -267,6 +300,7 @@
                 <a href="#portfolio" class="btn-huge" style="padding: 18px 40px; font-size: 0.8rem;">Ver o Nosso Trabalho</a>
                 <a href="#precos" class="btn-huge" style="padding: 18px 40px; font-size: 0.8rem; background: transparent; color: var(--brand-color); border: 2px solid var(--brand-color); box-shadow: none;">Ver Preços</a>
             </div>
+            <div class="sp" id="sp" role="region" aria-label="Tipos de site e preços"><div class="sp-top"><i></i>Crie o seu site com a BGI</div><button class="sp-nav sp-prev" id="sp-prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button><button class="sp-nav sp-next" id="sp-next" aria-label="Seguinte"><i class="fas fa-chevron-right"></i></button><div id="sp-slides"></div><div class="sp-d" id="sp-dots"></div><div class="sp-bar" id="sp-bar"></div></div>
         </div>
     </div>
 
@@ -439,7 +473,7 @@
                 <div class="price-name">Start</div>
                 <p class="price-ideal">Ideal para quem quer começar a ser encontrado online com um site profissional.</p>
                 <span class="price-from">A partir de</span>
-                <div class="price-amount">5.000 <span>MT</span></div>
+                <div class="price-amount">8.500 <span>MT</span></div>
                 <div class="price-note">Pagamento único</div>
                 <div class="price-founder"><i class="fas fa-star"></i> Preço Fundador disponível</div>
                 <div class="price-divider"></div>
@@ -461,7 +495,7 @@
                 <div class="price-name">Growth</div>
                 <p class="price-ideal">Ideal para negócios que querem vender mais, com IA, catálogo e pagamentos móveis.</p>
                 <span class="price-from">A partir de</span>
-                <div class="price-amount">12.000 <span>MT</span></div>
+                <div class="price-amount">20.400 <span>MT</span></div>
                 <div class="price-note">Setup + 1 mês incluído</div>
                 <div class="price-founder"><i class="fas fa-star"></i> Preço Fundador disponível</div>
                 <div class="price-divider"></div>
@@ -484,8 +518,8 @@
                 <div class="price-name">Pro Partner</div>
                 <p class="price-ideal">Ideal para quem quer a BGI a cuidar do site e das redes todos os meses.</p>
                 <span class="price-from">A partir de</span>
-                <div class="price-amount">4.000 <span>MT / mês</span></div>
-                <div class="price-note">Retainer mensal (mín. 4.000 MT)</div>
+                <div class="price-amount">6.800 <span>MT / mês</span></div>
+                <div class="price-note">Retainer mensal (mín. 6.800 MT)</div>
                 <div class="price-founder"><i class="fas fa-star"></i> Preço Fundador disponível</div>
                 <div class="price-divider"></div>
                 <ul class="price-features">
@@ -555,7 +589,7 @@
 <footer>
     <div class="footer-grid">
         <div>
-            <img src="BGI_logo.png" alt="BGI" style="height: 40px; filter: brightness(0) invert(1); margin-bottom: 20px;">
+            <img src="BGI_logo.png?v=2" alt="BGI" style="height: 80px; width: auto; filter: brightness(0) invert(1); margin-bottom: 20px;">
             <p style="opacity: 0.6; font-size: 0.85rem; line-height: 1.8;">BGI — Blaise Group Industries.<br>Agência de Presença Digital em Moçambique.<br>Sites, Branding, Marketing & IA.</p>
         </div>
         <div>
@@ -684,7 +718,7 @@
         body: JSON.stringify({
           model: 'claude-sonnet-4-20250514',
           max_tokens: 250,
-          system: `És o assistente da BGI — Blaise Group Industries, uma agência de presença digital em Moçambique. Serviços: sites profissionais, branding, marketing digital e IA integrada. Preços: Start 5–10k MT, Growth 12–20k MT, Pro Partner 4–7k MT/mês.
+          system: `És o assistente da BGI — Blaise Group Industries, uma agência de presença digital em Moçambique. Serviços: sites profissionais, branding, marketing digital e IA integrada. Preços: Start 8,5–17k MT, Growth 20,4–34k MT, Pro Partner 6,8–11,9k MT/mês.
 
 REGRAS:
 - Máximo 2 frases por resposta. Nunca mais.
@@ -710,6 +744,35 @@ REGRAS:
     document.getElementById('bgiSendBtn').disabled = false;
     bgiInput.focus();
   }
+</script>
+
+<script>
+(function(){
+// Edite aqui os tipos de site, preços e imagens do pop-up.
+var S=[
+{k:'Site institucional',d:'Até 5 páginas, rápido e feito para telemóvel.',p:'a partir de 8.500 MT',img:'ZAV_ex.jpg',c:'Exemplo real: Zavanna Build'},
+{k:'Loja ou catálogo online',d:'Produtos, encomendas por WhatsApp e pagamento M-Pesa e E-Mola.',p:'a partir de 20.400 MT',img:'CW_ex.jpg',c:'Exemplo real: Casa Windows'},
+{k:'Site com reservas',d:'Hotéis, residenciais e serviços com reserva direta no WhatsApp.',p:'a partir de 20.400 MT',img:'REI_ex.jpg',c:'Exemplo real: Residencial Indelével'},
+{k:'Sistema web à medida',d:'Painéis, áreas de cliente e automações com IA.',p:'sob orçamento'}];
+var sl=document.getElementById('sp-slides'),dt=document.getElementById('sp-dots'),bar=document.getElementById('sp-bar'),box=document.getElementById('sp'),cur=0,t;
+sl.innerHTML=S.map(function(s){
+ var im=s.img?'<div class="sp-img" style="background-image:url('+s.img+')"><span class="sp-badge">'+s.p+'</span><span class="sp-cap">'+s.c+'</span></div>':'<div class="sp-img sp-dash"><span class="sp-badge">'+s.p+'</span><i></i><i></i><i></i><i></i></div>';
+ return '<div class="sp-s">'+im+'<div class="sp-b"><h4>'+s.k+'</h4><p>'+s.d+'</p><a href="https://wa.me/258864400354?text='+encodeURIComponent('Olá BGI! Tenho interesse em: '+s.k+'.')+'" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Pedir orçamento</a></div></div>'}).join('');
+dt.innerHTML=S.map(function(s,i){return '<button aria-label="Slide '+(i+1)+'" data-i="'+i+'"></button>'}).join('');
+function go(i){
+ cur=(i+S.length)%S.length;
+ [].forEach.call(sl.children,function(e,j){e.classList.toggle('on',j===cur)});
+ [].forEach.call(dt.children,function(e,j){e.classList.toggle('on',j===cur)});
+ bar.classList.remove('run');void bar.offsetWidth;bar.classList.add('run');
+ clearTimeout(t);t=setTimeout(function(){go(cur+1)},5000);
+}
+dt.addEventListener('click',function(e){if(e.target.dataset.i)go(+e.target.dataset.i)});
+document.getElementById('sp-prev').onclick=function(){go(cur-1)};
+document.getElementById('sp-next').onclick=function(){go(cur+1)};
+box.addEventListener('mouseenter',function(){clearTimeout(t);bar.classList.remove('run')});
+box.addEventListener('mouseleave',function(){go(cur)});
+go(0);
+})();
 </script>
 </body>
 </html>
