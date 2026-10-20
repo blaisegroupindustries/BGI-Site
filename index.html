@@ -397,28 +397,28 @@ footer{ background: #080808; color: #fff; padding: 80px 8% 40px; border-top: 1px
 
 /* Checkout: mobile first */
 #p-pedido{--c:#225580;--cs:#eef5ff;--ln:#e3eaf1}
-.ck-head{padding:88px 18px 22px;text-align:center;background:#f4f7fa}
-.ck-head h1{font-family:'Playfair Display',serif;font-size:1.7rem;color:var(--c);line-height:1.15;margin-bottom:8px}
-.ck-head p{font-size:.95rem;color:#666;max-width:460px;margin:0 auto}
-.ck-wrap{max-width:1080px;margin:0 auto;padding:20px 14px 110px;display:grid;gap:20px}
-.ck-h{display:flex;align-items:center;gap:10px;font-size:1rem;margin:22px 0 10px;font-weight:600}
+.ck-head{padding:72px 16px 16px;text-align:center;background:#f4f7fa}
+.ck-head h1{font-family:'Playfair Display',serif;font-size:1.45rem;color:var(--c);line-height:1.15;margin-bottom:8px}
+.ck-head p{font-size:.88rem;color:#666;max-width:460px;margin:0 auto}
+.ck-wrap{max-width:1080px;margin:0 auto;padding:14px 14px 90px;display:grid;gap:16px}
+.ck-h{display:flex;align-items:center;gap:10px;font-size:.98rem;margin:16px 0 8px;font-weight:600}
 .ck-h:first-child{margin-top:0}
 .ck-h b{width:26px;height:26px;border-radius:50%;background:var(--c);color:#fff;font-size:.8rem;display:grid;place-items:center;flex:none}
 .ck-hint{font-size:.88rem;color:#666;margin:-4px 0 10px}
 .ck-plans,.ck-comps{display:grid;gap:10px}
 .ck-plans label,.ck-comps label,.ck-chips label{position:relative;display:block;cursor:pointer}
 .ck-plans input,.ck-comps input,.ck-chips input{position:absolute;opacity:0;inset:0;width:100%;height:100%;cursor:pointer;margin:0}
-.ck-pc{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:14px;border:2px solid var(--ln);border-radius:14px;background:#fff;transition:.2s}
+.ck-pc{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:11px 12px;border:2px solid var(--ln);border-radius:14px;background:#fff;transition:.2s}
 .ck-pn{font-weight:700;color:var(--c);font-size:.98rem}
 .ck-pn em{font-style:normal;font-size:.65rem;background:#f5a63c;color:#0b2239;padding:2px 8px;border-radius:99px;margin-left:6px;vertical-align:middle}
 .ck-pp{grid-row:1/3;grid-column:2;text-align:right;font-weight:700;font-size:1rem;align-self:center;white-space:nowrap}
 .ck-pp small{display:block;font-size:.78rem;font-weight:500;color:#777}
-.ck-pd{font-size:.88rem;color:#666;line-height:1.4}
+.ck-pd{font-size:.82rem;color:#666;line-height:1.4}
 .ck-plans input:checked+.ck-pc{border-color:var(--c);background:var(--cs);box-shadow:0 6px 18px rgba(34,85,128,.12)}
-.ck-comps .ck-cc{display:grid;grid-template-columns:38px 1fr auto;gap:10px;align-items:center;padding:12px;border:2px solid var(--ln);border-radius:14px;background:#fff;transition:.2s}
-.ck-ic{width:38px;height:38px;border-radius:10px;background:#f1f5f9;color:#9aa8b6;display:grid;place-items:center;font-size:1rem;transition:.2s}
-.ck-cn{line-height:1.3;font-size:.95rem;font-weight:600;line-height:1.25}
-.ck-cd{font-size:.84rem;color:#777;line-height:1.35;margin-top:2px}
+.ck-comps .ck-cc{display:grid;grid-template-columns:34px 1fr auto;gap:9px;align-items:center;padding:9px 10px;border:2px solid var(--ln);border-radius:14px;background:#fff;transition:.2s}
+.ck-ic{width:34px;height:34px;border-radius:10px;background:#f1f5f9;color:#9aa8b6;display:grid;place-items:center;font-size:1rem;transition:.2s}
+.ck-cn{line-height:1.3;font-size:.9rem;font-weight:600;line-height:1.25}
+.ck-cd{font-size:.78rem;color:#777;line-height:1.35;margin-top:2px}
 .ck-ct{font-size:.85rem;font-weight:700;color:var(--c);text-align:right;white-space:nowrap}
 .ck-ct i{display:block;font-style:normal;font-size:.76rem;font-weight:500;color:#888}
 .ck-comps input:checked+.ck-cc{border-color:var(--c);background:var(--cs)}
@@ -470,67 +470,77 @@ a,button,label,.menu-icon{-webkit-tap-highlight-color:transparent;touch-action:m
 a:active,button:active{transform:scale(.97)}
 .nav-links a.cur{color:var(--brand-color)!important;font-weight:700}
 .cdots{display:none}
+.sp:hover,.sp:active,.sp:focus-within{animation-play-state:paused}
 @media(max-width:768px){
-body{font-size:16px;line-height:1.6;padding-bottom:78px}
+body{font-size:15px;line-height:1.55;padding-bottom:64px}
 .whatsapp-float{display:none!important}
-.mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:1800;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid #e5ebf0;box-shadow:0 -6px 20px rgba(0,0,0,.08)}
-.mbar a{flex:1;min-height:48px;display:flex;align-items:center;justify-content:center;gap:8px;border-radius:99px;font-weight:700;font-size:.95rem;text-decoration:none}
+.mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:1800;gap:8px;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid #e5ebf0;box-shadow:0 -4px 16px rgba(0,0,0,.07)}
+.mbar a{flex:1;min-height:44px;display:flex;align-items:center;justify-content:center;gap:8px;border-radius:99px;font-weight:700;font-size:.9rem;text-decoration:none}
 .mbar .a1{background:var(--brand-color);color:#fff}
 .mbar .a2{background:#25d366;color:#fff}
 body.on-pedido .mbar{display:none}
-nav{padding:6px 5%!important}.logo img{height:34px!important}
-.menu-icon{display:grid!important;place-items:center;width:44px;height:44px;font-size:1.4rem!important}
-.nav-links{width:84%!important;align-items:stretch!important;justify-content:flex-start!important;padding:84px 22px 24px!important;gap:0!important}
+nav{padding:4px 5%!important}.logo img{height:30px!important}
+.menu-icon{display:grid!important;place-items:center;width:44px;height:44px;font-size:1.3rem!important}
+.nav-links{width:80%!important;align-items:stretch!important;justify-content:flex-start!important;padding:72px 20px 20px!important;gap:0!important}
 .nav-links li{border-bottom:1px solid #edf1f5}
-.nav-links a{display:block;padding:16px 4px;font-size:1.1rem!important;letter-spacing:0!important;text-transform:none!important}
-.nav-links a.btn-nav{margin-top:20px;text-align:center;padding:15px!important;background:var(--brand-color);color:#fff!important;border:0!important}
-main section{padding:44px 5%!important}
-.final-cta{padding:52px 5%!important}
-h2{font-size:1.65rem!important;margin-bottom:22px!important;line-height:1.2!important}
-h3{font-size:1.2rem!important;line-height:1.3!important}
-main p,main li{font-size:1rem!important;line-height:1.65!important}
+.nav-links a{display:block;padding:14px 4px;font-size:1rem!important;letter-spacing:0!important;text-transform:none!important}
+.nav-links a.btn-nav{margin-top:16px;text-align:center;padding:13px!important;background:var(--brand-color);color:#fff!important;border:0!important}
+.nav-links a.cur{border-left:3px solid var(--brand-color);padding-left:12px!important}
+main section{padding:30px 5%!important}
+.final-cta{padding:36px 5%!important}
+h2{font-size:1.4rem!important;margin-bottom:14px!important;line-height:1.2!important}
+h3{font-size:1.05rem!important;line-height:1.3!important}
+main p,main li{font-size:.92rem!important;line-height:1.55!important}
 main section p{text-align:left}
-.hero-content p,.stats-grid p,.final-cta p,.quote-big,.branding-hero p,.web-hero p,.mkt-hero p,.sp-b p{text-align:center}
-.sp-b p{text-align:left}
-.hero-container{min-height:auto!important;padding-bottom:28px}
-.hero-content{padding:0 5%!important;padding-top:88px!important}
-.hero-badge{font-size:.78rem!important;letter-spacing:1px!important;padding:7px 14px!important}
-.hero-content h1,.branding-hero h1,.web-hero h1,.mkt-hero h1{font-size:2.1rem!important;line-height:1.15!important;margin-bottom:14px!important}
-.hero-content p{margin-bottom:22px!important}
-.hero-content .reveal[style*=flex]{flex-direction:column!important;gap:12px!important;align-items:stretch!important}
-.branding-hero,.web-hero,.mkt-hero{height:auto!important;min-height:0!important;padding:96px 5% 40px!important}
-.btn-huge,.price-cta,.hero-content a{display:flex!important;align-items:center;justify-content:center;min-height:52px;width:100%;padding:14px 20px!important;font-size:1rem!important;letter-spacing:.3px!important;text-transform:none!important;margin-top:0!important}
-.quote-big{padding:40px 6%!important;font-size:1.2rem!important}
-.grid-services,.stats-grid,.dna-grid,.split-section,.feature-grid,.price-steps{grid-template-columns:1fr!important;gap:16px!important}
-.portfolio-grid,.pricing-grid{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px!important;margin:0 -5%;padding:4px 5% 14px!important;scrollbar-width:none}
+.hero-content p,.stats-grid p,.final-cta p,.quote-big,.branding-hero p,.web-hero p,.mkt-hero p{text-align:center}
+main h2+p,main h2+.lead{margin-top:0!important;margin-bottom:14px!important}
+.hero-container{min-height:auto!important;padding-bottom:20px}
+.hero-content{padding:0 5%!important;padding-top:70px!important}
+.hero-badge{font-size:.7rem!important;letter-spacing:.8px!important;padding:5px 12px!important;margin-bottom:12px!important}
+.hero-content h1,.branding-hero h1,.web-hero h1,.mkt-hero h1{font-size:1.75rem!important;line-height:1.15!important;margin-bottom:10px!important}
+.hero-content p{margin-bottom:14px!important}
+.hero-content .reveal[style*=flex]{flex-direction:column!important;gap:8px!important;align-items:stretch!important}
+.branding-hero,.web-hero,.mkt-hero{height:auto!important;min-height:0!important;padding:76px 5% 28px!important}
+.btn-huge,.price-cta,.hero-content a{display:flex!important;align-items:center;justify-content:center;min-height:46px;width:100%;padding:11px 18px!important;font-size:.92rem!important;letter-spacing:.2px!important;text-transform:none!important;margin-top:0!important}
+.quote-big{padding:28px 6%!important;font-size:1.05rem!important}
+.grid-services,.dna-grid,.split-section,.feature-grid,.price-steps{grid-template-columns:1fr!important;gap:12px!important}
+.stats-grid{grid-template-columns:repeat(3,1fr)!important;gap:6px!important;padding:16px 3%!important}
+.stat-item h3,.stat-item .num,.stat-item b{font-size:1.2rem!important}
+.stat-item p{font-size:.78rem!important;text-align:center!important}
+.portfolio-grid,.pricing-grid{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px!important;margin:0 -5%;padding:4px 5% 10px!important;scrollbar-width:none}
 .portfolio-grid::-webkit-scrollbar,.pricing-grid::-webkit-scrollbar{display:none}
-.portfolio-grid>*,.pricing-grid>*{flex:0 0 86%;scroll-snap-align:center}
+.portfolio-grid>*,.pricing-grid>*{flex:0 0 82%;scroll-snap-align:center}
 .pricing-grid>*:nth-child(2){order:-1}
-.pricing-grid{padding-top:20px!important}
-main h2+p,main h2+.lead{margin-top:0!important;margin-bottom:22px!important}
-.stats-grid{padding:30px 5%!important}
-.price-card{padding:22px 20px!important}
-.split-image img,.dna-image img,.service-img{height:220px!important}
-.timeline{padding:10px 0!important}
+.pricing-grid{padding-top:18px!important}
+.price-card{padding:16px!important}
+.service-img{height:120px!important}
+.service-info,.portfolio-info,.method-card,.tech-card,.strategy-card{padding:14px!important}
+.portfolio-img-wrap{height:130px!important}
+.dna-image img,.split-image img{max-height:150px;width:100%;object-fit:cover}
+.item-1,.item-2,.item-3,.item-4{height:140px!important}
+.wide-showcase{height:140px!important}
+.timeline{padding:6px 0!important}
+.timeline-item{padding:10px 0 10px 18px!important;margin-left:10px!important}
 .compare-wrap{overflow-x:auto}
-.legal-header{padding:92px 5% 28px!important}
-.sp{width:92%!important}
-.sp-img{height:130px!important}
-.sp-nav{top:90px!important}
-.sp-b h4{font-size:1.2rem!important}
-.sp-b a{min-height:46px}
-.sp-top{font-size:.85rem!important}
-footer{padding-bottom:20px}
-.footer-link{display:block!important;padding:10px 0!important;font-size:1rem!important}
-.cdots{display:flex;justify-content:center;align-items:center;gap:8px;margin:0 0 14px}
-.cdots button{width:10px;height:10px;border-radius:99px;border:0;padding:0;background:#c5d0dc;transition:.25s}
-.cdots button.on{width:26px;background:var(--brand-color)}
+.legal-header{padding:76px 5% 20px!important}
+.cdots{display:flex;justify-content:center;align-items:center;gap:8px;margin:0 0 8px}
+.cdots button{width:8px;height:8px;border-radius:99px;border:0;padding:0;background:#c5d0dc;transition:.25s}
+.cdots button.on{width:22px;background:var(--brand-color)}
 .pricing-grid+.cdots button{background:rgba(255,255,255,.3)}
 .pricing-grid+.cdots button.on{background:#fff}
-.nav-links a.cur{border-left:3px solid var(--brand-color);padding-left:12px!important}
+.sp{width:90%!important;margin-top:16px!important}
+.sp-img{height:96px!important}
+.sp-nav{top:68px!important;width:30px!important;height:30px!important}
+.sp-top{font-size:.78rem!important;padding:8px 14px!important}
+.sp-b{padding:12px 16px 4px!important}
+.sp-b h4{font-size:1.05rem!important}
+.sp-b p{font-size:.84rem!important;margin-bottom:10px!important;text-align:left}
+.sp-b a{min-height:42px;padding:9px 18px!important;font-size:.88rem!important}
+.sp-badge{font-size:.74rem!important;padding:4px 10px!important}
+footer{padding-bottom:16px}
+.footer-link{display:block!important;padding:9px 0!important;font-size:.95rem!important}
+@keyframes spFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 }
-.sp:hover,.sp:active,.sp:focus-within{animation-play-state:paused}
-@media(max-width:768px){@keyframes spFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}}
 </style>
 </head>
 <body>
@@ -1048,7 +1058,7 @@ footer{padding-bottom:20px}
     </div>
 <div class="page" id="p-pedido">
 <div id="ck-main">
-<header class="ck-head"><h1>Monte o seu pedido</h1><p>Escolha o plano e ajuste os componentes. Não paga nada agora: confirmamos tudo consigo antes de começar.</p></header>
+<header class="ck-head"><h1>Monte o seu pedido</h1><p>Escolha o plano, ajuste os componentes e agende a sua conversa com a nossa equipa.</p></header>
 <div class="ck-wrap">
 <form id="ck-form" novalidate>
 <h3 class="ck-h"><b>1</b>Escolha o plano</h3>
@@ -1063,16 +1073,15 @@ footer{padding-bottom:20px}
 <div class="ck-f" id="f-tel"><label class="t" for="ck-tel">WhatsApp</label><input type="tel" id="ck-tel" autocomplete="tel" inputmode="tel" placeholder="+258 84 000 0000"><div class="ck-err">Escreva um número válido.</div></div>
 <div class="ck-f"><label class="t" for="ck-biz">Nome do negócio (opcional)</label><input type="text" id="ck-biz" autocomplete="organization" placeholder="Ex.: Padaria Esperança"></div>
 <div class="ck-f"><label class="t" for="ck-mail">Email (opcional)</label><input type="email" id="ck-mail" autocomplete="email" inputmode="email" placeholder="nome@exemplo.com"></div>
-<div class="ck-f"><span class="t" style="display:block;font-size:.9rem;font-weight:600;margin-bottom:6px;color:#333">Como prefere pagar?</span>
-<div class="ck-chips" id="ck-pay"><label><input type="radio" name="pay" value="M-Pesa" checked><span>M-Pesa</span></label><label><input type="radio" name="pay" value="E-Mola"><span>E-Mola</span></label><label><input type="radio" name="pay" value="Transferência bancária"><span>Transferência</span></label><label><input type="radio" name="pay" value="A combinar"><span>A combinar</span></label></div></div>
+
 <div class="ck-f"><label class="t" for="ck-msg">Quer contar mais? (opcional)</label><textarea id="ck-msg" rows="3" placeholder="O seu maior desafio hoje"></textarea></div>
 </form>
 <aside class="ck-sum" id="ck-sum">
-<h3>Resumo do pedido</h3>
+<h3>O seu pedido</h3>
 <div id="ck-lines"></div>
 <div id="ck-tots"></div>
-<p class="ck-note">Valores em Meticais. O orçamento final é confirmado por nós em até 24h úteis, antes de qualquer pagamento.</p>
-<button type="button" class="ck-btn" id="ck-send"><i class="fas fa-paper-plane"></i> Enviar pedido</button>
+<p class="ck-note">Valores em Meticais. Confirmamos o orçamento final consigo em até 24h úteis.</p>
+<button type="button" class="ck-btn" id="ck-send"><i class="fas fa-calendar-check"></i> Agendar conversa</button>
 </aside>
 </div>
 <div class="ck-bar"><div>Total<b id="ck-bt">0 MT</b></div><a href="#ck-sum" id="ck-go">Ver resumo</a></div>
@@ -1351,7 +1360,7 @@ function renderComps(){
  $('ck-more').style.display=st.plan==='help'?'none':'';
  var list=shown().sort(function(a,b){return isInc(b)-isInc(a)});
  $('ck-comps').innerHTML=list.map(function(c){var inc=isInc(c),on=inc||st.sel[c.id];
-  var tag=inc?'<span class="ck-ct">Incluído</span>':'<span class="ck-ct">+'+mt(c.p)+'<i>'+(c.t==='month'?'por mês':'pagamento único')+'</i></span>';
+  var tag=inc?'<span class="ck-ct">Incluído</span>':'<span class="ck-ct">+'+mt(c.p)+'<i>'+(c.t==='month'?'por mês':'valor único')+'</i></span>';
   return '<label class="'+(inc?'inc':'')+'"><input type="checkbox" value="'+c.id+'"'+(on?' checked':'')+(inc?' disabled':'')+'><span class="ck-cc"><span class="ck-ic"><i class="'+c.ic+'"></i></span><span><span class="ck-cn">'+c.n+'</span><span class="ck-cd" style="display:block">'+c.d+'</span></span>'+tag+'</span></label>'}).join('');
 }
 function calc(){
@@ -1369,7 +1378,7 @@ function renderSum(){
  $('ck-lines').innerHTML=h;
  var t='';
  if(st.plan==='help')t='<div class="ck-tot"><span>Total</span><b>Grátis</b></div>';
- else{if(r.once)t+='<div class="ck-tot"><span>Pagamento único</span><b>'+mt(r.once)+'</b></div>';if(r.mon)t+='<div class="ck-tot"><span>Mensalidade</span><b>'+mt(r.mon)+'</b></div>'}
+ else{if(r.once)t+='<div class="ck-tot"><span>Valor único</span><b>'+mt(r.once)+'</b></div>';if(r.mon)t+='<div class="ck-tot"><span>Mensalidade</span><b>'+mt(r.mon)+'</b></div>'}
  $('ck-tots').innerHTML=t;
  $('ck-bt').textContent=totTxt(r);
 }
@@ -1380,18 +1389,17 @@ $('ck-comps').addEventListener('change',function(e){st.sel[e.target.value]=e.tar
 $('ck-go').addEventListener('click',function(e){e.preventDefault();$('ck-sum').scrollIntoView({behavior:'smooth',block:'start'})});
 function bad(id,on){$(id).classList.toggle('bad',on);return on}
 function orderText(r){
- var l=['Olá BGI! Quero fazer um pedido:','Plano: '+r.p.n+(st.plan==='help'?'':' ('+mt(r.p.p)+(r.p.t==='month'?'/mês':'')+')')];
+ var l=['Olá BGI! Quero agendar uma conversa sobre este pedido:','Plano: '+r.p.n+(st.plan==='help'?'':' ('+mt(r.p.p)+(r.p.t==='month'?'/mês':'')+')')];
  if(r.ex.length)l.push('Extras: '+r.ex.map(function(c){return c.n}).join(', '));
  l.push('Total: '+totTxt(r));
  l.push('Nome: '+$('ck-nome').value.trim());
  if($('ck-biz').value.trim())l.push('Negócio: '+$('ck-biz').value.trim());
- l.push('Pagamento: '+document.querySelector('input[name=pay]:checked').value);
- if($('ck-msg').value.trim())l.push('Nota: '+$('ck-msg').value.trim());
+  if($('ck-msg').value.trim())l.push('Nota: '+$('ck-msg').value.trim());
  return l.join('\n')}
 function done(saved,r){
  $('ck-main').hidden=true;$('ck-done').hidden=false;
- $('ck-dt').textContent=saved?'Pedido recebido!':'Quase lá';
- $('ck-dp').textContent=saved?'Respondemos em até 24h úteis. Se preferir falar já, continue no WhatsApp.':'Não conseguimos guardar online. Envie o pedido pelo WhatsApp para não o perder.';
+ $('ck-dt').textContent=saved?'Conversa agendada!':'Quase lá';
+ $('ck-dp').textContent=saved?'Entramos em contacto em até 24h úteis. Se preferir falar já, continue no WhatsApp.':'Não conseguimos guardar online. Envie o pedido pelo WhatsApp para não o perder.';
  $('ck-wa').href='https://wa.me/'+WA+'?text='+encodeURIComponent(orderText(r));
  window.scrollTo(0,0)}
 $('ck-send').addEventListener('click',function(){
@@ -1401,8 +1409,8 @@ $('ck-send').addEventListener('click',function(){
  var f=new FormData();
  f.append('Plano',r.p.n);f.append('Extras',r.ex.map(function(c){return c.n}).join(', ')||'nenhum');f.append('Total',totTxt(r));
  f.append('Nome',$('ck-nome').value);f.append('WhatsApp',$('ck-tel').value);f.append('Negócio',$('ck-biz').value);f.append('Email',$('ck-mail').value);
- f.append('Pagamento preferido',document.querySelector('input[name=pay]:checked').value);f.append('Mensagem',$('ck-msg').value);
- fetch(FORM,{method:'POST',body:f,headers:{Accept:'application/json'}}).then(function(x){done(x.ok,r)}).catch(function(){done(false,r)}).then(function(){btn.disabled=false;btn.innerHTML='<i class="fas fa-paper-plane"></i> Enviar pedido'});
+ f.append('Mensagem',$('ck-msg').value);
+ fetch(FORM,{method:'POST',body:f,headers:{Accept:'application/json'}}).then(function(x){done(x.ok,r)}).catch(function(){done(false,r)}).then(function(){btn.disabled=false;btn.innerHTML='<i class="fas fa-calendar-check"></i> Agendar conversa'});
 });
 $('ck-new').addEventListener('click',function(){$('ck-done').hidden=true;$('ck-main').hidden=false;window.scrollTo(0,0)});
 window.ckInit=function(plan){if(plan&&PLANS[plan]&&plan!==st.plan){st.plan=plan;st.sel={}}$('ck-done').hidden=true;$('ck-main').hidden=false;render()};
