@@ -2,7 +2,7 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>BGI | Blaise Group Industries — Presença Digital em Moçambique</title>
     <link rel="icon" type="image/png" sizes="512x512" href="favicon.png?v=3">
     <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png?v=3">
@@ -10,8 +10,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root { 
+    <style>:root{ 
             --bg: #ffffff; 
             --text: #1a1a1a; 
             --sec: #666; 
@@ -20,154 +19,124 @@
             --brand-mid: rgba(34, 85, 128, 0.12);
             --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
-        
-        .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--brand-color); width: 0%; z-index: 3000; transition: width 0.1s ease; }
-
-        .whatsapp-float { 
+*{ margin: 0; padding: 0; box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{ font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+.progress-bar{ position: fixed; top: 0; left: 0; height: 3px; background: var(--brand-color); width: 0%; z-index: 3000; transition: width 0.1s ease; }
+.whatsapp-float{ 
             position: fixed; width: 65px; height: 65px; bottom: 30px; right: 30px; 
             background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; 
             font-size: 32px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); z-index: 2500; 
             display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s ease; 
         }
-        .whatsapp-float::before { 
+.whatsapp-float::before{ 
             content: ''; position: absolute; width: 100%; height: 100%; border-radius: 50%; 
             background: #25d366; opacity: 0.5; z-index: -1; animation: pulse-border 2s infinite; 
         }
-        @keyframes pulse-border { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(1.5); opacity: 0; } }
-        .whatsapp-float:hover { transform: scale(1.1); color: #fff; }
-
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 10px 6%; position: fixed; width: 100%; top: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); z-index: 2000; border-bottom: 1px solid #f0f0f0; }
-        .logo img { height: 54px; width: auto; display: block; }
-        .menu-icon { display: none; font-size: 1.5rem; color: var(--brand-color); cursor: pointer; z-index: 2100; }
-        .nav-links { display: flex; list-style: none; gap: 25px; align-items: center; transition: 0.5s ease-in-out; }
-        .nav-links a { text-decoration: none; color: var(--sec); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
-        .btn-nav { border: 2px solid var(--brand-color); padding: 10px 25px; border-radius: 50px; color: var(--brand-color) !important; transition: all 0.3s; }
-        .btn-nav:hover { background: var(--brand-color); color: #fff !important; }
-
-        /* Hero */
-        .hero-container { position: relative; height: 100vh; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; }
-        .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070'); background-size: cover; background-position: center; z-index: 0; }
-        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 100%); z-index: 1; }
-        .hero-content { position: relative; z-index: 2; padding: 0 8%; padding-top: 140px; }
-        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 8vw, 5rem); line-height: 1.1; margin-bottom: 20px; }
-        .serif { font-style: italic; color: var(--brand-color); }
-        .hero-badge { display: inline-block; background: var(--brand-soft); border: 1px solid rgba(34,85,128,0.2); color: var(--brand-color); font-size: 0.7rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; padding: 8px 20px; border-radius: 50px; margin-bottom: 24px; }
-
-        section { padding: 100px 8%; position: relative; }
-        h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.2rem); margin-bottom: 60px; text-align: center; }
-
-        /* Services */
-        .grid-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .service-card { background: #fff; border: 1px solid #f2f2f2; transition: var(--transition); overflow: hidden; text-decoration: none; color: inherit; display: block; border-radius: 4px; }
-        .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
-        .service-img { width: 100%; height: 240px; object-fit: cover; }
-        .service-info { padding: 32px; }
-        .service-info h3 { margin-bottom: 8px; font-size: 1.1rem; }
-        .service-info p { color: var(--sec); font-size: 0.9rem; }
-
-        /* Stats */
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center; background: var(--brand-soft); padding: 80px 8%; border-radius: 4px; }
-        .stat-item h3 { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--brand-color); }
-
-        /* Risk */
-        .risk-section { background: #0a0a0a; color: #fff; text-align: center; }
-        .risk-content { max-width: 800px; margin: 0 auto; }
-        .risk-content h2 { color: #fff; margin-bottom: 30px; }
-
-        /* DNA */
-        .dna-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .dna-image img { width: 100%; border-radius: 2px; box-shadow: 20px 20px 0px var(--brand-soft); }
-
-        /* Timeline */
-        .timeline { position: relative; max-width: 1000px; margin: 0 auto; padding: 40px 0; }
-        .timeline-item { padding: 20px 40px; position: relative; border-left: 2px solid var(--brand-color); margin-left: 20px; margin-bottom: 8px; }
-        .timeline-item::before { content: ''; position: absolute; width: 16px; height: 16px; background: var(--brand-color); left: -9px; top: 28px; border-radius: 50%; }
-
-        /* Quote */
-        .quote-big { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 4vw, 2.5rem); text-align: center; font-style: italic; padding: 100px 10%; background: var(--brand-soft); color: var(--brand-color); }
-
-        /* CTA */
-        .final-cta { text-align: center; padding: 120px 8%; background: #fff; }
-        .btn-huge { display: inline-block; padding: 25px 60px; background: var(--brand-color); color: #fff; text-decoration: none; border-radius: 50px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; transition: 0.4s; margin-top: 40px; box-shadow: 0 15px 30px rgba(34, 85, 128, 0.3); }
-        .btn-huge:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(34, 85, 128, 0.5); }
-
-        /* ── PORTFOLIO ── */
-        #portfolio { background: #fafafa; }
-        .portfolio-intro { max-width: 600px; margin: 0 auto 60px; text-align: center; color: var(--sec); font-size: 0.95rem; line-height: 1.8; }
-        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; }
-
-        .portfolio-card {
+@keyframes pulse-border{ 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(1.5); opacity: 0; } }
+.whatsapp-float:hover{ transform: scale(1.1); color: #fff; }
+nav{ display: flex; justify-content: space-between; align-items: center; padding: 10px 6%; position: fixed; width: 100%; top: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); z-index: 2000; border-bottom: 1px solid #f0f0f0; }
+.logo img{ height: 54px; width: auto; display: block; }
+.menu-icon{ display: none; font-size: 1.5rem; color: var(--brand-color); cursor: pointer; z-index: 2100; }
+.nav-links{ display: flex; list-style: none; gap: 25px; align-items: center; transition: 0.5s ease-in-out; }
+.nav-links a{ text-decoration: none; color: var(--sec); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+.btn-nav{ border: 2px solid var(--brand-color); padding: 10px 25px; border-radius: 50px; color: var(--brand-color) !important; transition: all 0.3s; }
+.btn-nav:hover{ background: var(--brand-color); color: #fff !important; }
+#p-home .hero-container{ position: relative; height: 100vh; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; }
+#p-home .hero-bg{ position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070'); background-size: cover; background-position: center; z-index: 0; }
+#p-home .hero-overlay{ position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 100%); z-index: 1; }
+#p-home .hero-content{ position: relative; z-index: 2; padding: 0 8%; padding-top: 140px; }
+#p-home .hero-content h1{ font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 8vw, 5rem); line-height: 1.1; margin-bottom: 20px; }
+#p-home .serif{ font-style: italic; color: var(--brand-color); }
+#p-home .hero-badge{ display: inline-block; background: var(--brand-soft); border: 1px solid rgba(34,85,128,0.2); color: var(--brand-color); font-size: 0.7rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; padding: 8px 20px; border-radius: 50px; margin-bottom: 24px; }
+#p-home section{ padding: 100px 8%; position: relative; }
+#p-home h2{ font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.2rem); margin-bottom: 60px; text-align: center; }
+#p-home .grid-services{ display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+#p-home .service-card{ background: #fff; border: 1px solid #f2f2f2; transition: var(--transition); overflow: hidden; text-decoration: none; color: inherit; display: block; border-radius: 4px; }
+#p-home .service-card:hover{ transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+#p-home .service-img{ width: 100%; height: 240px; object-fit: cover; }
+#p-home .service-info{ padding: 32px; }
+#p-home .service-info h3{ margin-bottom: 8px; font-size: 1.1rem; }
+#p-home .service-info p{ color: var(--sec); font-size: 0.9rem; }
+#p-home .stats-grid{ display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center; background: var(--brand-soft); padding: 80px 8%; border-radius: 4px; }
+#p-home .stat-item h3{ font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--brand-color); }
+#p-home .risk-section{ background: #0a0a0a; color: #fff; text-align: center; }
+#p-home .risk-content{ max-width: 800px; margin: 0 auto; }
+#p-home .risk-content h2{ color: #fff; margin-bottom: 30px; }
+#p-home .dna-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+#p-home .dna-image img{ width: 100%; border-radius: 2px; box-shadow: 20px 20px 0px var(--brand-soft); }
+#p-home .timeline{ position: relative; max-width: 1000px; margin: 0 auto; padding: 40px 0; }
+#p-home .timeline-item{ padding: 20px 40px; position: relative; border-left: 2px solid var(--brand-color); margin-left: 20px; margin-bottom: 8px; }
+#p-home .timeline-item::before{ content: ''; position: absolute; width: 16px; height: 16px; background: var(--brand-color); left: -9px; top: 28px; border-radius: 50%; }
+#p-home .quote-big{ font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 4vw, 2.5rem); text-align: center; font-style: italic; padding: 100px 10%; background: var(--brand-soft); color: var(--brand-color); }
+#p-home .final-cta{ text-align: center; padding: 120px 8%; background: #fff; }
+#p-home .btn-huge{ display: inline-block; padding: 25px 60px; background: var(--brand-color); color: #fff; text-decoration: none; border-radius: 50px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; transition: 0.4s; margin-top: 40px; box-shadow: 0 15px 30px rgba(34, 85, 128, 0.3); }
+#p-home .btn-huge:hover{ transform: translateY(-5px); box-shadow: 0 20px 40px rgba(34, 85, 128, 0.5); }
+#p-home #portfolio{ background: #fafafa; }
+#p-home .portfolio-intro{ max-width: 600px; margin: 0 auto 60px; text-align: center; color: var(--sec); font-size: 0.95rem; line-height: 1.8; }
+#p-home .portfolio-grid{ display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; }
+#p-home .portfolio-card{
             background: #fff; border-radius: 6px; overflow: hidden;
             border: 1px solid #ececec; transition: var(--transition);
         }
-        .portfolio-card:hover { transform: translateY(-8px); box-shadow: 0 24px 48px rgba(0,0,0,0.07); }
-        .portfolio-img-wrap { position: relative; height: 220px; overflow: hidden; }
-        .portfolio-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-        .portfolio-card:hover .portfolio-img-wrap img { transform: scale(1.05); }
-        .portfolio-tag {
+#p-home .portfolio-card:hover{ transform: translateY(-8px); box-shadow: 0 24px 48px rgba(0,0,0,0.07); }
+#p-home .portfolio-img-wrap{ position: relative; height: 220px; overflow: hidden; }
+#p-home .portfolio-img-wrap img{ width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+#p-home .portfolio-card:hover .portfolio-img-wrap img{ transform: scale(1.05); }
+#p-home .portfolio-tag{
             position: absolute; top: 14px; left: 14px;
             background: var(--brand-color); color: #fff;
             font-size: 0.65rem; font-weight: 600; letter-spacing: 1.5px;
             text-transform: uppercase; padding: 5px 12px; border-radius: 50px;
         }
-        .portfolio-body { padding: 28px 28px 24px; }
-        .portfolio-client { font-size: 0.68rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--brand-color); margin-bottom: 6px; }
-        .portfolio-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 10px; color: var(--text); }
-        .portfolio-desc { font-size: 0.85rem; color: var(--sec); line-height: 1.7; margin-bottom: 18px; }
-        .portfolio-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
-        .ptag { background: var(--brand-soft); border: 1px solid rgba(34,85,128,0.15); color: var(--brand-color); font-size: 0.7rem; font-weight: 600; padding: 4px 10px; border-radius: 50px; }
-        .portfolio-link { font-size: 0.78rem; font-weight: 600; color: var(--brand-color); text-decoration: none; letter-spacing: 1px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s; }
-        .portfolio-link:hover { gap: 10px; }
-
-        /* ── PRICING ── */
-        #precos { background: #080808; color: #fff; }
-        #precos h2 { color: #fff; }
-        #precos .serif { color: #7aafd4; }
-        .pricing-sub { text-align: center; color: #888; font-size: 0.9rem; margin-top: -40px; margin-bottom: 60px; }
-
-        .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; }
-
-        .price-card {
+#p-home .portfolio-body{ padding: 28px 28px 24px; }
+#p-home .portfolio-client{ font-size: 0.68rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--brand-color); margin-bottom: 6px; }
+#p-home .portfolio-title{ font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 10px; color: var(--text); }
+#p-home .portfolio-desc{ font-size: 0.85rem; color: var(--sec); line-height: 1.7; margin-bottom: 18px; }
+#p-home .portfolio-tags{ display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+#p-home .ptag{ background: var(--brand-soft); border: 1px solid rgba(34,85,128,0.15); color: var(--brand-color); font-size: 0.7rem; font-weight: 600; padding: 4px 10px; border-radius: 50px; }
+#p-home .portfolio-link{ font-size: 0.78rem; font-weight: 600; color: var(--brand-color); text-decoration: none; letter-spacing: 1px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s; }
+#p-home .portfolio-link:hover{ gap: 10px; }
+#p-home #precos{ background: #080808; color: #fff; }
+#p-home #precos h2{ color: #fff; }
+#p-home #precos .serif{ color: #7aafd4; }
+#p-home .pricing-sub{ text-align: center; color: #888; font-size: 0.9rem; margin-top: -40px; margin-bottom: 60px; }
+#p-home .pricing-grid{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; }
+#p-home .price-card{
             border: 1px solid #222; border-radius: 6px; padding: 40px 32px;
             position: relative; transition: var(--transition); background: #0f0f0f;
         }
-        .price-card:hover { border-color: var(--brand-color); transform: translateY(-6px); }
-        .price-card.featured {
+#p-home .price-card:hover{ border-color: var(--brand-color); transform: translateY(-6px); }
+#p-home .price-card.featured{
             border-color: var(--brand-color);
             background: linear-gradient(135deg, #0d1f30 0%, #0a0a0a 100%);
         }
-        .price-badge {
+#p-home .price-badge{
             position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
             background: var(--brand-color); color: #fff;
             font-size: 0.65rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
             padding: 5px 16px; border-radius: 50px; white-space: nowrap;
         }
-        .price-tier { font-size: 0.7rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #555; margin-bottom: 12px; }
-        .price-card.featured .price-tier { color: #7aafd4; }
-        .price-name { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: #fff; margin-bottom: 6px; }
-        .price-amount { font-size: 2.2rem; font-weight: 600; color: #fff; line-height: 1; margin-bottom: 4px; }
-        .price-amount span { font-size: 1rem; font-weight: 300; color: #555; }
-        .price-note { font-size: 0.75rem; color: #555; margin-bottom: 28px; min-height: 20px; }
-        .price-divider { height: 1px; background: #1e1e1e; margin-bottom: 24px; }
-        .price-card.featured .price-divider { background: #1a2e40; }
-        .price-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
-        .price-features li { font-size: 0.83rem; color: #aaa; display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
-        .price-features li::before { content: '✓'; color: var(--brand-color); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-        .price-card.featured .price-features li { color: #ccc; }
-        .price-cta { display: block; text-align: center; padding: 14px 24px; border-radius: 50px; font-size: 0.78rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; transition: 0.3s; }
-        .price-cta.outline { border: 1px solid #333; color: #888; }
-        .price-cta.outline:hover { border-color: var(--brand-color); color: #fff; }
-        .price-cta.filled { background: var(--brand-color); color: #fff; box-shadow: 0 8px 24px rgba(34,85,128,0.4); }
-        .price-cta.filled:hover { background: #2d6fa3; transform: translateY(-2px); }
-        .pricing-note { text-align: center; color: #444; font-size: 0.8rem; margin-top: 40px; }
-        .pricing-note a { color: var(--brand-color); text-decoration: none; }
-
-        /* ── FOUNDER BAR ── */
-        .founder-bar {
+#p-home .price-tier{ font-size: 0.7rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #555; margin-bottom: 12px; }
+#p-home .price-card.featured .price-tier{ color: #7aafd4; }
+#p-home .price-name{ font-family: 'Playfair Display', serif; font-size: 1.6rem; color: #fff; margin-bottom: 6px; }
+#p-home .price-amount{ font-size: 2.2rem; font-weight: 600; color: #fff; line-height: 1; margin-bottom: 4px; }
+#p-home .price-amount span{ font-size: 1rem; font-weight: 300; color: #555; }
+#p-home .price-note{ font-size: 0.75rem; color: #555; margin-bottom: 28px; min-height: 20px; }
+#p-home .price-divider{ height: 1px; background: #1e1e1e; margin-bottom: 24px; }
+#p-home .price-card.featured .price-divider{ background: #1a2e40; }
+#p-home .price-features{ list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+#p-home .price-features li{ font-size: 0.83rem; color: #aaa; display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
+#p-home .price-features li::before{ content: '✓'; color: var(--brand-color); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+#p-home .price-card.featured .price-features li{ color: #ccc; }
+#p-home .price-cta{ display: block; text-align: center; padding: 14px 24px; border-radius: 50px; font-size: 0.78rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; transition: 0.3s; }
+#p-home .price-cta.outline{ border: 1px solid #333; color: #888; }
+#p-home .price-cta.outline:hover{ border-color: var(--brand-color); color: #fff; }
+#p-home .price-cta.filled{ background: var(--brand-color); color: #fff; box-shadow: 0 8px 24px rgba(34,85,128,0.4); }
+#p-home .price-cta.filled:hover{ background: #2d6fa3; transform: translateY(-2px); }
+#p-home .pricing-note{ text-align: center; color: #444; font-size: 0.8rem; margin-top: 40px; }
+#p-home .pricing-note a{ color: var(--brand-color); text-decoration: none; }
+#p-home .founder-bar{
             max-width: 1100px; margin: 0 auto 48px;
             display: flex; align-items: center; justify-content: center;
             gap: 16px; flex-wrap: wrap; text-align: center;
@@ -175,92 +144,393 @@
             border-radius: 6px;
             background: linear-gradient(135deg, #0d1f30 0%, #0a0a0a 100%);
         }
-        .founder-badge {
+#p-home .founder-badge{
             background: var(--brand-color); color: #fff;
             font-size: 0.65rem; font-weight: 600; letter-spacing: 2px;
             text-transform: uppercase; padding: 6px 16px; border-radius: 50px;
             white-space: nowrap;
         }
-        .founder-text { font-size: 0.85rem; color: #ccc; }
-        .founder-text strong { color: #fff; }
-        .founder-count { display: flex; align-items: center; gap: 10px; font-size: 0.75rem; color: #7aafd4; font-weight: 600; }
-        .price-from { display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #7aafd4; margin-bottom: 6px; }
-
-        /* ── PRICING EXTRAS ── */
-        .price-icon { width: 44px; height: 44px; border-radius: 50%; background: rgba(34,85,128,0.18); border: 1px solid rgba(122,175,212,0.25); color: #7aafd4; display: flex; align-items: center; justify-content: center; font-size: 1rem; margin-bottom: 18px; }
-        .price-ideal { font-size: 0.8rem; color: #888; line-height: 1.6; margin-bottom: 18px; min-height: 52px; }
-        .price-card .price-note { margin-bottom: 14px; }
-        .price-founder { display: inline-flex; align-items: center; gap: 6px; font-size: 0.68rem; font-weight: 600; color: #7aafd4; background: rgba(34,85,128,0.15); border: 1px solid rgba(34,85,128,0.4); padding: 5px 12px; border-radius: 50px; margin-bottom: 24px; }
-        .pricing-block-title { text-align: center; font-family: 'Playfair Display', serif; font-size: 1.7rem; color: #fff; margin: 90px 0 12px; }
-        .pricing-block-sub { text-align: center; color: #777; font-size: 0.85rem; margin-bottom: 32px; }
-        .compare-wrap { max-width: 1100px; margin: 0 auto; overflow-x: auto; border: 1px solid #1e1e1e; border-radius: 6px; background: #0c0c0c; }
-        .compare { width: 100%; border-collapse: collapse; min-width: 640px; font-size: 0.83rem; }
-        .compare th, .compare td { padding: 16px 20px; text-align: center; border-bottom: 1px solid #161616; color: #aaa; }
-        .compare th:first-child, .compare td:first-child { text-align: left; color: #ccc; }
-        .compare thead th { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: #7aafd4; background: #0d1f30; border-bottom: 1px solid #1a2e40; }
-        .compare tbody tr:last-child td { border-bottom: none; }
-        .compare .yes { color: #7aafd4; font-weight: 700; }
-        .compare .no { color: #333; }
-        .price-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; }
-        .price-step { border: 1px solid #222; border-radius: 6px; padding: 28px; background: #0f0f0f; }
-        .price-step b { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--brand-color); display: block; margin-bottom: 8px; }
-        .price-step h4 { color: #fff; font-size: 0.95rem; margin-bottom: 6px; }
-        .price-step p { color: #777; font-size: 0.8rem; line-height: 1.7; }
-        @media (max-width: 900px) { .price-steps { grid-template-columns: 1fr; max-width: 420px; } }
-
-        /* Reveal */
-        .reveal { opacity: 0; transform: translateY(40px); transition: 1s cubic-bezier(0.16, 1, 0.3, 1); }
-        .visible { opacity: 1; transform: translateY(0); }
-
-        /* Footer */
-        footer { background: #080808; color: #fff; padding: 80px 8% 40px; border-top: 1px solid #111; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; }
-        .footer-link { color: #666; text-decoration: none; display: block; margin-bottom: 10px; transition: 0.3s; font-size: 0.85rem; }
-        .footer-link:hover { color: var(--brand-color); }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            .pricing-grid { grid-template-columns: 1fr; max-width: 420px; }
-            .dna-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
-        }
-        @media (max-width: 768px) {
-            .menu-icon { display: block; }
-            .nav-links { position: fixed; top: 0; right: -100%; width: 75%; height: 100vh; background: #ffffff; flex-direction: column; align-items: center; justify-content: center; box-shadow: -10px 0 30px rgba(0,0,0,0.1); gap: 40px; }
-            .nav-links.active { right: 0; }
-            .nav-links li { width: 100%; text-align: center; }
-            .nav-links a { font-size: 1rem; }
-        }
-    
-/* Pop-up na primeira página (não segue o scroll) */
-.hero-container{height:auto;min-height:100vh;padding-bottom:60px}
-.sp{position:relative;width:400px;max-width:100%;margin:40px auto 0;text-align:left;background:#fff;border-radius:20px;box-shadow:0 24px 60px rgba(34,85,128,.35);overflow:hidden;border:1px solid rgba(34,85,128,.15)}
-.sp-top{display:flex;align-items:center;gap:8px;padding:10px 16px;background:var(--brand-color);color:#fff;font-size:.78rem;font-weight:600}
-.sp-top i{width:8px;height:8px;border-radius:50%;background:#f5a63c;animation:spPulse 1.6s infinite}
+#p-home .founder-text{ font-size: 0.85rem; color: #ccc; }
+#p-home .founder-text strong{ color: #fff; }
+#p-home .founder-count{ display: flex; align-items: center; gap: 10px; font-size: 0.75rem; color: #7aafd4; font-weight: 600; }
+#p-home .price-from{ display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #7aafd4; margin-bottom: 6px; }
+#p-home .price-icon{ width: 44px; height: 44px; border-radius: 50%; background: rgba(34,85,128,0.18); border: 1px solid rgba(122,175,212,0.25); color: #7aafd4; display: flex; align-items: center; justify-content: center; font-size: 1rem; margin-bottom: 18px; }
+#p-home .price-ideal{ font-size: 0.8rem; color: #888; line-height: 1.6; margin-bottom: 18px; min-height: 52px; }
+#p-home .price-card .price-note{ margin-bottom: 14px; }
+#p-home .price-founder{ display: inline-flex; align-items: center; gap: 6px; font-size: 0.68rem; font-weight: 600; color: #7aafd4; background: rgba(34,85,128,0.15); border: 1px solid rgba(34,85,128,0.4); padding: 5px 12px; border-radius: 50px; margin-bottom: 24px; }
+#p-home .pricing-block-title{ text-align: center; font-family: 'Playfair Display', serif; font-size: 1.7rem; color: #fff; margin: 90px 0 12px; }
+#p-home .pricing-block-sub{ text-align: center; color: #777; font-size: 0.85rem; margin-bottom: 32px; }
+#p-home .compare-wrap{ max-width: 1100px; margin: 0 auto; overflow-x: auto; border: 1px solid #1e1e1e; border-radius: 6px; background: #0c0c0c; }
+#p-home .compare{ width: 100%; border-collapse: collapse; min-width: 640px; font-size: 0.83rem; }
+#p-home .compare th,#p-home .compare td{ padding: 16px 20px; text-align: center; border-bottom: 1px solid #161616; color: #aaa; }
+#p-home .compare th:first-child,#p-home .compare td:first-child{ text-align: left; color: #ccc; }
+#p-home .compare thead th{ font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: #7aafd4; background: #0d1f30; border-bottom: 1px solid #1a2e40; }
+#p-home .compare tbody tr:last-child td{ border-bottom: none; }
+#p-home .compare .yes{ color: #7aafd4; font-weight: 700; }
+#p-home .compare .no{ color: #333; }
+#p-home .price-steps{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; }
+#p-home .price-step{ border: 1px solid #222; border-radius: 6px; padding: 28px; background: #0f0f0f; }
+#p-home .price-step b{ font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--brand-color); display: block; margin-bottom: 8px; }
+#p-home .price-step h4{ color: #fff; font-size: 0.95rem; margin-bottom: 6px; }
+#p-home .price-step p{ color: #777; font-size: 0.8rem; line-height: 1.7; }
+@media (max-width: 900px){#p-home .price-steps{ grid-template-columns: 1fr; max-width: 420px; }}
+#p-home .reveal{ opacity: 0; transform: translateY(40px); transition: 1s cubic-bezier(0.16, 1, 0.3, 1); }
+#p-home .visible{ opacity: 1; transform: translateY(0); }
+footer{ background: #080808; color: #fff; padding: 80px 8% 40px; border-top: 1px solid #111; }
+.footer-grid{ display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; }
+.footer-link{ color: #666; text-decoration: none; display: block; margin-bottom: 10px; transition: 0.3s; font-size: 0.85rem; }
+.footer-link:hover{ color: var(--brand-color); }
+@media (max-width: 900px){#p-home .pricing-grid{ grid-template-columns: 1fr; max-width: 420px; }
+#p-home .dna-grid{ grid-template-columns: 1fr; }
+.footer-grid{ grid-template-columns: 1fr; gap: 30px; }}
+@media (max-width: 768px){.menu-icon{ display: block; }
+.nav-links{ position: fixed; top: 0; right: -100%; width: 75%; height: 100vh; background: #ffffff; flex-direction: column; align-items: center; justify-content: center; box-shadow: -10px 0 30px rgba(0,0,0,0.1); gap: 40px; }
+.nav-links.active{ right: 0; }
+.nav-links li{ width: 100%; text-align: center; }
+.nav-links a{ font-size: 1rem; }}
+#p-home .hero-container{height:auto;min-height:100vh;padding-bottom:60px}
+#p-home .sp{position:relative;width:min(330px,88%);margin:26px 0 0 auto;text-align:left;background:#fff;border-radius:18px;box-shadow:0 20px 50px rgba(34,85,128,.35);overflow:hidden;border:1px solid rgba(34,85,128,.15);animation:spFloat 4.5s ease-in-out infinite;z-index:3}
+@keyframes spFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@media(min-width:1100px){#p-home .hero-content{position:static}
+#p-home .sp{position:absolute;right:4%;bottom:70px;margin:0;width:360px}}
+#p-home .sp-top{display:flex;align-items:center;gap:8px;padding:10px 16px;background:var(--brand-color);color:#fff;font-size:.78rem;font-weight:600}
+#p-home .sp-top i{width:8px;height:8px;border-radius:50%;background:#f5a63c;animation:spPulse 1.6s infinite}
 @keyframes spPulse{0%{box-shadow:0 0 0 0 rgba(245,166,60,.8)}100%{box-shadow:0 0 0 9px rgba(245,166,60,0)}}
-.sp-s{display:none}
-.sp-s.on{display:block;animation:spIn .5s}
+#p-home .sp-s{display:none}
+#p-home .sp-s.on{display:block;animation:spIn .5s}
 @keyframes spIn{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:none}}
-.sp-img{position:relative;height:180px;background-size:cover;background-position:top center;background-color:#dfe8f0}
-.sp-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,30,50,.65),transparent 55%)}
-.sp-badge{position:absolute;top:12px;right:12px;z-index:2;background:#f5a63c;color:#0b2239;font-weight:700;font-size:.8rem;padding:6px 13px;border-radius:99px;box-shadow:0 6px 16px rgba(0,0,0,.3)}
-.sp-cap{position:absolute;left:14px;bottom:10px;z-index:2;color:#fff;font-size:.72rem}
-.sp-dash{background:linear-gradient(135deg,#0b2239,#225580);display:flex;align-items:flex-end;gap:10px;padding:0 26px 22px}
-.sp-dash i{flex:1;background:rgba(255,255,255,.85);border-radius:6px 6px 0 0;z-index:1}
-.sp-dash i:nth-child(1){height:45%}.sp-dash i:nth-child(2){height:70%}.sp-dash i:nth-child(3){height:55%}.sp-dash i:nth-child(4){height:92%;background:#f5a63c}
-.sp-b{padding:16px 20px 6px}
-.sp-b h4{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--text);margin-bottom:4px}
-.sp-b p{font-size:.84rem;color:var(--sec);margin-bottom:14px;line-height:1.5}
-.sp-b a{display:inline-flex;align-items:center;gap:8px;background:var(--brand-color);color:#fff;padding:10px 20px;border-radius:999px;font-size:.84rem;font-weight:600;text-decoration:none;transition:transform .2s}
-.sp-b a:hover{transform:translateY(-2px)}
-.sp-nav{position:absolute;top:92px;z-index:3;width:32px;height:32px;border-radius:50%;border:0;background:rgba(255,255,255,.9);color:var(--brand-color);cursor:pointer;font-size:.8rem;box-shadow:0 4px 12px rgba(0,0,0,.25)}
-.sp-prev{left:10px}.sp-next{right:10px}
-.sp-d{display:flex;gap:6px;padding:10px 20px 14px}
-.sp-d button{width:8px;height:8px;border-radius:50%;border:0;background:#d5dde5;cursor:pointer;padding:0}
-.sp-d button.on{background:var(--brand-color);width:22px;border-radius:99px}
-.sp-bar{height:3px;background:#f5a63c;width:0}
-.sp-bar.run{width:100%;transition:width 5s linear}
-@media(prefers-reduced-motion:reduce){.sp-s.on,.sp-top i{animation:none}.sp-bar.run{transition:none}}
+#p-home .sp-img{position:relative;height:150px;background-size:cover;background-position:top center;background-color:#dfe8f0}
+#p-home .sp-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,30,50,.65),transparent 55%)}
+#p-home .sp-badge{position:absolute;top:12px;right:12px;z-index:2;background:#f5a63c;color:#0b2239;font-weight:700;font-size:.8rem;padding:6px 13px;border-radius:99px;box-shadow:0 6px 16px rgba(0,0,0,.3)}
+#p-home .sp-cap{position:absolute;left:14px;bottom:10px;z-index:2;color:#fff;font-size:.72rem}
+#p-home .sp-dash{background:linear-gradient(135deg,#0b2239,#225580);display:flex;align-items:flex-end;gap:10px;padding:0 26px 22px}
+#p-home .sp-dash i{flex:1;background:rgba(255,255,255,.85);border-radius:6px 6px 0 0;z-index:1}
+#p-home .sp-dash i:nth-child(1){height:45%}
+#p-home .sp-dash i:nth-child(2){height:70%}
+#p-home .sp-dash i:nth-child(3){height:55%}
+#p-home .sp-dash i:nth-child(4){height:92%;background:#f5a63c}
+#p-home .sp-b{padding:16px 20px 6px}
+#p-home .sp-b h4{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--text);margin-bottom:4px}
+#p-home .sp-b p{font-size:.84rem;color:var(--sec);margin-bottom:14px;line-height:1.5}
+#p-home .sp-b a{display:inline-flex;align-items:center;gap:8px;background:var(--brand-color);color:#fff;padding:10px 20px;border-radius:999px;font-size:.84rem;font-weight:600;text-decoration:none;transition:transform .2s}
+#p-home .sp-b a:hover{transform:translateY(-2px)}
+#p-home .sp-nav{position:absolute;top:76px;z-index:3;width:32px;height:32px;border-radius:50%;border:0;background:rgba(255,255,255,.9);color:var(--brand-color);cursor:pointer;font-size:.8rem;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+#p-home .sp-prev{left:10px}
+#p-home .sp-next{right:10px}
+#p-home .sp-d{display:flex;gap:6px;padding:10px 20px 14px}
+#p-home .sp-d button{width:8px;height:8px;border-radius:50%;border:0;background:#d5dde5;cursor:pointer;padding:0}
+#p-home .sp-d button.on{background:var(--brand-color);width:22px;border-radius:99px}
+#p-home .sp-bar{height:3px;background:#f5a63c;width:0}
+#p-home .sp-bar.run{width:100%;transition:width 5s linear}
+@media(prefers-reduced-motion:reduce){#p-home .sp,#p-home .sp-s.on,#p-home .sp-top i{animation:none}
+#p-home .sp-bar.run{transition:none}}
+#p-branding{ 
+            --bg: #ffffff; 
+            --text: #1a1a1a; 
+            --sec: #666; 
+            --brand-color: #225580; 
+            --accent: #d4af37; 
+            --soft-gray: #f9f9f9;
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+#p-branding .branding-hero{ height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; background: var(--soft-gray); }
+#p-branding .hero-img-bg{ position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.15; z-index: 0; }
+#p-branding .hero-content{ position: relative; z-index: 1; padding: 0 8%; }
+#p-branding .branding-hero h1{ font-family: 'Playfair Display', serif; font-size: clamp(3rem, 10vw, 5.5rem); line-height: 1.1; margin-bottom: 20px; color: var(--text); }
+#p-branding .branding-hero p{ max-width: 700px; margin: 0 auto; color: var(--sec); font-size: 1.1rem; letter-spacing: 1px; }
+#p-branding section{ padding: 100px 8%; }
+#p-branding .split-section{ display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+#p-branding .split-image{ position: relative; }
+#p-branding .split-image img{ width: 100%; height: 600px; object-fit: cover; border-radius: 4px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
+#p-branding .serif{ font-family: 'Playfair Display', serif; font-style: italic; color: var(--brand-color); }
+#p-branding .method-grid{ display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 60px; }
+#p-branding .method-card{ padding: 50px; background: #fff; border: 1px solid #eee; transition: var(--transition); border-radius: 8px; }
+#p-branding .method-card:hover{ transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); border-color: var(--brand-color); }
+#p-branding .method-number{ font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--brand-color); margin-bottom: 20px; display: block; opacity: 0.3; }
+#p-branding .method-card h3{ margin-bottom: 15px; letter-spacing: 1px; font-weight: 600; }
+#p-branding .gallery-grid{ display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; }
+#p-branding .gallery-item{ position: relative; overflow: hidden; border-radius: 4px; background: #eee; }
+#p-branding .item-1{ grid-column: span 7; height: 450px; }
+#p-branding .item-2{ grid-column: span 5; height: 450px; }
+#p-branding .item-3{ grid-column: span 5; height: 400px; }
+#p-branding .item-4{ grid-column: span 7; height: 400px; }
+#p-branding .gallery-item img{ width: 100%; height: 100%; object-fit: cover; transition: 1.5s ease; }
+#p-branding .gallery-item:hover img{ transform: scale(1.05); }
+#p-branding .cta-branding{ text-align: center; background: var(--brand-color); padding: 90px 8%; border-radius: 8px; color: #fff; }
+#p-branding .btn-white{ display: inline-block; padding: 20px 50px; background: #fff; color: var(--brand-color); text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; border-radius: 50px; transition: 0.3s; margin-top: 30px; }
+#p-branding .btn-white:hover{ transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+#p-branding .reveal{ opacity: 0; transform: translateY(30px); transition: var(--transition); }
+#p-branding .visible{ opacity: 1; transform: translateY(0); }
+@media (max-width: 768px){#p-branding .split-section{ grid-template-columns: 1fr; }
+#p-branding .item-1,#p-branding .item-2,#p-branding .item-3,#p-branding .item-4{ grid-column: span 12; height: 300px; }}
+#p-website{ 
+            --bg: #ffffff; 
+            --text: #1a1a1a; 
+            --sec: #666; 
+            --brand-color: #225580; 
+            --soft-gray: #f4f7f6;
+            --transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+#p-website .web-hero{ height: 80vh; display: flex; align-items: center; justify-content: center; background: var(--soft-gray); position: relative; overflow: hidden; }
+#p-website .hero-decor{ position: absolute; font-size: 25vw; font-weight: 900; color: rgba(0,0,0,0.03); z-index: 0; bottom: -50px; left: -20px; user-select: none; }
+#p-website .hero-content{ position: relative; z-index: 1; text-align: center; padding: 0 8%; }
+#p-website .web-hero h1{ font-family: 'Playfair Display', serif; font-size: clamp(3rem, 10vw, 6rem); line-height: 1; color: var(--brand-color); margin-bottom: 20px; }
+#p-website .web-hero p{ max-width: 600px; margin: 0 auto; font-size: 1.2rem; color: var(--sec); }
+#p-website section{ padding: 100px 8%; }
+#p-website .reveal{ opacity: 0; transform: translateY(50px); transition: var(--transition); }
+#p-website .reveal.active{ opacity: 1; transform: translateY(0); }
+#p-website .feature-grid{ display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center; }
+#p-website .feature-text h2{ font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 30px; line-height: 1.2; }
+#p-website .feature-image img{ width: 100%; border-radius: 8px; box-shadow: 0 40px 80px rgba(0,0,0,0.1); transition: 0.5s; }
+#p-website .feature-image:hover img{ transform: translateY(-10px); }
+#p-website .tech-grid{ display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin-top: 80px; }
+#p-website .tech-card{ padding: 40px; background: #fff; border-bottom: 3px solid transparent; transition: var(--transition); box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+#p-website .tech-card:hover{ border-bottom-color: var(--brand-color); transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+#p-website .tech-card i{ font-size: 2rem; color: var(--brand-color); margin-bottom: 20px; display: block; }
+#p-website .tech-card h3{ font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 15px; }
+#p-website .wide-showcase{ width: 100%; height: 600px; background: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426') center/cover fixed; margin: 60px 0; border-radius: 4px; }
+#p-website .web-cta{ text-align: center; background: var(--brand-color); color: #fff; padding: 100px 8%; border-radius: 4px; }
+#p-website .btn-web{ display: inline-block; padding: 22px 60px; background: #fff; color: var(--brand-color); text-decoration: none; border-radius: 50px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; transition: 0.4s; margin-top: 30px; }
+#p-website .btn-web:hover{ transform: scale(1.05); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+@media (max-width: 992px){#p-website .feature-grid{ grid-template-columns: 1fr; }
+#p-website .wide-showcase{ height: 300px; }}
+#p-marketing{ 
+            --bg: #ffffff; 
+            --text: #1a1a1a; 
+            --sec: #666; 
+            --brand-color: #225580; 
+            --accent: #00c853;
+            --soft-blue: #f8fabb;
+            --transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+#p-marketing .mkt-hero{ height: 85vh; display: flex; align-items: center; justify-content: center; position: relative; background: #f4f7f6; overflow: hidden; }
+#p-marketing .hero-image-overlay{ position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426') center/cover; opacity: 0.1; z-index: 1; transform: scale(1.1); transition: transform 2s ease; }
+#p-marketing .mkt-hero:hover .hero-image-overlay{ transform: scale(1); }
+#p-marketing .hero-content{ position: relative; z-index: 2; text-align: center; padding: 0 8%; }
+#p-marketing .hero-content h1{ font-family: 'Playfair Display', serif; font-size: clamp(3rem, 8vw, 5.5rem); line-height: 1; margin-bottom: 20px; color: var(--brand-color); }
+#p-marketing .hero-content p{ max-width: 650px; margin: 0 auto 40px; font-size: 1.2rem; color: var(--sec); }
+#p-marketing section{ padding: 120px 8%; }
+#p-marketing .reveal{ opacity: 0; transform: translateY(40px); transition: var(--transition); }
+#p-marketing .reveal.active{ opacity: 1; transform: translateY(0); }
+#p-marketing .strategy-container{ display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 60px; }
+#p-marketing .strategy-card{ background: #fff; padding: 60px 40px; border: 1px solid #eee; position: relative; overflow: hidden; transition: var(--transition); }
+#p-marketing .strategy-card::before{ content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--brand-color); transform: scaleY(0); transition: 0.4s; transform-origin: bottom; }
+#p-marketing .strategy-card:hover{ transform: translateY(-10px); box-shadow: 0 30px 60px rgba(0,0,0,0.05); }
+#p-marketing .strategy-card:hover::before{ transform: scaleY(1); }
+#p-marketing .strategy-card i{ font-size: 2.5rem; color: var(--brand-color); margin-bottom: 20px; display: block; }
+#p-marketing .strategy-card h3{ margin-bottom: 15px; font-family: 'Playfair Display', serif; font-size: 1.8rem; }
+#p-marketing .impact-grid{ display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; }
+#p-marketing .impact-image{ position: relative; }
+#p-marketing .impact-image img{ width: 100%; border-radius: 4px; box-shadow: 30px 30px 0 var(--brand-color); }
+#p-marketing .impact-text h2{ font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 30px; }
+#p-marketing .numbers-strip{ background: var(--brand-color); color: #fff; display: flex; justify-content: space-around; padding: 80px 8%; text-align: center; margin: 60px 0; }
+#p-marketing .num-item h3{ font-size: 3.5rem; font-family: 'Playfair Display', serif; }
+#p-marketing .num-item p{ text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; opacity: 0.8; }
+#p-marketing .cta-final{ text-align: center; background: #fafafa; border-radius: 4px; padding: 100px 8%; }
+#p-marketing .btn-mkt{ display: inline-block; padding: 22px 60px; background: var(--brand-color); color: #fff; text-decoration: none; border-radius: 50px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; transition: 0.4s; }
+#p-marketing .btn-mkt:hover{ transform: scale(1.05); box-shadow: 0 20px 40px rgba(34, 85, 128, 0.3); }
+@media (max-width: 992px){#p-marketing .impact-grid{ grid-template-columns: 1fr; }
+#p-marketing .numbers-strip{ flex-direction: column; gap: 50px; }}
+#p-termos{ 
+            --bg: #ffffff; 
+            --text: #1a1a1a; 
+            --sec: #666; 
+            --brand-color: #225580; 
+            --brand-soft: rgba(34, 85, 128, 0.05);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+#p-termos .legal-header{
+            padding: 180px 8% 80px;
+            background: var(--brand-soft);
+            text-align: center;
+        }
+#p-termos .legal-header h1{
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--brand-color);
+            margin-bottom: 20px;
+        }
+#p-termos .legal-content{
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 8%;
+        }
+#p-termos .legal-section{
+            margin-bottom: 60px;
+        }
+#p-termos .legal-section h2{
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--brand-color);
+            margin-bottom: 20px;
+            text-align: left; 
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+#p-termos .legal-section h3{
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            color: var(--text);
+            margin: 30px 0 15px;
+            font-weight: 600;
+        }
+#p-termos .legal-section p{
+            color: var(--sec);
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+#p-termos .legal-section ul{
+            margin-left: 20px;
+            margin-bottom: 20px;
+            color: var(--sec);
+        }
+#p-termos .legal-section li{
+            margin-bottom: 10px;
+        }
+#p-termos .last-update{
+            font-style: italic;
+            color: var(--sec);
+            opacity: 0.7;
+        }
+#p-termos .reveal{ opacity: 0; transform: translateY(30px); transition: 0.8s ease; }
+#p-termos .visible{ opacity: 1; transform: translateY(0); }
+
+/* Checkout: mobile first */
+#p-pedido{--c:#225580;--cs:#eef5ff;--ln:#e3eaf1}
+.ck-head{padding:88px 18px 22px;text-align:center;background:#f4f7fa}
+.ck-head h1{font-family:'Playfair Display',serif;font-size:1.7rem;color:var(--c);line-height:1.15;margin-bottom:8px}
+.ck-head p{font-size:.95rem;color:#666;max-width:460px;margin:0 auto}
+.ck-wrap{max-width:1080px;margin:0 auto;padding:20px 14px 110px;display:grid;gap:20px}
+.ck-h{display:flex;align-items:center;gap:10px;font-size:1rem;margin:22px 0 10px;font-weight:600}
+.ck-h:first-child{margin-top:0}
+.ck-h b{width:26px;height:26px;border-radius:50%;background:var(--c);color:#fff;font-size:.8rem;display:grid;place-items:center;flex:none}
+.ck-hint{font-size:.88rem;color:#666;margin:-4px 0 10px}
+.ck-plans,.ck-comps{display:grid;gap:10px}
+.ck-plans label,.ck-comps label,.ck-chips label{position:relative;display:block;cursor:pointer}
+.ck-plans input,.ck-comps input,.ck-chips input{position:absolute;opacity:0;inset:0;width:100%;height:100%;cursor:pointer;margin:0}
+.ck-pc{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:14px;border:2px solid var(--ln);border-radius:14px;background:#fff;transition:.2s}
+.ck-pn{font-weight:700;color:var(--c);font-size:.98rem}
+.ck-pn em{font-style:normal;font-size:.65rem;background:#f5a63c;color:#0b2239;padding:2px 8px;border-radius:99px;margin-left:6px;vertical-align:middle}
+.ck-pp{grid-row:1/3;grid-column:2;text-align:right;font-weight:700;font-size:1rem;align-self:center;white-space:nowrap}
+.ck-pp small{display:block;font-size:.78rem;font-weight:500;color:#777}
+.ck-pd{font-size:.88rem;color:#666;line-height:1.4}
+.ck-plans input:checked+.ck-pc{border-color:var(--c);background:var(--cs);box-shadow:0 6px 18px rgba(34,85,128,.12)}
+.ck-comps .ck-cc{display:grid;grid-template-columns:38px 1fr auto;gap:10px;align-items:center;padding:12px;border:2px solid var(--ln);border-radius:14px;background:#fff;transition:.2s}
+.ck-ic{width:38px;height:38px;border-radius:10px;background:#f1f5f9;color:#9aa8b6;display:grid;place-items:center;font-size:1rem;transition:.2s}
+.ck-cn{line-height:1.3;font-size:.95rem;font-weight:600;line-height:1.25}
+.ck-cd{font-size:.84rem;color:#777;line-height:1.35;margin-top:2px}
+.ck-ct{font-size:.85rem;font-weight:700;color:var(--c);text-align:right;white-space:nowrap}
+.ck-ct i{display:block;font-style:normal;font-size:.76rem;font-weight:500;color:#888}
+.ck-comps input:checked+.ck-cc{border-color:var(--c);background:var(--cs)}
+.ck-comps input:checked+.ck-cc .ck-ic{background:var(--c);color:#fff}
+.ck-comps input:disabled+.ck-cc{background:#f7fafc}
+.ck-comps input:disabled{cursor:default}
+.ck-comps .inc .ck-ct{color:#2e8b57}
+.ck-plans input:focus-visible+.ck-pc,.ck-comps input:focus-visible+.ck-cc,.ck-chips input:focus-visible+span{outline:3px solid #f5a63c;outline-offset:2px}
+.ck-f{margin-bottom:14px}
+.ck-f label.t{display:block;font-size:.9rem;font-weight:600;margin-bottom:5px;color:#333}
+.ck-f input[type=text],.ck-f input[type=tel],.ck-f input[type=email],.ck-f textarea{width:100%;padding:13px 14px;border:1.5px solid #d6dfe8;border-radius:12px;font:inherit;font-size:16px;background:#fff}
+.ck-f input:focus,.ck-f textarea:focus{outline:none;border-color:var(--c);box-shadow:0 0 0 3px rgba(34,85,128,.15)}
+.ck-f.bad input{border-color:#d33}
+.ck-err{display:none;color:#c22;font-size:.85rem;margin-top:4px}
+.ck-f.bad .ck-err{display:block}
+.ck-chips{display:flex;flex-wrap:wrap;gap:8px}
+.ck-chips span{display:block;padding:12px 16px;border:1.5px solid #d6dfe8;border-radius:99px;font-size:.92rem;background:#fff;transition:.2s}
+.ck-chips input:checked+span{background:var(--c);border-color:var(--c);color:#fff;font-weight:600}
+.ck-sum{background:#fff;border:1px solid var(--ln);border-radius:16px;padding:18px;box-shadow:0 10px 30px rgba(34,85,128,.08);align-self:start}
+.ck-sum h3{font-size:1rem;margin-bottom:10px}
+.ck-ln{display:flex;justify-content:space-between;gap:10px;font-size:.92rem;padding:6px 0;border-bottom:1px dashed var(--ln)}
+.ck-ln span:last-child{white-space:nowrap;font-weight:600}
+.ck-tot{display:flex;justify-content:space-between;align-items:baseline;font-weight:700;padding:10px 0 2px}
+.ck-tot b{font-size:1.25rem;color:var(--c)}
+.ck-note{font-size:.82rem;color:#777;margin:10px 0 14px;line-height:1.45}
+.ck-btn{width:100%;padding:15px;border:0;border-radius:99px;background:var(--c);color:#fff;font:inherit;font-weight:700;font-size:.92rem;cursor:pointer;display:inline-flex;justify-content:center;align-items:center;gap:8px;text-decoration:none;transition:.2s}
+.ck-btn:hover{background:#1a4466}
+.ck-btn:disabled{opacity:.6;cursor:wait}
+.ck-btn.wa{background:#25d366;color:#fff}
+.ck-btn.ghost{background:#fff;color:var(--c);border:2px solid var(--c);margin-top:10px}
+.ck-bar{position:fixed;left:0;right:0;bottom:0;z-index:1500;background:#fff;border-top:1px solid var(--ln);padding:10px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 -6px 20px rgba(0,0,0,.07)}
+.ck-bar div{font-size:.72rem;color:#777;line-height:1.2}
+.ck-bar b{display:block;font-size:1rem;color:var(--c)}
+.ck-bar a{background:var(--c);color:#fff;padding:11px 20px;border-radius:99px;font-weight:700;font-size:.85rem;text-decoration:none}
+.ck-done{max-width:520px;margin:0 auto;padding:110px 20px 80px;text-align:center}
+.ck-done .ok{width:64px;height:64px;border-radius:50%;background:#e6f6ec;color:#2e8b57;display:grid;place-items:center;font-size:1.8rem;margin:0 auto 16px}
+.ck-done h2{font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:8px;color:var(--c)}
+.ck-done p{font-size:.9rem;color:#666;margin-bottom:20px}
+@media(min-width:600px){.ck-plans{grid-template-columns:1fr 1fr}.ck-comps{grid-template-columns:1fr 1fr}.ck-head h1{font-size:2.3rem}}
+@media(min-width:900px){.ck-head{padding-top:130px}.ck-wrap{grid-template-columns:1.5fr .85fr;gap:36px;padding:34px 5% 80px}.ck-sum{position:sticky;top:92px}.ck-bar{display:none}}
+
+.page{display:none}.page.on{display:block}
+[id]{scroll-margin-top:90px}
+body.on-pedido .whatsapp-float{display:none}
+html,body{max-width:100%;overflow-x:hidden}
+img{max-width:100%}
+.mbar{display:none}
+a,button,label,.menu-icon{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+a:active,button:active{transform:scale(.97)}
+.nav-links a.cur{color:var(--brand-color)!important;font-weight:700}
+.cdots{display:none}
+@media(max-width:768px){
+body{font-size:16px;line-height:1.6;padding-bottom:78px}
+.whatsapp-float{display:none!important}
+.mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:1800;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid #e5ebf0;box-shadow:0 -6px 20px rgba(0,0,0,.08)}
+.mbar a{flex:1;min-height:48px;display:flex;align-items:center;justify-content:center;gap:8px;border-radius:99px;font-weight:700;font-size:.95rem;text-decoration:none}
+.mbar .a1{background:var(--brand-color);color:#fff}
+.mbar .a2{background:#25d366;color:#fff}
+body.on-pedido .mbar{display:none}
+nav{padding:6px 5%!important}.logo img{height:34px!important}
+.menu-icon{display:grid!important;place-items:center;width:44px;height:44px;font-size:1.4rem!important}
+.nav-links{width:84%!important;align-items:stretch!important;justify-content:flex-start!important;padding:84px 22px 24px!important;gap:0!important}
+.nav-links li{border-bottom:1px solid #edf1f5}
+.nav-links a{display:block;padding:16px 4px;font-size:1.1rem!important;letter-spacing:0!important;text-transform:none!important}
+.nav-links a.btn-nav{margin-top:20px;text-align:center;padding:15px!important;background:var(--brand-color);color:#fff!important;border:0!important}
+main section{padding:44px 5%!important}
+.final-cta{padding:52px 5%!important}
+h2{font-size:1.65rem!important;margin-bottom:22px!important;line-height:1.2!important}
+h3{font-size:1.2rem!important;line-height:1.3!important}
+main p,main li{font-size:1rem!important;line-height:1.65!important}
+main section p{text-align:left}
+.hero-content p,.stats-grid p,.final-cta p,.quote-big,.branding-hero p,.web-hero p,.mkt-hero p,.sp-b p{text-align:center}
+.sp-b p{text-align:left}
+.hero-container{min-height:auto!important;padding-bottom:28px}
+.hero-content{padding:0 5%!important;padding-top:88px!important}
+.hero-badge{font-size:.78rem!important;letter-spacing:1px!important;padding:7px 14px!important}
+.hero-content h1,.branding-hero h1,.web-hero h1,.mkt-hero h1{font-size:2.1rem!important;line-height:1.15!important;margin-bottom:14px!important}
+.hero-content p{margin-bottom:22px!important}
+.hero-content .reveal[style*=flex]{flex-direction:column!important;gap:12px!important;align-items:stretch!important}
+.branding-hero,.web-hero,.mkt-hero{height:auto!important;min-height:0!important;padding:96px 5% 40px!important}
+.btn-huge,.price-cta,.hero-content a{display:flex!important;align-items:center;justify-content:center;min-height:52px;width:100%;padding:14px 20px!important;font-size:1rem!important;letter-spacing:.3px!important;text-transform:none!important;margin-top:0!important}
+.quote-big{padding:40px 6%!important;font-size:1.2rem!important}
+.grid-services,.stats-grid,.dna-grid,.split-section,.feature-grid,.price-steps{grid-template-columns:1fr!important;gap:16px!important}
+.portfolio-grid,.pricing-grid{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px!important;margin:0 -5%;padding:4px 5% 14px!important;scrollbar-width:none}
+.portfolio-grid::-webkit-scrollbar,.pricing-grid::-webkit-scrollbar{display:none}
+.portfolio-grid>*,.pricing-grid>*{flex:0 0 86%;scroll-snap-align:center}
+.pricing-grid>*:nth-child(2){order:-1}
+.pricing-grid{padding-top:20px!important}
+main h2+p,main h2+.lead{margin-top:0!important;margin-bottom:22px!important}
+.stats-grid{padding:30px 5%!important}
+.price-card{padding:22px 20px!important}
+.split-image img,.dna-image img,.service-img{height:220px!important}
+.timeline{padding:10px 0!important}
+.compare-wrap{overflow-x:auto}
+.legal-header{padding:92px 5% 28px!important}
+.sp{width:92%!important}
+.sp-img{height:130px!important}
+.sp-nav{top:90px!important}
+.sp-b h4{font-size:1.2rem!important}
+.sp-b a{min-height:46px}
+.sp-top{font-size:.85rem!important}
+footer{padding-bottom:20px}
+.footer-link{display:block!important;padding:10px 0!important;font-size:1rem!important}
+.cdots{display:flex;justify-content:center;align-items:center;gap:8px;margin:0 0 14px}
+.cdots button{width:10px;height:10px;border-radius:99px;border:0;padding:0;background:#c5d0dc;transition:.25s}
+.cdots button.on{width:26px;background:var(--brand-color)}
+.pricing-grid+.cdots button{background:rgba(255,255,255,.3)}
+.pricing-grid+.cdots button.on{background:#fff}
+.nav-links a.cur{border-left:3px solid var(--brand-color);padding-left:12px!important}
+}
+.sp:hover,.sp:active,.sp:focus-within{animation-play-state:paused}
+@media(max-width:768px){@keyframes spFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}}
 </style>
 </head>
 <body>
@@ -272,18 +542,19 @@
 </a>
 
 <nav>
-    <div class="logo"><a href="index.html"><img src="BGI_logo.png?v=2" alt="BGI"></a></div>
-    <div class="menu-icon" onclick="toggleMenu()"><i class="fa fa-bars"></i></div>
+    <div class="logo"><a href="#/"><img src="BGI_logo.png?v=2" alt="BGI"></a></div>
+    <div class="menu-icon" onclick="toggleMenu()" role="button" tabindex="0" aria-label="Abrir menu"><i class="fa fa-bars"></i></div>
     <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Início</a></li>
-        <li><a href="branding.html">Branding</a></li>
-        <li><a href="website.html">Website</a></li>
-        <li><a href="marketing.html">Marketing</a></li>
-        <li><a href="#portfolio">Portfólio</a></li>
-        <li><a href="#precos">Preços</a></li>
-        <li><a href="agendar.html" class="btn-nav">Agendar</a></li>
+        <li><a href="#/">Início</a></li>
+        <li><a href="#/branding">Branding</a></li>
+        <li><a href="#/website">Website</a></li>
+        <li><a href="#/marketing">Marketing</a></li>
+        <li><a href="#/portfolio">Portfólio</a></li>
+        <li><a href="#/precos">Preços</a></li>
+        <li><a href="#/pedido" class="btn-nav">Fazer pedido</a></li>
     </ul>
 </nav>
+<main><div class="page on" id="p-home">
 
 <main>
     <!-- HERO -->
@@ -297,8 +568,8 @@
                 A BGI constrói sites, estratégias de redes sociais e sistemas digitais para empresas moçambicanas que querem crescer.
             </p>
             <div class="reveal" style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
-                <a href="#portfolio" class="btn-huge" style="padding: 18px 40px; font-size: 0.8rem;">Ver o Nosso Trabalho</a>
-                <a href="#precos" class="btn-huge" style="padding: 18px 40px; font-size: 0.8rem; background: transparent; color: var(--brand-color); border: 2px solid var(--brand-color); box-shadow: none;">Ver Preços</a>
+                <a href="#/portfolio" class="btn-huge" style="padding: 18px 40px; font-size: 0.8rem;">Ver o Nosso Trabalho</a>
+                <a href="#/precos" class="btn-huge" style="padding: 18px 40px; font-size: 0.8rem; background: transparent; color: var(--brand-color); border: 2px solid var(--brand-color); box-shadow: none;">Ver Preços</a>
             </div>
             <div class="sp" id="sp" role="region" aria-label="Tipos de site e preços"><div class="sp-top"><i></i>Crie o seu site com a BGI</div><button class="sp-nav sp-prev" id="sp-prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button><button class="sp-nav sp-next" id="sp-next" aria-label="Seguinte"><i class="fas fa-chevron-right"></i></button><div id="sp-slides"></div><div class="sp-d" id="sp-dots"></div><div class="sp-bar" id="sp-bar"></div></div>
         </div>
@@ -317,21 +588,21 @@
     <section id="servicos">
         <h2 class="reveal">O que <span class="serif">fazemos</span></h2>
         <div class="grid-services">
-            <a href="branding.html" class="service-card reveal">
+            <a href="#/branding" class="service-card reveal">
                 <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=800" class="service-img" alt="Branding">
                 <div class="service-info">
                     <h3>Branding & Identidade</h3>
                     <p>Logótipo, paleta de cores, tipografia e guia de marca que comunica autoridade e confiança.</p>
                 </div>
             </a>
-            <a href="website.html" class="service-card reveal">
+            <a href="#/website" class="service-card reveal">
                 <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800" class="service-img" alt="Web Design">
                 <div class="service-info">
                     <h3>Sites & Sistemas Web</h3>
                     <p>Sites profissionais, rápidos e optimizados para mobile — incluindo IA integrada para atendimento automático.</p>
                 </div>
             </a>
-            <a href="marketing.html" class="service-card reveal">
+            <a href="#/marketing" class="service-card reveal">
                 <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=800" class="service-img" alt="Marketing">
                 <div class="service-info">
                     <h3>Marketing Digital</h3>
@@ -364,7 +635,7 @@
                         <span class="ptag">M-Pesa</span>
                         <span class="ptag">SEO</span>
                     </div>
-                    <a href="#" class="portfolio-link">Ver detalhes <i class="fas fa-arrow-right" style="font-size:0.7rem;"></i></a>
+                    <a href="https://wa.me/258864400354?text=Ol%C3%A1%20BGI%21%20Gostei%20do%20site%20da%20Casa%20Windows%20e%20quero%20algo%20parecido." target="_blank" rel="noopener" class="portfolio-link">Quero um site assim <i class="fas fa-arrow-right" style="font-size:0.7rem;"></i></a>
                 </div>
             </div>
 
@@ -403,7 +674,7 @@
                         <span class="ptag">Branding</span>
                         <span class="ptag">Design</span>
                     </div>
-                    <a href="#" class="portfolio-link">Ver detalhes <i class="fas fa-arrow-right" style="font-size:0.7rem;"></i></a>
+                    <a href="https://wa.me/258864400354?text=Ol%C3%A1%20BGI%21%20Gostei%20do%20site%20da%20Zavanna%20Build%20e%20quero%20algo%20parecido." target="_blank" rel="noopener" class="portfolio-link">Quero um site assim <i class="fas fa-arrow-right" style="font-size:0.7rem;"></i></a>
                 </div>
             </div>
 
@@ -485,7 +756,7 @@
                     <li>Configuração Facebook Business</li>
                     <li>Entrega em 7–10 dias</li>
                 </ul>
-                <a href="agendar.html" class="price-cta outline">Começar →</a>
+                <a href="#/pedido/start" class="price-cta outline">Começar →</a>
             </div>
 
             <div class="price-card featured">
@@ -509,7 +780,7 @@
                     <li>WhatsApp Business configurado</li>
                     <li>SEO avançado + Schema.org</li>
                 </ul>
-                <a href="agendar.html" class="price-cta filled">Quero Este →</a>
+                <a href="#/pedido/growth" class="price-cta filled">Quero Este →</a>
             </div>
 
             <div class="price-card">
@@ -530,7 +801,7 @@
                     <li>Suporte prioritário directo</li>
                     <li>Optimização contínua de SEO</li>
                 </ul>
-                <a href="agendar.html" class="price-cta outline">Saber Mais →</a>
+                <a href="#/pedido/pro" class="price-cta outline">Saber Mais →</a>
             </div>
 
         </div>
@@ -568,7 +839,7 @@
             <div class="price-step"><b>03</b><h4>Começamos a construir</h4><p>Do site às redes sociais, acompanhamos até ao lançamento e depois dele.</p></div>
         </div>
 
-        <p class="pricing-note reveal">Preços em Meticais. Pacotes personalizados disponíveis para projectos maiores. <a href="agendar.html">Fale connosco →</a></p>
+        <p class="pricing-note reveal">Preços em Meticais. Pacotes personalizados disponíveis para projectos maiores. <a href="#/pedido">Fale connosco →</a></p>
     </section>
 
     <!-- QUOTE -->
@@ -582,10 +853,370 @@
         <p style="max-width: 560px; margin: 0 auto; margin-bottom: 20px; color: var(--sec);">
             Agende uma conversa gratuita de 15 minutos. Analisamos o seu negócio e dizemos exactamente o que faz sentido para si.
         </p>
-        <a href="agendar.html" class="btn-huge">Agendar Conversa Gratuita</a>
+        <a href="#/pedido" class="btn-huge">Agendar Conversa Gratuita</a>
     </section>
 </main>
 
+</div>
+<div class="page" id="p-branding">
+
+    <header class="branding-hero">
+        <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=2000" class="hero-img-bg" alt="Branding Concept">
+        <div class="hero-content">
+            <h1 class="reveal">Identidade de <br><span class="serif">Alto Valor.</span></h1>
+            <p class="reveal">Projetamos a estética do sucesso através de sistemas visuais inteligentes.</p>
+        </div>
+    </header>
+
+    <section class="split-section">
+        <div class="split-image reveal">
+            <img src="https://images.unsplash.com/photo-1509343256512-d77a5cb3791b?q=80&w=1000" alt="Design Minimalista">
+        </div>
+        <div class="split-text reveal">
+            <h2 class="serif" style="text-align: left; font-size: 2.8rem; margin-bottom: 30px; color: var(--text);">A Psicologia por trás do <span style="color: var(--brand-color)">Impacto</span>.</h2>
+            <p style="color: var(--sec); margin-bottom: 25px;">Não escolhemos cores apenas porque são bonitas. Na BGI, cada traço tipográfico e cada código hexadecimal é selecionado para evocar uma resposta emocional específica no seu cliente ideal.</p>
+            <p style="color: var(--sec);">Branding é o que as pessoas dizem de si quando não está na sala. Nós garantimos que elas falem sobre <strong>confiança, liderança e exclusividade</strong>.</p>
+        </div>
+    </section>
+
+    <section style="background: var(--soft-gray);">
+        <h2 class="reveal">Engenharia de <span class="serif">Marca</span></h2>
+        <div class="method-grid">
+            <div class="method-card reveal">
+                <span class="method-number">01</span>
+                <h3>Análise Genética</h3>
+                <p style="color: var(--sec); font-size: 0.95rem;">Identificamos o núcleo do seu negócio para criar uma base visual autêntica e inabalável.</p>
+            </div>
+            <div class="method-card reveal">
+                <span class="method-number">02</span>
+                <h3>Construção Visual</h3>
+                <p style="color: var(--sec); font-size: 0.95rem;">Desenvolvimento de logotipos e ativos que mantêm a clareza em qualquer suporte ou escala.</p>
+            </div>
+            <div class="method-card reveal">
+                <span class="method-number">03</span>
+                <h3>Consistência de Elite</h3>
+                <p style="color: var(--sec); font-size: 0.95rem;">Manuais de marca detalhados para que a sua autoridade nunca seja diluída ou mal interpretada.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="reveal" style="margin-bottom: 10px;">Portfólio de <span class="serif">Conceitos</span></h2>
+        <p class="reveal" style="text-align: center; color: var(--sec); margin-bottom: 60px;">Onde a clareza encontra a sofisticação.</p>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item item-1 reveal">
+                <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=1000" alt="Estúdio de Design">
+            </div>
+            <div class="gallery-item item-2 reveal">
+                <img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=1000" alt="Texturas">
+            </div>
+            <div class="gallery-item item-3 reveal">
+                <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1000" alt="Digital Branding">
+            </div>
+            <div class="gallery-item item-4 reveal">
+                <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1000" alt="Minimalist Work">
+            </div>
+        </div>
+    </section>
+
+    <section class="reveal">
+        <div class="cta-branding">
+            <h2 class="serif" style="color: #fff; font-size: 2.5rem;">Pronto para ser Referência?</h2>
+            <p style="opacity: 0.9; margin-top: 10px;">Transforme a sua percepção de mercado com um branding de autoridade.</p>
+            <a href="#/pedido" class="btn-white">Solicitar Diagnóstico de Marca</a>
+        </div>
+    </section>
+
+    </div>
+<div class="page" id="p-website">
+
+    <header class="web-hero">
+        <div class="hero-decor">CODE</div>
+        <div class="hero-content">
+            <h1 class="reveal">Web <br><span style="font-style: italic;">Engineering.</span></h1>
+            <p class="reveal">Desenvolvemos plataformas robustas que unem design de vanguarda e performance técnica inabalável.</p>
+        </div>
+    </header>
+
+    <section>
+        <div class="feature-grid">
+            <div class="feature-text reveal">
+                <h2>Onde a Estética <br>encontra a <span style="color: var(--brand-color)">Engenharia.</span></h2>
+                <p style="color: var(--sec); margin-bottom: 20px;">Um website não deve ser apenas bonito; ele deve ser uma ferramenta de vendas implacável. Na BGI, construímos ecossistemas digitais focados na experiência do utilizador (UX) e na conversão.</p>
+                <p style="color: var(--sec);">Nossa engenharia garante tempos de carregamento instantâneos e uma interface que posiciona sua marca como líder do mercado.</p>
+            </div>
+            <div class="feature-image reveal">
+                <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2070" alt="Workplace BGI">
+            </div>
+        </div>
+    </section>
+
+    <div class="wide-showcase reveal"></div>
+
+    <section style="background: var(--soft-gray);">
+        <h2 style="text-align: center; font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 20px;">Padrões de <span style="color: var(--brand-color)">Excelência</span></h2>
+        <p style="text-align: center; color: var(--sec); margin-bottom: 60px;">Tecnologia de ponta para negócios que não aceitam o segundo lugar.</p>
+        
+        <div class="tech-grid">
+            <div class="tech-card reveal">
+                <i class="fa fa-bolt"></i>
+                <h3>Ultra Performance</h3>
+                <p style="color: var(--sec);">Websites otimizados para carregar em menos de 2 segundos. Velocidade é autoridade.</p>
+            </div>
+            <div class="tech-card reveal">
+                <i class="fa fa-mobile"></i>
+                <h3>Mobile First</h3>
+                <p style="color: var(--sec);">Experiência impecável em qualquer dispositivo, garantindo que o seu cliente o encontre em qualquer lugar.</p>
+            </div>
+            <div class="tech-card reveal">
+                <i class="fa fa-shield"></i>
+                <h3>Segurança Máxima</h3>
+                <p style="color: var(--sec);">Protocolos de segurança avançados para proteger os seus dados e a confiança dos seus clientes.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="reveal">
+        <div class="web-cta">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 3rem;">Sua sede digital está à altura da sua marca?</h2>
+            <p style="opacity: 0.9; margin-top: 20px;">Não deixe o seu posicionamento nas mãos de amadores. Vamos construir algo extraordinário.</p>
+            <a href="#/pedido" class="btn-web">Solicitar Projeto Web</a>
+        </div>
+    </section>
+
+    </div>
+<div class="page" id="p-marketing">
+
+    <header class="mkt-hero">
+        <div class="hero-image-overlay"></div>
+        <div class="hero-content">
+            <h1 class="reveal">Marketing <br>de Influência e <span style="font-style: italic;">Dados.</span></h1>
+            <p class="reveal">Escalamos negócios através de funis de alta conversão e inteligência de mercado. O seu ROI é a nossa métrica principal.</p>
+            <div class="reveal"><a href="#/marketing/start" class="btn-mkt" style="padding: 15px 40px; font-size: 0.8rem;">Ver Metodologia</a></div>
+        </div>
+    </header>
+
+    <section id="start">
+        <div class="impact-grid">
+            <div class="impact-image reveal">
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070" alt="Marketing BGI">
+            </div>
+            <div class="impact-text reveal">
+                <h2>Venda mais, <br>gaste menos.</h2>
+                <p style="margin-bottom: 20px; font-size: 1.1rem; color: var(--sec);">Muitas empresas "queimam" dinheiro em anúncios que não convertem. Na BGI, aplicamos Engenharia de Aquisição. Cada cêntimo investido é rastreado, otimizado e transformado em lucro líquido.</p>
+                <p style="color: var(--sec);">Combinamos psicologia do consumidor com tráfego pago avançado para dominar os algoritmos de Google e Meta.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="numbers-strip reveal">
+        <div class="num-item"><h3>+15M</h3><p>Impressões Geradas</p></div>
+        <div class="num-item"><h3>4.8x</h3><p>ROI Médio Global</p></div>
+        <div class="num-item"><h3>100%</h3><p>Foco em Performance</p></div>
+    </div>
+
+    <section>
+        <h2 style="text-align: center; margin-bottom: 60px; font-family: 'Playfair Display', serif;">Nossos Pilares de <span style="color: var(--brand-color)">Crescimento</span></h2>
+        <div class="strategy-container">
+            <div class="strategy-card reveal">
+                <i class="fa fa-line-chart"></i>
+                <h3>Tráfego Pago</h3>
+                <p style="color: var(--sec);">Google Ads, Meta e LinkedIn. Colocamos a sua marca na frente de quem já quer comprar.</p>
+            </div>
+            <div class="strategy-card reveal">
+                <i class="fa fa-envelope-o"></i>
+                <h3>Funis de Vendas</h3>
+                <p style="color: var(--sec);">Automação que trabalha 24h por dia para converter leads em clientes fiéis.</p>
+            </div>
+            <div class="strategy-card reveal">
+                <i class="fa fa-bar-chart"></i>
+                <h3>Data Intelligence</h3>
+                <p style="color: var(--sec);">Relatórios em tempo real. Você saberá exatamente de onde vem cada venda.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="reveal">
+        <div class="cta-final">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 20px;">Sua concorrência já está a investir. <br>E você?</h2>
+            <p style="margin-bottom: 40px; color: var(--sec);">Não deixe a sua quota de mercado nas mãos dos outros. Agende a sua consultoria estratégica agora.</p>
+            <a href="#/pedido" class="btn-mkt">Quero Escalar Agora</a>
+        </div>
+    </section>
+
+    </div>
+<div class="page" id="p-pedido">
+<div id="ck-main">
+<header class="ck-head"><h1>Monte o seu pedido</h1><p>Escolha o plano e ajuste os componentes. Não paga nada agora: confirmamos tudo consigo antes de começar.</p></header>
+<div class="ck-wrap">
+<form id="ck-form" novalidate>
+<h3 class="ck-h"><b>1</b>Escolha o plano</h3>
+<div class="ck-plans" id="ck-plans"></div>
+<div id="ck-more">
+<h3 class="ck-h"><b>2</b>Personalize</h3>
+<p class="ck-hint">O que diz "Incluído" já faz parte do plano. Toque nos outros para juntar ou tirar.</p>
+<div class="ck-comps" id="ck-comps"></div>
+</div>
+<h3 class="ck-h"><b>3</b>Os seus dados</h3>
+<div class="ck-f" id="f-nome"><label class="t" for="ck-nome">Nome</label><input type="text" id="ck-nome" autocomplete="name" placeholder="Ex.: João Silva"><div class="ck-err">Escreva o seu nome.</div></div>
+<div class="ck-f" id="f-tel"><label class="t" for="ck-tel">WhatsApp</label><input type="tel" id="ck-tel" autocomplete="tel" inputmode="tel" placeholder="+258 84 000 0000"><div class="ck-err">Escreva um número válido.</div></div>
+<div class="ck-f"><label class="t" for="ck-biz">Nome do negócio (opcional)</label><input type="text" id="ck-biz" autocomplete="organization" placeholder="Ex.: Padaria Esperança"></div>
+<div class="ck-f"><label class="t" for="ck-mail">Email (opcional)</label><input type="email" id="ck-mail" autocomplete="email" inputmode="email" placeholder="nome@exemplo.com"></div>
+<div class="ck-f"><span class="t" style="display:block;font-size:.9rem;font-weight:600;margin-bottom:6px;color:#333">Como prefere pagar?</span>
+<div class="ck-chips" id="ck-pay"><label><input type="radio" name="pay" value="M-Pesa" checked><span>M-Pesa</span></label><label><input type="radio" name="pay" value="E-Mola"><span>E-Mola</span></label><label><input type="radio" name="pay" value="Transferência bancária"><span>Transferência</span></label><label><input type="radio" name="pay" value="A combinar"><span>A combinar</span></label></div></div>
+<div class="ck-f"><label class="t" for="ck-msg">Quer contar mais? (opcional)</label><textarea id="ck-msg" rows="3" placeholder="O seu maior desafio hoje"></textarea></div>
+</form>
+<aside class="ck-sum" id="ck-sum">
+<h3>Resumo do pedido</h3>
+<div id="ck-lines"></div>
+<div id="ck-tots"></div>
+<p class="ck-note">Valores em Meticais. O orçamento final é confirmado por nós em até 24h úteis, antes de qualquer pagamento.</p>
+<button type="button" class="ck-btn" id="ck-send"><i class="fas fa-paper-plane"></i> Enviar pedido</button>
+</aside>
+</div>
+<div class="ck-bar"><div>Total<b id="ck-bt">0 MT</b></div><a href="#ck-sum" id="ck-go">Ver resumo</a></div>
+</div>
+<div class="ck-done" id="ck-done" hidden>
+<div class="ok"><i class="fas fa-check"></i></div>
+<h2 id="ck-dt">Pedido recebido</h2>
+<p id="ck-dp">Respondemos em até 24h úteis.</p>
+<a class="ck-btn wa" id="ck-wa" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Continuar no WhatsApp</a>
+<button type="button" class="ck-btn ghost" id="ck-new">Fazer outro pedido</button>
+</div>
+</div>
+<div class="page" id="p-termos">
+
+    <header class="legal-header">
+        <h1 class="reveal">Termos e Condições</h1>
+        <p class="last-update reveal">Última atualização:Dezembro de 2025</p>
+    </header>
+
+    <main class="legal-content">
+        
+        <section class="legal-section reveal">
+            <h2>1. Aceitação dos Termos</h2>
+            [span_0](start_span)<p>Ao contratar os serviços da BGI Digital, o Cliente confirma ter lido, compreendido e aceito integralmente estes Termos e Condições.[span_0](end_span)</p>
+            [span_1](start_span)<p>A contratação de qualquer serviço implica concordância automática com todas as cláusulas aqui estabelecidas.[span_1](end_span)</p>
+        </section>
+
+        <section class="legal-section reveal">
+            <h2>2. Definições</h2>
+            <ul>
+                [span_2](start_span)<li><strong>BGI/Prestador:</strong> BGI Digital, empresa prestadora de serviços digitais, criativos e estratégicos.[span_2](end_span)</li>
+                [span_3](start_span)<li><strong>Cliente/Contratante:</strong> Pessoa física ou jurídica que contrata os serviços da BGI.[span_3](end_span)</li>
+                [span_4](start_span)<li><strong>Serviços:</strong> Todos os serviços oferecidos pela BGI Digital, incluindo mas não limitados a: criação de websites, branding, identidade visual, design gráfico, gestão de presença digital, consultoria estratégica e serviços relacionados.[span_4](end_span)</li>
+                [span_5](start_span)<li><strong>Projeto Pontual:</strong> Serviços com escopo definido e entrega única (Planos Essential e Impact).[span_5](end_span)</li>
+                [span_6](start_span)<li><strong>Serviço Contínuo:</strong> Serviços prestados mensalmente com escopo recorrente (Planos Partner e Executive).[span_6](end_span)</li>
+            </ul>
+        </section>
+
+        <section class="legal-section reveal">
+            <h2>3. Serviços Oferecidos</h2>
+            <h3>3.1 Modalidades de Serviço</h3>
+            <p>A BGI oferece quatro planos principais:</p>
+            <ul>
+                [span_7](start_span)<li><strong>BGI Essential:</strong> Serviço pontual para presença digital básica.[span_7](end_span)</li>
+                [span_8](start_span)<li><strong>BGI Impact:</strong> Serviço pontual para negócios em crescimento.[span_8](end_span)</li>
+                [span_9](start_span)<li><strong>BGI Partner:</strong> Serviço contínuo mensal com gestão digital.[span_9](end_span)</li>
+                [span_10](start_span)<li><strong>BGI Executive:</strong> Serviço contínuo Premium com estratégia avançada.[span_10](end_span)</li>
+            </ul>
+            <h3>3.2 Escopo dos Serviços</h3>
+            [span_11](start_span)<p>O escopo detalhado de cada projeto será definido em Proposta Comercial específica e/ou Contrato de Prestação de Serviços individual, que complementam estes Termos e Condições.[span_11](end_span)</p>
+        </section>
+
+        <section class="legal-section reveal">
+            <h2>4. Processo de Contratação</h2>
+            <h3>4.1 Etapas</h3>
+            <ul>
+                <li>Reunião de descoberta e levantamento de necessidades;</li>
+                <li>Apresentação de Proposta Comercial;</li>
+                <li>Aprovação da proposta pelo Cliente;</li>
+                <li>Assinatura de Contrato de Prestação de Serviços;</li>
+                <li>Pagamento inicial conforme acordado;</li>
+                [span_12](start_span)<li>Início da execução dos serviços.[span_12](end_span)</li>
+            </ul>
+            <h3>4.2 Briefing</h3>
+            [span_13](start_span)<p>O Cliente compromete-se a fornecer todas as informações, materiais e acessos necessários para a execução adequada dos serviços dentro dos prazos acordados.[span_13](end_span)</p>
+        </section>
+
+        <section class="legal-section reveal">
+            <h2>5. Condições Financeiras</h2>
+            <h3>5.1 Formas de Pagamento</h3>
+            [span_14](start_span)<p>A BGI aceita pagamento via Transferência bancária, M-Pesa / e-Mola, Pagamento em espécie (presencial) ou outras formas acordadas previamente.[span_14](end_span)</p>
+
+            <h3>5.2 Projetos Pontuais</h3>
+            <p>Estrutura padrão de pagamento: 50% de sinal no momento da contratação e 50% após conclusão e aprovação final do projeto. [span_15](start_span)O projeto só será iniciado após confirmação do pagamento do sinal.[span_15](end_span)</p>
+
+            <h3>5.3 Serviços Contínuos (Mensalidades)</h3>
+            <p>Pagamento mensal antecipado até o dia 5 de cada mês. [span_16](start_span)Atrasos superiores a 10 dias resultam em suspensão temporária dos serviços; superiores a 30 dias em rescisão automática.[span_16](end_span)</p>
+
+            <h3>5.4 Ajustes e Reembolsos</h3>
+            <p>Qualquer solicitação fora do escopo original será orçada separadamente. [span_17](start_span)Pagamentos já efetuados não são reembolsáveis, exceto em caso de não cumprimento comprovado por parte da BGI conforme escopo acordado.[span_17](end_span)</p>
+        </section>
+
+        <section class="legal-section reveal">
+            <h2>6. Prazos e Entregas</h2>
+            <p>Os prazos de entrega serão estabelecidos na Proposta Comercial. [span_18](start_span)Atrasos causados por falta de informações ou feedbacks do Cliente resultarão em extensão proporcional dos prazos de entrega, sem ônus para a BGI.[span_18](end_span)</p>
+            <p>Cada projeto pontual inclui até 2 (duas) rodadas de revisões dentro do escopo original. [span_19](start_span)Revisões adicionais serão cobradas separadamente.[span_19](end_span)</p>
+        </section>
+
+        <section class="legal-section reveal">
+            <h2>7. Propriedade Intelectual</h2>
+            <p>Após pagamento integral, o Cliente recebe os direitos de uso comercial dos materiais criados. [span_20](start_span)[span_21](start_span)O código fonte desenvolvido pela BGI permanece de propriedade da BGI, mas o Cliente recebe licença perpétua de uso para seu projeto específico.[span_20](end_span)[span_21](end_span)</p>
+            [span_22](start_span)<p>A BGI reserva o direito de incluir o projeto em seu portfólio e mencionar o Cliente como referência, salvo acordo contrário.[span_22](end_span)</p>
+        </section>
+
+        <section class="legal-section reveal">
+            <h2>8. Responsabilidades</h2>
+            <h3>Deveres do Cliente</h3>
+            <ul>
+                [span_23](start_span)<li>Fornecer informações verdadeiras e completas;[span_23](end_span)</li>
+                [span_24](start_span)<li>Disponibilizar materiais necessários (textos, imagens, logos);[span_24](end_span)</li>
+                [span_25](start_span)<li>Realizar pagamentos nas datas acordadas;[span_25](end_span)</li>
+                [span_26](start_span)<li>Manter confidencialidade de acessos e credenciais.[span_26](end_span)</li>
+            </ul>
+            <h3>Deveres da BGI</h3>
+            <ul>
+                [span_27](start_span)<li>Executar os serviços com qualidade e profissionalismo;[span_27](end_span)</li>
+                [span_28](start_span)<li>Cumprir prazos acordados (salvo atrasos causados pelo Cliente);[span_28](end_span)</li>
+                [span_29](start_span)<li>Manter confidencialidade sobre informações do Cliente.[span_29](end_span)</li>
+            </ul>
+        </section>
+
+        <section class="legal-section reveal">
+            <h2>9. Limitações de Responsabilidade</h2>
+            [span_30](start_span)<p>A BGI não se responsabiliza por conteúdos fornecidos pelo Cliente, violações de direitos autorais em materiais do Cliente ou falhas em serviços de terceiros (hospedagem, plataformas, etc).[span_30](end_span)</p>
+            [span_31](start_span)<p>A BGI não garante resultados específicos de vendas, tráfego ou conversões, embora trabalhe com melhores práticas para maximizar performance.[span_31](end_span)</p>
+        </section>
+
+        <section class="legal-section reveal">
+            <h2>10. Rescisão e Cancelamento</h2>
+            <p><strong>Projetos Pontuais:</strong> Cliente pode cancelar até 48h após assinatura com reembolso de 50% do sinal. [span_32](start_span)Após início, não há reembolso do sinal.[span_32](end_span)</p>
+            [span_33](start_span)<p><strong>Serviços Contínuos:</strong> Cancelamento com aviso prévio de 30 dias por ambas as partes.[span_33](end_span)</p>
+        </section>
+
+        <section class="legal-section reveal">
+            <h2>11. Disposições Finais</h2>
+            [span_34](start_span)<p>Nenhuma das partes será responsabilizada por força maior (desastres naturais, guerras, etc).[span_34](end_span)</p>
+            <p>A BGI reserva-se o direito de modificar estes Termos. [span_35](start_span)Clientes ativos serão notificados com 30 dias de antecedência.[span_35](end_span)</p>
+            <p>Estes Termos são regidos pelas leis da República de Moçambique. [span_36](start_span)Disputas serão resolvidas preferencialmente por mediação ou no foro da comarca de Nampula ou Maputo.[span_36](end_span)</p>
+        </section>
+
+        <section class="legal-section reveal" style="background: var(--brand-soft); padding: 40px; border-radius: 4px;">
+            <h2 style="border:none;">Contato</h2>
+            <p>Para questões sobre estes Termos e Condições:</p>
+            <p><strong>BGI - Blaise Group Industries</strong><br>
+            WhatsApp: <a href="https://wa.me/258864400354" style="color:var(--brand-color);">+258 86 440 0354</a><br>
+            Email: blaisegroupindustries@gmail.com<br>
+            [span_37](start_span)Website: www.bgi.co.mz[span_37](end_span)</p>
+        </section>
+
+    </main>
+
+    </div>
+</main>
+<div class="mbar"><a class="a1" href="#/pedido">Fazer pedido</a><a class="a2" href="https://wa.me/258864400354" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a></div>
 <footer>
     <div class="footer-grid">
         <div>
@@ -594,10 +1225,11 @@
         </div>
         <div>
             <h5 style="margin-bottom: 20px; color: var(--brand-color); font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;">Navegação</h5>
-            <a href="index.html" class="footer-link">Início</a>
-            <a href="#portfolio" class="footer-link">Portfólio</a>
-            <a href="#precos" class="footer-link">Preços</a>
-            <a href="agendar.html" class="footer-link">Agendar</a>
+            <a href="#/" class="footer-link">Início</a>
+            <a href="#/portfolio" class="footer-link">Portfólio</a>
+            <a href="#/precos" class="footer-link">Preços</a>
+            <a href="#/pedido" class="footer-link">Fazer pedido</a>
+            <a href="#/termos" class="footer-link">Termos e Condições</a>
         </div>
         <div>
             <h5 style="margin-bottom: 20px; color: var(--brand-color); font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;">Contacto</h5>
@@ -608,6 +1240,7 @@
     </div>
     <p style="text-align: center; margin-top: 60px; font-size: 0.7rem; opacity: 0.3;">&copy; 2026 BGI — Blaise Group Industries. Todos os direitos reservados.</p>
 </footer>
+
 
 <script>
     function toggleMenu() {
@@ -636,10 +1269,7 @@
         entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-</script>
-
-<!-- CONTADOR CLIENTE FUNDADOR -->
-<script>
+</script><script>
     const FOUNDER_DEADLINE = new Date(2026, 11, 31, 23, 59, 59); // 31 Dez 2026
     const founderBar = document.querySelector('.founder-bar');
     const founderLabel = document.getElementById('founderLabel');
@@ -649,104 +1279,7 @@
     } else {
         founderLabel.textContent = daysLeft === 1 ? 'Último dia' : 'Faltam ' + daysLeft + ' dias';
     }
-</script>
-
-<script>
-  const bgiHistory = [];
-  const bgiMsgs = document.getElementById('bgiMessages');
-  const bgiInput = document.getElementById('bgiInput');
-
-  bgiInput.addEventListener('keydown', e => { if (e.key === 'Enter') sendBgiMsg(); });
-
-  function toggleBgiChat() {
-    const fab = document.getElementById('bgiFab');
-    const widget = document.getElementById('bgiWidget');
-    const isOpen = widget.classList.contains('open');
-    if (isOpen) {
-      widget.classList.remove('visible');
-      setTimeout(() => widget.classList.remove('open'), 250);
-      fab.classList.remove('open');
-    } else {
-      widget.classList.add('open');
-      requestAnimationFrame(() => requestAnimationFrame(() => widget.classList.add('visible')));
-      fab.classList.add('open');
-      setTimeout(() => bgiInput.focus(), 280);
-    }
-  }
-
-  function addBgiMsg(text, role) {
-    const wrap = document.createElement('div');
-    wrap.className = `bgi-msg ${role}`;
-    const av = document.createElement('div');
-    av.className = `bgi-msg-av ${role === 'bot' ? 'bot' : 'usr'}`;
-    av.textContent = role === 'bot' ? 'BGI' : 'EU';
-    const bubble = document.createElement('div');
-    bubble.className = 'bgi-bubble';
-    bubble.textContent = text;
-    wrap.appendChild(av); wrap.appendChild(bubble);
-    bgiMsgs.appendChild(wrap);
-    bgiMsgs.scrollTop = bgiMsgs.scrollHeight;
-  }
-
-  function showBgiTyping() {
-    const t = document.createElement('div');
-    t.className = 'bgi-msg bot'; t.id = 'bgiTyping';
-    const av = document.createElement('div');
-    av.className = 'bgi-msg-av bot'; av.textContent = 'BGI';
-    const ind = document.createElement('div'); ind.className = 'bgi-typing';
-    for (let i = 0; i < 3; i++) { const d = document.createElement('div'); d.className = 'bgi-tdot'; ind.appendChild(d); }
-    t.appendChild(av); t.appendChild(ind);
-    bgiMsgs.appendChild(t);
-    bgiMsgs.scrollTop = bgiMsgs.scrollHeight;
-  }
-
-  function removeBgiTyping() { const t = document.getElementById('bgiTyping'); if (t) t.remove(); }
-
-  async function sendBgiMsg() {
-    const text = bgiInput.value.trim();
-    if (!text) return;
-    bgiInput.value = '';
-    document.getElementById('bgiSendBtn').disabled = true;
-    addBgiMsg(text, 'user');
-    bgiHistory.push({ role: 'user', content: text });
-    showBgiTyping();
-
-    try {
-      const res = await fetch('https://api.anthropic.com/v1/messages', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
-          max_tokens: 250,
-          system: `És o assistente da BGI — Blaise Group Industries, uma agência de presença digital em Moçambique. Serviços: sites profissionais, branding, marketing digital e IA integrada. Preços: Start 8,5–17k MT, Growth 20,4–34k MT, Pro Partner 6,8–11,9k MT/mês.
-
-REGRAS:
-- Máximo 2 frases por resposta. Nunca mais.
-- Uma pergunta de cada vez. Nunca duas.
-- Objectivo: perceber o negócio do cliente e levá-lo a agendar uma conversa gratuita.
-- Recolhe um dado de cada vez: tipo de negócio → o que precisa → já tem site/redes → orçamento → propõe agendar.
-- Tom: profissional, directo, amigável. Nunca excessivamente formal.
-- Nunca dês preços exactos sem perceber o projecto.
-- Língua: português de Moçambique.`,
-          messages: bgiHistory
-        })
-      });
-      const data = await res.json();
-      removeBgiTyping();
-      const reply = data?.content?.[0]?.text || 'Obrigado. A equipa BGI entra em contacto em breve.';
-      addBgiMsg(reply, 'bot');
-      bgiHistory.push({ role: 'assistant', content: reply });
-    } catch {
-      removeBgiTyping();
-      addBgiMsg('Erro de ligação. Contacte-nos via WhatsApp.', 'bot');
-    }
-
-    document.getElementById('bgiSendBtn').disabled = false;
-    bgiInput.focus();
-  }
-</script>
-
-<script>
+</script><script>
 (function(){
 // Edite aqui os tipos de site, preços e imagens do pop-up.
 var S=[
@@ -772,6 +1305,172 @@ document.getElementById('sp-next').onclick=function(){go(cur+1)};
 box.addEventListener('mouseenter',function(){clearTimeout(t);bar.classList.remove('run')});
 box.addEventListener('mouseleave',function(){go(cur)});
 go(0);
+})();
+</script>
+<script>
+(function(){
+// Preços e componentes: edite aqui. t = 'once' (único) ou 'month' (mensal).
+var PLANS={
+ start:{n:'Start',p:8500,t:'once',d:'Site profissional para começar a ser encontrado.',inc:['site','seo','wa']},
+ growth:{n:'Growth',p:20400,t:'once',tag:'Mais popular',d:'Para vender mais: IA, catálogo e pagamentos móveis.',inc:['site','seoa','wa','cat','pay','ia','posts']},
+ pro:{n:'Pro Partner',p:6800,t:'month',d:'A BGI gere o seu site e redes todos os meses.',inc:['gest','posts16','rel','sup']},
+ help:{n:'Ainda não sei',p:0,d:'Conversa gratuita para escolhermos juntos.',inc:[]}};
+var SW=['start','growth'];
+var COMP=[
+ {id:'site',n:'Site até 5 páginas',d:'Rápido e pensado para telemóvel.',ic:'fas fa-globe',pl:SW},
+ {id:'seo',n:'SEO básico',d:'Para aparecer nas pesquisas locais.',ic:'fas fa-magnifying-glass',pl:['start']},
+ {id:'seoa',n:'SEO avançado',d:'Mais visibilidade no Google.',ic:'fas fa-chart-line',pl:SW,p:3400},
+ {id:'wa',n:'WhatsApp e Facebook Business',d:'Contacto direto a partir do site.',ic:'fab fa-whatsapp',pl:SW},
+ {id:'cat',n:'Catálogo de produtos',d:'Mostre o que vende, com encomenda fácil.',ic:'fas fa-store',pl:SW,p:6800},
+ {id:'pay',n:'Pagamentos M-Pesa e E-Mola',d:'Receba do cliente no próprio site.',ic:'fas fa-mobile-screen',pl:SW,p:6800},
+ {id:'ia',n:'Assistente com IA',d:'Responde a clientes a qualquer hora.',ic:'fas fa-robot',pl:SW,p:5100},
+ {id:'book',n:'Reservas via WhatsApp',d:'Para hotéis, salões e serviços.',ic:'fas fa-calendar-check',pl:SW,p:3400},
+ {id:'pages',n:'+3 páginas',d:'Mais espaço para os seus serviços.',ic:'fas fa-file-circle-plus',pl:SW,p:3400},
+ {id:'posts',n:'12 posts prontos',d:'Conteúdo para as redes sociais.',ic:'fas fa-images',pl:SW,p:4250},
+ {id:'dom',n:'Domínio e alojamento (1 ano)',d:'O seu endereço próprio no ar.',ic:'fas fa-globe-africa',pl:SW,p:3400},
+ {id:'logo',n:'Logótipo e identidade visual',d:'Uma marca que transmite confiança.',ic:'fas fa-gem',pl:['start','growth','pro'],p:6800},
+ {id:'gest',n:'Gestão contínua do site',d:'Atualizações e cuidados todos os meses.',ic:'fas fa-screwdriver-wrench',pl:['pro']},
+ {id:'posts16',n:'12 a 16 posts por mês',d:'Criados pela nossa equipa.',ic:'fas fa-images',pl:['pro']},
+ {id:'rel',n:'Relatório mensal',d:'Veja o crescimento em números.',ic:'fas fa-chart-pie',pl:['pro']},
+ {id:'sup',n:'Suporte prioritário',d:'Resposta direta e rápida.',ic:'fas fa-headset',pl:['pro']},
+ {id:'ads',n:'Gestão de anúncios',d:'Google e Meta, com resultados medidos.',ic:'fas fa-bullhorn',pl:['pro'],p:3400,t:'month'},
+ {id:'more',n:'+8 posts por mês',d:'Mais conteúdo para as redes.',ic:'fas fa-plus',pl:['pro'],p:2550,t:'month'}
+];
+var WA='258864400354',FORM='https://formspree.io/f/xojjvvjk';
+var st={plan:'growth',sel:{}};
+function $(i){return document.getElementById(i)}
+function mt(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,'.')+' MT'}
+function shown(){return COMP.filter(function(c){return c.pl.indexOf(st.plan)>-1})}
+function isInc(c){return PLANS[st.plan].inc.indexOf(c.id)>-1}
+function renderPlans(){
+ $('ck-plans').innerHTML=Object.keys(PLANS).map(function(k){var p=PLANS[k];
+  var pr=k==='help'?'Grátis':mt(p.p)+(p.t==='month'?'<small>por mês</small>':'<small>a partir de</small>');
+  return '<label><input type="radio" name="plan" value="'+k+'"'+(st.plan===k?' checked':'')+'><span class="ck-pc"><span class="ck-pn">'+p.n+(p.tag?'<em>'+p.tag+'</em>':'')+'</span><span class="ck-pp">'+pr+'</span><span class="ck-pd">'+p.d+'</span></span></label>'}).join('');
+}
+function renderComps(){
+ $('ck-more').style.display=st.plan==='help'?'none':'';
+ var list=shown().sort(function(a,b){return isInc(b)-isInc(a)});
+ $('ck-comps').innerHTML=list.map(function(c){var inc=isInc(c),on=inc||st.sel[c.id];
+  var tag=inc?'<span class="ck-ct">Incluído</span>':'<span class="ck-ct">+'+mt(c.p)+'<i>'+(c.t==='month'?'por mês':'pagamento único')+'</i></span>';
+  return '<label class="'+(inc?'inc':'')+'"><input type="checkbox" value="'+c.id+'"'+(on?' checked':'')+(inc?' disabled':'')+'><span class="ck-cc"><span class="ck-ic"><i class="'+c.ic+'"></i></span><span><span class="ck-cn">'+c.n+'</span><span class="ck-cd" style="display:block">'+c.d+'</span></span>'+tag+'</span></label>'}).join('');
+}
+function calc(){
+ var p=PLANS[st.plan],once=p.t==='once'?p.p:0,mon=p.t==='month'?p.p:0,ex=[];
+ shown().forEach(function(c){if(!isInc(c)&&st.sel[c.id]){ex.push(c);if(c.t==='month')mon+=c.p;else once+=c.p}});
+ return {p:p,once:once,mon:mon,ex:ex};
+}
+function totTxt(r){
+ if(st.plan==='help')return 'Grátis';
+ var a=[];if(r.once)a.push(mt(r.once));if(r.mon)a.push(mt(r.mon)+'/mês');return a.join(' + ')}
+function renderSum(){
+ var r=calc();
+ var h='<div class="ck-ln"><span>Plano '+r.p.n+'</span><span>'+(st.plan==='help'?'Grátis':mt(r.p.p)+(r.p.t==='month'?'/mês':''))+'</span></div>';
+ r.ex.forEach(function(c){h+='<div class="ck-ln"><span>'+c.n+'</span><span>+'+mt(c.p)+(c.t==='month'?'/mês':'')+'</span></div>'});
+ $('ck-lines').innerHTML=h;
+ var t='';
+ if(st.plan==='help')t='<div class="ck-tot"><span>Total</span><b>Grátis</b></div>';
+ else{if(r.once)t+='<div class="ck-tot"><span>Pagamento único</span><b>'+mt(r.once)+'</b></div>';if(r.mon)t+='<div class="ck-tot"><span>Mensalidade</span><b>'+mt(r.mon)+'</b></div>'}
+ $('ck-tots').innerHTML=t;
+ $('ck-bt').textContent=totTxt(r);
+}
+function render(){renderPlans();renderComps();renderSum()}
+$('ck-plans').addEventListener('change',function(e){
+ if(e.target.name==='plan'){st.plan=e.target.value;st.sel={};renderComps();renderSum()}});
+$('ck-comps').addEventListener('change',function(e){st.sel[e.target.value]=e.target.checked;renderSum()});
+$('ck-go').addEventListener('click',function(e){e.preventDefault();$('ck-sum').scrollIntoView({behavior:'smooth',block:'start'})});
+function bad(id,on){$(id).classList.toggle('bad',on);return on}
+function orderText(r){
+ var l=['Olá BGI! Quero fazer um pedido:','Plano: '+r.p.n+(st.plan==='help'?'':' ('+mt(r.p.p)+(r.p.t==='month'?'/mês':'')+')')];
+ if(r.ex.length)l.push('Extras: '+r.ex.map(function(c){return c.n}).join(', '));
+ l.push('Total: '+totTxt(r));
+ l.push('Nome: '+$('ck-nome').value.trim());
+ if($('ck-biz').value.trim())l.push('Negócio: '+$('ck-biz').value.trim());
+ l.push('Pagamento: '+document.querySelector('input[name=pay]:checked').value);
+ if($('ck-msg').value.trim())l.push('Nota: '+$('ck-msg').value.trim());
+ return l.join('\n')}
+function done(saved,r){
+ $('ck-main').hidden=true;$('ck-done').hidden=false;
+ $('ck-dt').textContent=saved?'Pedido recebido!':'Quase lá';
+ $('ck-dp').textContent=saved?'Respondemos em até 24h úteis. Se preferir falar já, continue no WhatsApp.':'Não conseguimos guardar online. Envie o pedido pelo WhatsApp para não o perder.';
+ $('ck-wa').href='https://wa.me/'+WA+'?text='+encodeURIComponent(orderText(r));
+ window.scrollTo(0,0)}
+$('ck-send').addEventListener('click',function(){
+ var b1=bad('f-nome',$('ck-nome').value.trim().length<2),b2=bad('f-tel',$('ck-tel').value.replace(/\D/g,'').length<9);
+ if(b1||b2){(b1?$('ck-nome'):$('ck-tel')).focus();return}
+ var r=calc(),btn=this;btn.disabled=true;btn.textContent='A enviar...';
+ var f=new FormData();
+ f.append('Plano',r.p.n);f.append('Extras',r.ex.map(function(c){return c.n}).join(', ')||'nenhum');f.append('Total',totTxt(r));
+ f.append('Nome',$('ck-nome').value);f.append('WhatsApp',$('ck-tel').value);f.append('Negócio',$('ck-biz').value);f.append('Email',$('ck-mail').value);
+ f.append('Pagamento preferido',document.querySelector('input[name=pay]:checked').value);f.append('Mensagem',$('ck-msg').value);
+ fetch(FORM,{method:'POST',body:f,headers:{Accept:'application/json'}}).then(function(x){done(x.ok,r)}).catch(function(){done(false,r)}).then(function(){btn.disabled=false;btn.innerHTML='<i class="fas fa-paper-plane"></i> Enviar pedido'});
+});
+$('ck-new').addEventListener('click',function(){$('ck-done').hidden=true;$('ck-main').hidden=false;window.scrollTo(0,0)});
+window.ckInit=function(plan){if(plan&&PLANS[plan]&&plan!==st.plan){st.plan=plan;st.sel={}}$('ck-done').hidden=true;$('ck-main').hidden=false;render()};
+render();
+})();
+</script>
+<script>(function(){
+var PAGES=['home','branding','website','marketing','pedido','termos'];
+var ALIAS={portfolio:['home','portfolio'],precos:['home','precos']};
+var TITLES={home:'BGI | Blaise Group Industries — Presença Digital em Moçambique',branding:'Branding e Identidade | BGI',website:'Engenharia Web | BGI',marketing:'Marketing Estratégico | BGI',pedido:'Fazer pedido | BGI',termos:'Termos e Condições | BGI'};
+var cur=null,docEl=document.documentElement;
+function jump(y){docEl.style.scrollBehavior='auto';window.scrollTo(0,y||0);docEl.style.scrollBehavior=''}
+function closeMenu(){
+ var nl=document.getElementById('navLinks');if(nl)nl.classList.remove('active');
+ var ic=document.querySelector('.menu-icon i');if(ic){ic.classList.add('fa-bars');ic.classList.remove('fa-times')}
+}
+function show(force){
+ var h=location.hash;
+ if(h&&h.indexOf('#/')!==0&&cur)return;
+ var p=(h.indexOf('#/')===0?h.slice(2):'').split('/').filter(Boolean);
+ var first=p[0]||'home',page,anchor;
+ if(ALIAS[first]){page=ALIAS[first][0];anchor=ALIAS[first][1]}
+ else{page=PAGES.indexOf(first)>-1?first:'home';anchor=p[1]}
+ PAGES.forEach(function(n){document.getElementById('p-'+n).classList.toggle('on',n===page)});
+ document.body.classList.toggle('on-pedido',page==='pedido');
+ document.title=TITLES[page];
+ var changed=cur!==page;cur=page;
+ if(page==='pedido'&&window.ckInit)window.ckInit(anchor);
+ var el=(page!=='pedido'&&anchor)?document.getElementById(anchor):null;
+ if(el){if(changed)jump(0);setTimeout(function(){el.scrollIntoView({behavior:changed?'auto':'smooth'})},40)}
+ else if(changed||page==='pedido')jump(0);
+ else if(force)window.scrollTo({top:0,behavior:'smooth'});
+ closeMenu();
+ [].forEach.call(document.querySelectorAll('.nav-links a'),function(a){
+  var t=a.getAttribute('href'),on=(t==='#/'&&page==='home'&&!ALIAS[first])||t==='#/'+page&&page!=='home';
+  a.classList.toggle('cur',!!on)});
+}
+window.addEventListener('hashchange',function(){show(false)});
+// cliques em links internos: funcionam mesmo se já estiver nessa página
+document.addEventListener('click',function(e){
+ var a=e.target.closest&&e.target.closest('a[href^="#/"]');
+ if(a){e.preventDefault();var h=a.getAttribute('href');closeMenu();if(location.hash===h)show(true);else location.hash=h;return}
+ if(!e.target.closest('.nav-links,.menu-icon'))closeMenu();
+});
+// revelar elementos .reveal
+if('IntersectionObserver' in window){
+ var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible','active')}})},{threshold:.08});
+ document.querySelectorAll('.reveal').forEach(function(el){o.observe(el)});
+}else document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('visible','active')});
+// pontos nos carrosséis
+[].forEach.call(document.querySelectorAll('.pricing-grid,.portfolio-grid'),function(g){
+ var d=document.createElement('div');d.className='cdots';
+ d.innerHTML=[].map.call(g.children,function(c,i){return '<button type="button" aria-label="Cartão '+(i+1)+'"></button>'}).join('');
+ g.parentNode.insertBefore(d,g.nextSibling);
+ function kids(){return [].slice.call(g.children).sort(function(a,b){return a.offsetLeft-b.offsetLeft})}
+ function upd(){var k=kids(),best=0,m=1e9;k.forEach(function(c,i){var x=Math.abs(c.offsetLeft-g.offsetLeft-g.scrollLeft-g.clientWidth*.07);if(x<m){m=x;best=i}});
+  [].forEach.call(d.children,function(b,i){b.classList.toggle('on',i===best)})}
+ g.addEventListener('scroll',function(){window.requestAnimationFrame(upd)},{passive:true});
+ d.addEventListener('click',function(e){var i=[].indexOf.call(d.children,e.target);if(i>-1){var c=kids()[i];g.scrollTo({left:c.offsetLeft-g.offsetLeft-g.clientWidth*.07,behavior:'smooth'})}});
+ upd();
+});
+// deslizar o pop-up com o dedo
+var sp=document.getElementById('sp');
+if(sp){var x0=null;
+ sp.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+ sp.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;x0=null;
+  if(Math.abs(dx)>40)document.getElementById(dx<0?'sp-next':'sp-prev').click()},{passive:true});}
+show(false);
 })();
 </script>
 </body>
