@@ -463,6 +463,24 @@ footer{ background: #080808; color: #fff; padding: 80px 8% 40px; border-top: 1px
 .page{display:none}.page.on{display:block}
 [id]{scroll-margin-top:90px}
 body.on-pedido .whatsapp-float{display:none}
+/* v2: pacotes, extras e acessibilidade */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(min-width:901px){#p-home .pricing-grid{grid-template-columns:repeat(2,1fr);max-width:780px}}
+#p-home .month-strip{max-width:780px;margin:28px auto 0;display:flex;gap:20px;align-items:center;justify-content:space-between;padding:22px 26px;border:1px solid #1a2e40;border-radius:6px;background:#0d1f30;color:#cfd8e0}
+#p-home .month-strip p{font-size:.85rem;color:#aab8c4;margin-top:4px;max-width:460px}
+#p-home .month-strip .ms-price{font-family:'Playfair Display',serif;font-size:1.6rem;color:#fff;white-space:nowrap;text-align:right}
+#p-home .month-strip .ms-price span{display:block;font-family:'Montserrat',sans-serif;font-size:.75rem;color:#7aafd4}
+@media(max-width:700px){#p-home .month-strip{flex-direction:column;align-items:flex-start}#p-home .month-strip .ms-price{text-align:left}}
+#p-pedido .ck-hint,#p-pedido .ck-head p,#p-pedido .ck-pd,#p-pedido .ck-cd,#p-pedido .ck-pp small,#p-pedido .ck-ct i,#p-pedido .ck-note,#p-pedido .ck-bar div,#p-pedido .ck-done p{color:#4a4a4a}
+#p-pedido .ck-cd{font-size:.85rem}#p-pedido .ck-pd{font-size:.88rem}#p-pedido .ck-ct i{font-size:.82rem}
+#p-pedido .ck-comps .inc .ck-ct{color:#1f6b42}
+#p-pedido .ck-comps .inc .ck-cc{background:#f7fafc}
+#p-pedido .ck-comps .inc .ck-ic{background:#225580;color:#fff}
+#p-pedido .ck-g h4{font-size:.9rem;font-weight:700;color:#225580;margin:16px 0 8px}
+#p-pedido .ck-up{background:#eef5ff;border:1px solid #225580;border-radius:10px;padding:10px 12px;font-size:.85rem;color:#0b2239;margin:10px 0}
+#p-pedido .ck-selerr{color:#b00020;font-size:.9rem;font-weight:600;margin:10px 0}
+#p-pedido .ck-err{color:#b00020}
+
 html,body{max-width:100%;overflow-x:hidden}
 img{max-width:100%}
 .mbar{display:none}
@@ -750,11 +768,11 @@ footer{padding-bottom:16px}
 
             <div class="price-card">
                 <div class="price-icon"><i class="fas fa-rocket"></i></div>
-                <div class="price-tier">Tier 01</div>
+                <div class="price-tier">Pacote 1</div>
                 <div class="price-name">Start</div>
                 <p class="price-ideal">Ideal para quem quer começar a ser encontrado online com um site profissional.</p>
                 <span class="price-from">A partir de</span>
-                <div class="price-amount">8.500 <span>MT</span></div>
+                <div class="price-amount">9.500 <span>MT</span></div>
                 <div class="price-note">Pagamento único</div>
                 <div class="price-founder"><i class="fas fa-star"></i> Preço Fundador disponível</div>
                 <div class="price-divider"></div>
@@ -766,79 +784,31 @@ footer{padding-bottom:16px}
                     <li>Configuração Facebook Business</li>
                     <li>Entrega em 7–10 dias</li>
                 </ul>
-                <a href="#/pedido/start" class="price-cta outline">Começar →</a>
+                <a href="#/pedido/start" class="price-cta outline">Escolher Start →</a>
             </div>
 
             <div class="price-card featured">
                 <div class="price-badge">Mais Popular</div>
                 <div class="price-icon"><i class="fas fa-chart-line"></i></div>
-                <div class="price-tier">Tier 02</div>
+                <div class="price-tier">Pacote 2</div>
                 <div class="price-name">Growth</div>
-                <p class="price-ideal">Ideal para negócios que querem vender mais, com IA, catálogo e pagamentos móveis.</p>
+                <p class="price-ideal">Ideal para quem precisa de um site maior, mais visível e com área reservada para clientes.</p>
                 <span class="price-from">A partir de</span>
                 <div class="price-amount">20.400 <span>MT</span></div>
-                <div class="price-note">Setup + 1 mês incluído</div>
+                <div class="price-note">Pagamento único</div>
                 <div class="price-founder"><i class="fas fa-star"></i> Preço Fundador disponível</div>
                 <div class="price-divider"></div>
                 <ul class="price-features">
-                    <li>Tudo do plano Start</li>
-                    <li>Assistente IA integrado no site</li>
-                    <li>Catálogo de produtos ou serviços</li>
-                    <li>Integração M-Pesa / E-Mola</li>
-                    <li>Estratégia de conteúdo completa</li>
-                    <li>12 templates de posts prontos</li>
-                    <li>WhatsApp Business configurado</li>
-                    <li>SEO avançado + Schema.org</li>
-                </ul>
-                <a href="#/pedido/growth" class="price-cta filled">Quero Este →</a>
-            </div>
-
-            <div class="price-card">
-                <div class="price-icon"><i class="fas fa-handshake"></i></div>
-                <div class="price-tier">Tier 03</div>
-                <div class="price-name">Pro Partner</div>
-                <p class="price-ideal">Ideal para quem quer a BGI a cuidar do site e das redes todos os meses.</p>
-                <span class="price-from">A partir de</span>
-                <div class="price-amount">6.800 <span>MT / mês</span></div>
-                <div class="price-note">Retainer mensal (mín. 6.800 MT)</div>
-                <div class="price-founder"><i class="fas fa-star"></i> Preço Fundador disponível</div>
-                <div class="price-divider"></div>
-                <ul class="price-features">
-                    <li>Gestão contínua do site</li>
-                    <li>12–16 posts criados por mês</li>
-                    <li>Relatório mensal de crescimento</li>
-                    <li>Actualizações de conteúdo</li>
-                    <li>Suporte prioritário directo</li>
-                    <li>Optimização contínua de SEO</li>
-                </ul>
-                <a href="#/pedido/pro" class="price-cta outline">Saber Mais →</a>
+                    <li>Site institucional (até 10 páginas)</li><li>Design profissional responsivo</li><li>Login para clientes (área reservada)</li><li>WhatsApp Business configurado</li><li>Configuração Facebook Business</li><li>SEO avançado + Schema.org</li><li>Entrega em 12–15 dias</li></ul>
+                <a href="#/pedido/growth" class="price-cta filled">Escolher Growth →</a>
             </div>
 
         </div>
+        <div class="month-strip reveal"><div><strong>Acompanhamento mensal (opcional)</strong><p>Depois de escolher o pacote, pode juntar a BGI a cuidar do site e das redes: gestão, 12–16 posts por mês, relatório e suporte.</p></div><div class="ms-price">6.800 <span>MT / mês</span></div></div>
         <h3 class="pricing-block-title reveal">Compare os <span class="serif">pacotes</span></h3>
         <p class="pricing-block-sub reveal">Veja lado a lado o que cada pacote inclui.</p>
         <div class="compare-wrap reveal">
-            <table class="compare">
-                <thead>
-                    <tr><th></th><th>Start</th><th>Growth</th><th>Pro Partner</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Site institucional (até 5 páginas)</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td></tr>
-                    <tr><td>Design profissional responsivo</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td></tr>
-                    <tr><td>SEO</td><td>Básico</td><td>Avançado + Schema.org</td><td>Optimização contínua</td></tr>
-                    <tr><td>WhatsApp</td><td>Integração</td><td>Business configurado</td><td class="no">—</td></tr>
-                    <tr><td>Configuração Facebook Business</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td></tr>
-                    <tr><td>Assistente IA no site</td><td class="no">—</td><td class="yes">✓</td><td class="no">—</td></tr>
-                    <tr><td>Catálogo de produtos ou serviços</td><td class="no">—</td><td class="yes">✓</td><td class="no">—</td></tr>
-                    <tr><td>Integração M-Pesa / E-Mola</td><td class="no">—</td><td class="yes">✓</td><td class="no">—</td></tr>
-                    <tr><td>Estratégia de conteúdo completa</td><td class="no">—</td><td class="yes">✓</td><td class="no">—</td></tr>
-                    <tr><td>Posts</td><td class="no">—</td><td>12 templates prontos</td><td>12–16 posts por mês</td></tr>
-                    <tr><td>Gestão contínua e actualizações</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
-                    <tr><td>Relatório mensal de crescimento</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
-                    <tr><td>Suporte prioritário directo</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
-                    <tr><td>Entrega</td><td>7–10 dias</td><td class="no">—</td><td class="no">—</td></tr>
-                </tbody>
-            </table>
+            <table class="compare"><thead><tr><th scope="col"><span class="sr">Serviço</span></th><th scope="col">Start</th><th scope="col">Growth</th></tr></thead><tbody><tr><td>Site institucional</td><td>Até 5 páginas</td><td>Até 10 páginas</td></tr><tr><td>Design profissional responsivo</td><td class="yes" aria-label="Incluído">✓</td><td class="yes" aria-label="Incluído">✓</td></tr><tr><td>SEO</td><td>Básico</td><td>Avançado + Schema.org</td></tr><tr><td>WhatsApp</td><td>Integração</td><td>Business configurado</td></tr><tr><td>Configuração Facebook Business</td><td class="yes" aria-label="Incluído">✓</td><td class="yes" aria-label="Incluído">✓</td></tr><tr><td>Login para clientes (área reservada)</td><td class="no" aria-label="Não incluído">—</td><td class="yes" aria-label="Incluído">✓</td></tr><tr><td>Entrega</td><td>7–10 dias</td><td>12–15 dias</td></tr><tr><td>Extras opcionais (pagamentos, catálogo, IA, posts, logótipo)</td><td class="yes" aria-label="Incluído">✓</td><td class="yes" aria-label="Incluído">✓</td></tr><tr><td>Acompanhamento mensal opcional</td><td class="yes" aria-label="Incluído">✓</td><td class="yes" aria-label="Incluído">✓</td></tr></tbody></table>
         </div>
 
         <h3 class="pricing-block-title reveal">Como <span class="serif">começar</span></h3>
@@ -849,7 +819,7 @@ footer{padding-bottom:16px}
             <div class="price-step"><b>03</b><h4>Começamos a construir</h4><p>Do site às redes sociais, acompanhamos até ao lançamento e depois dele.</p></div>
         </div>
 
-        <p class="pricing-note reveal">Preços em Meticais. Pacotes personalizados disponíveis para projectos maiores. <a href="#/pedido">Fale connosco →</a></p>
+        <p class="pricing-note reveal">Preços em Meticais. Só precisa de um serviço? <a href="#/pedido/solo">Escolha apenas o que precisa →</a></p>
     </section>
 
     <!-- QUOTE -->
@@ -934,7 +904,7 @@ footer{padding-bottom:16px}
         <div class="cta-branding">
             <h2 class="serif" style="color: #fff; font-size: 2.5rem;">Pronto para ser Referência?</h2>
             <p style="opacity: 0.9; margin-top: 10px;">Transforme a sua percepção de mercado com um branding de autoridade.</p>
-            <a href="#/pedido" class="btn-white">Solicitar Diagnóstico de Marca</a>
+            <a href="#/pedido/solo/logo" class="btn-white">Solicitar Diagnóstico de Marca</a>
         </div>
     </section>
 
@@ -1051,26 +1021,32 @@ footer{padding-bottom:16px}
         <div class="cta-final">
             <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 20px;">Sua concorrência já está a investir. <br>E você?</h2>
             <p style="margin-bottom: 40px; color: var(--sec);">Não deixe a sua quota de mercado nas mãos dos outros. Agende a sua consultoria estratégica agora.</p>
-            <a href="#/pedido" class="btn-mkt">Quero Escalar Agora</a>
+            <a href="#/pedido/solo/posts" class="btn-mkt">Quero Escalar Agora</a>
         </div>
     </section>
 
     </div>
 <div class="page" id="p-pedido">
 <div id="ck-main">
-<header class="ck-head"><h1>Monte o seu pedido</h1><p>Escolha o plano, ajuste os componentes e agende a sua conversa com a nossa equipa.</p></header>
+<header class="ck-head"><h1>Monte o seu pedido</h1><p>Escolha o que precisa, ajuste os extras e peça o seu orçamento. Respondemos em até 24h úteis.</p></header>
 <div class="ck-wrap">
 <form id="ck-form" novalidate>
-<h3 class="ck-h"><b>1</b>Escolha o plano</h3>
-<div class="ck-plans" id="ck-plans"></div>
+<h3 class="ck-h" id="h-plan"><b>1</b>O que precisa?</h3>
+<div class="ck-plans" id="ck-plans" role="radiogroup" aria-labelledby="h-plan"></div>
+<p class="ck-selerr" id="ck-selerr" role="alert" hidden></p>
 <div id="ck-more">
-<h3 class="ck-h"><b>2</b>Personalize</h3>
-<p class="ck-hint">O que diz "Incluído" já faz parte do plano. Toque nos outros para juntar ou tirar.</p>
-<div class="ck-comps" id="ck-comps"></div>
+<h3 class="ck-h" id="h-ext"><b>2</b><span id="h-ext-t">Extras opcionais</span></h3>
+<p class="ck-hint" id="ck-hint"></p>
+<div id="ck-comps" role="group" aria-labelledby="h-ext"></div>
 </div>
-<h3 class="ck-h"><b>3</b>Os seus dados</h3>
-<div class="ck-f" id="f-nome"><label class="t" for="ck-nome">Nome</label><input type="text" id="ck-nome" autocomplete="name" placeholder="Ex.: João Silva"><div class="ck-err">Escreva o seu nome.</div></div>
-<div class="ck-f" id="f-tel"><label class="t" for="ck-tel">WhatsApp</label><input type="tel" id="ck-tel" autocomplete="tel" inputmode="tel" placeholder="+258 84 000 0000"><div class="ck-err">Escreva um número válido.</div></div>
+<div id="ck-monthbox">
+<h3 class="ck-h" id="h-mes"><b>3</b>Acompanhamento mensal (opcional)</h3>
+<p class="ck-hint">Se quiser a BGI a cuidar do site e das redes depois do lançamento, junte aqui. Também pode decidir mais tarde.</p>
+<div class="ck-comps" id="ck-month" role="group" aria-labelledby="h-mes"></div>
+</div>
+<h3 class="ck-h" id="h-dados"><b id="n-dados">4</b>Os seus dados</h3>
+<div class="ck-f" id="f-nome"><label class="t" for="ck-nome">Nome</label><input type="text" id="ck-nome" autocomplete="name" aria-describedby="e-nome" placeholder="Ex.: João Silva"><div class="ck-err" id="e-nome">Escreva o seu nome.</div></div>
+<div class="ck-f" id="f-tel"><label class="t" for="ck-tel">WhatsApp</label><input type="tel" id="ck-tel" autocomplete="tel" aria-describedby="e-tel" inputmode="tel" placeholder="+258 84 000 0000"><div class="ck-err" id="e-tel">Escreva um número de WhatsApp com pelo menos 9 dígitos.</div></div>
 <div class="ck-f"><label class="t" for="ck-biz">Nome do negócio (opcional)</label><input type="text" id="ck-biz" autocomplete="organization" placeholder="Ex.: Padaria Esperança"></div>
 <div class="ck-f"><label class="t" for="ck-mail">Email (opcional)</label><input type="email" id="ck-mail" autocomplete="email" inputmode="email" placeholder="nome@exemplo.com"></div>
 
@@ -1079,9 +1055,9 @@ footer{padding-bottom:16px}
 <aside class="ck-sum" id="ck-sum">
 <h3>O seu pedido</h3>
 <div id="ck-lines"></div>
-<div id="ck-tots"></div>
-<p class="ck-note">Valores em Meticais. Confirmamos o orçamento final consigo em até 24h úteis.</p>
-<button type="button" class="ck-btn" id="ck-send"><i class="fas fa-calendar-check"></i> Agendar conversa</button>
+<div id="ck-tots" aria-live="polite" aria-atomic="true"></div><p class="ck-up" id="ck-up" aria-live="polite" hidden></p>
+<p class="ck-note">Valores em Meticais. Confirmamos o orçamento final consigo em até 24h úteis. Isto é um pedido de orçamento, não um pagamento.</p>
+<button type="submit" form="ck-form" class="ck-btn" id="ck-send"><i class="fas fa-paper-plane"></i> Pedir orçamento</button>
 </aside>
 </div>
 <div class="ck-bar"><div>Total<b id="ck-bt">0 MT</b></div><a href="#ck-sum" id="ck-go">Ver resumo</a></div>
@@ -1209,6 +1185,7 @@ footer{padding-bottom:16px}
             <h2>11. Disposições Finais</h2>
             [span_34](start_span)<p>Nenhuma das partes será responsabilizada por força maior (desastres naturais, guerras, etc).[span_34](end_span)</p>
             <p>A BGI reserva-se o direito de modificar estes Termos. [span_35](start_span)Clientes ativos serão notificados com 30 dias de antecedência.[span_35](end_span)</p>
+            <p><strong>Login de clientes:</strong> nos serviços com área reservada, os dados dos utilizadores do site (por exemplo, nome e email) são guardados num serviço externo de autenticação, usado apenas para o funcionamento do site.</p>
             <p>Estes Termos são regidos pelas leis da República de Moçambique. [span_36](start_span)Disputas serão resolvidas preferencialmente por mediação ou no foro da comarca de Nampula ou Maputo.[span_36](end_span)</p>
         </section>
 
@@ -1292,7 +1269,7 @@ footer{padding-bottom:16px}
 (function(){
 // Edite aqui os tipos de site, preços e imagens do pop-up.
 var S=[
-{k:'Site institucional',d:'Até 5 páginas, rápido e feito para telemóvel.',p:'a partir de 8.500 MT',img:'ZAV_ex.jpg',c:'Exemplo real: Zavanna Build'},
+{k:'Site institucional',d:'Até 5 páginas, rápido e feito para telemóvel.',p:'a partir de 9.500 MT',img:'ZAV_ex.jpg',c:'Exemplo real: Zavanna Build'},
 {k:'Loja ou catálogo online',d:'Produtos, encomendas por WhatsApp e pagamento M-Pesa e E-Mola.',p:'a partir de 20.400 MT',img:'CW_ex.jpg',c:'Exemplo real: Casa Windows'},
 {k:'Site com reservas',d:'Hotéis, residenciais e serviços com reserva direta no WhatsApp.',p:'a partir de 20.400 MT',img:'REI_ex.jpg',c:'Exemplo real: Residencial Indelével'},
 {k:'Sistema web à medida',d:'Painéis, áreas de cliente e automações com IA.',p:'sob orçamento'}];
@@ -1320,100 +1297,127 @@ go(0);
 (function(){
 // Preços e componentes: edite aqui. t = 'once' (único) ou 'month' (mensal).
 var PLANS={
- start:{n:'Start',p:8500,t:'once',d:'Site profissional para começar a ser encontrado.',inc:['site','seo','wa']},
- growth:{n:'Growth',p:20400,t:'once',tag:'Mais popular',d:'Para vender mais: IA, catálogo e pagamentos móveis.',inc:['site','seoa','wa','cat','pay','ia','posts']},
- pro:{n:'Pro Partner',p:6800,t:'month',d:'A BGI gere o seu site e redes todos os meses.',inc:['gest','posts16','rel','sup']},
+ start:{n:'Start',p:9500,d:'Site até 5 páginas, SEO básico e WhatsApp.',inc:['site5','seo','wa']},
+ growth:{n:'Growth',p:20400,tag:'Mais popular',d:'Site até 10 páginas, SEO avançado e login de clientes.',inc:['site10','seoa','wab','login']},
+ solo:{n:'Só um serviço',p:0,d:'Escolha apenas o que precisa, sem pacote.',inc:[]},
  help:{n:'Ainda não sei',p:0,d:'Conversa gratuita para escolhermos juntos.',inc:[]}};
-var SW=['start','growth'];
+var PK=['start','growth','solo','help'],ALL=['start','growth','solo'];
 var COMP=[
- {id:'site',n:'Site até 5 páginas',d:'Rápido e pensado para telemóvel.',ic:'fas fa-globe',pl:SW},
- {id:'seo',n:'SEO básico',d:'Para aparecer nas pesquisas locais.',ic:'fas fa-magnifying-glass',pl:['start']},
- {id:'seoa',n:'SEO avançado',d:'Mais visibilidade no Google.',ic:'fas fa-chart-line',pl:SW,p:3400},
- {id:'wa',n:'WhatsApp e Facebook Business',d:'Contacto direto a partir do site.',ic:'fab fa-whatsapp',pl:SW},
- {id:'cat',n:'Catálogo de produtos',d:'Mostre o que vende, com encomenda fácil.',ic:'fas fa-store',pl:SW,p:6800},
- {id:'pay',n:'Pagamentos M-Pesa e E-Mola',d:'Receba do cliente no próprio site.',ic:'fas fa-mobile-screen',pl:SW,p:6800},
- {id:'ia',n:'Assistente com IA',d:'Responde a clientes a qualquer hora.',ic:'fas fa-robot',pl:SW,p:5100},
- {id:'book',n:'Reservas via WhatsApp',d:'Para hotéis, salões e serviços.',ic:'fas fa-calendar-check',pl:SW,p:3400},
- {id:'pages',n:'+3 páginas',d:'Mais espaço para os seus serviços.',ic:'fas fa-file-circle-plus',pl:SW,p:3400},
- {id:'posts',n:'12 posts prontos',d:'Conteúdo para as redes sociais.',ic:'fas fa-images',pl:SW,p:4250},
- {id:'dom',n:'Domínio e alojamento (1 ano)',d:'O seu endereço próprio no ar.',ic:'fas fa-globe-africa',pl:SW,p:3400},
- {id:'logo',n:'Logótipo e identidade visual',d:'Uma marca que transmite confiança.',ic:'fas fa-gem',pl:['start','growth','pro'],p:6800},
- {id:'gest',n:'Gestão contínua do site',d:'Atualizações e cuidados todos os meses.',ic:'fas fa-screwdriver-wrench',pl:['pro']},
- {id:'posts16',n:'12 a 16 posts por mês',d:'Criados pela nossa equipa.',ic:'fas fa-images',pl:['pro']},
- {id:'rel',n:'Relatório mensal',d:'Veja o crescimento em números.',ic:'fas fa-chart-pie',pl:['pro']},
- {id:'sup',n:'Suporte prioritário',d:'Resposta direta e rápida.',ic:'fas fa-headset',pl:['pro']},
- {id:'ads',n:'Gestão de anúncios',d:'Google e Meta, com resultados medidos.',ic:'fas fa-bullhorn',pl:['pro'],p:3400,t:'month'},
- {id:'more',n:'+8 posts por mês',d:'Mais conteúdo para as redes.',ic:'fas fa-plus',pl:['pro'],p:2550,t:'month'}
+ {id:'site5',n:'Site até 5 páginas',d:'Rápido e pensado para telemóvel.',ic:'fas fa-globe',pl:['start','solo'],p:9500,g:'Website'},
+ {id:'site10',n:'Site até 10 páginas',d:'Mais espaço para serviços e conteúdo.',ic:'fas fa-globe',pl:['growth'],g:'Website'},
+ {id:'seo',n:'SEO básico',d:'Para aparecer nas pesquisas locais.',ic:'fas fa-magnifying-glass',pl:['start'],g:'Website'},
+ {id:'seoa',n:'SEO avançado',d:'Mais visibilidade no Google.',ic:'fas fa-chart-line',pl:ALL,p:3400,g:'Website',r:1},
+ {id:'wa',n:'WhatsApp e Facebook Business',d:'Contacto direto a partir do site.',ic:'fab fa-whatsapp',pl:['start'],g:'Website'},
+ {id:'wab',n:'WhatsApp Business configurado',d:'Contacto direto a partir do site.',ic:'fab fa-whatsapp',pl:['growth'],g:'Website'},
+ {id:'login',n:'Login de clientes',d:'Área reservada com contas para os seus clientes.',ic:'fas fa-user-lock',pl:ALL,p:5100,g:'Website',r:1},
+ {id:'pages',n:'+3 páginas',d:'Mais espaço para os seus serviços.',ic:'fas fa-file-circle-plus',pl:ALL,p:3400,g:'Website',r:1},
+ {id:'cat',n:'Catálogo de produtos',d:'Mostre o que vende, com encomenda fácil.',ic:'fas fa-store',pl:ALL,p:6800,g:'Website',r:1},
+ {id:'pay',n:'Pagamentos M-Pesa e E-Mola',d:'Receba do cliente no próprio site.',ic:'fas fa-mobile-screen',pl:ALL,p:6800,g:'Website',r:1},
+ {id:'ia',n:'Assistente com IA',d:'Responde a clientes a qualquer hora.',ic:'fas fa-robot',pl:ALL,p:5100,g:'Website',r:1},
+ {id:'book',n:'Reservas via WhatsApp',d:'Para hotéis, salões e serviços.',ic:'fas fa-calendar-check',pl:ALL,p:3400,g:'Website',r:1},
+ {id:'dom',n:'Domínio e alojamento (1 ano)',d:'O seu endereço próprio no ar.',ic:'fas fa-globe-africa',pl:ALL,p:3400,g:'Website'},
+ {id:'logo',n:'Logótipo e identidade visual',d:'Uma marca que transmite confiança.',ic:'fas fa-gem',pl:ALL,p:6800,g:'Branding'},
+ {id:'posts',n:'12 posts prontos',d:'Conteúdo para as redes sociais.',ic:'fas fa-images',pl:ALL,p:4250,g:'Marketing'}
+];
+var MON=[
+ {id:'care',n:'Acompanhamento mensal',d:'Gestão do site, 12 a 16 posts por mês, relatório mensal e suporte prioritário.',ic:'fas fa-screwdriver-wrench',p:6800},
+ {id:'ads',n:'Gestão de anúncios',d:'Google e Meta, com resultados medidos.',ic:'fas fa-bullhorn',p:3400,need:'care'},
+ {id:'more',n:'+8 posts por mês',d:'Mais conteúdo para as redes.',ic:'fas fa-plus',p:2550,need:'care'}
 ];
 var WA='258864400354',FORM='https://formspree.io/f/xojjvvjk';
-var st={plan:'growth',sel:{}};
+var st={plan:'',sel:{}};
 function $(i){return document.getElementById(i)}
 function mt(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,'.')+' MT'}
-function shown(){return COMP.filter(function(c){return c.pl.indexOf(st.plan)>-1})}
-function isInc(c){return PLANS[st.plan].inc.indexOf(c.id)>-1}
+function shown(){return st.plan?COMP.filter(function(c){return c.pl.indexOf(st.plan)>-1}):[]}
+function isInc(c){return !!st.plan&&PLANS[st.plan].inc.indexOf(c.id)>-1}
+function ln(a,b){return '<div class="ck-ln"><span>'+a+'</span><span>'+b+'</span></div>'}
 function renderPlans(){
- $('ck-plans').innerHTML=Object.keys(PLANS).map(function(k){var p=PLANS[k];
-  var pr=k==='help'?'Grátis':mt(p.p)+(p.t==='month'?'<small>por mês</small>':'<small>a partir de</small>');
+ $('ck-plans').innerHTML=PK.map(function(k){var p=PLANS[k];
+  var pr=k==='help'?'Grátis':k==='solo'?'<small>preço por serviço</small>':mt(p.p)+'<small>a partir de</small>';
   return '<label><input type="radio" name="plan" value="'+k+'"'+(st.plan===k?' checked':'')+'><span class="ck-pc"><span class="ck-pn">'+p.n+(p.tag?'<em>'+p.tag+'</em>':'')+'</span><span class="ck-pp">'+pr+'</span><span class="ck-pd">'+p.d+'</span></span></label>'}).join('');
 }
+function row(c,inc,on,solo,mon){
+ var tag=inc?'<span class="ck-ct">Incluído</span>':'<span class="ck-ct">+'+mt(c.p)+'<i>'+(mon?'por mês':'valor único')+'</i></span>';
+ var body='<span class="ck-ic"><i class="'+c.ic+'" aria-hidden="true"></i></span><span><span class="ck-cn">'+c.n+'</span><span class="ck-cd" style="display:block">'+c.d+(solo&&c.r?' Precisa de site.':'')+'</span></span>'+tag;
+ if(inc)return '<div class="inc"><span class="ck-cc">'+body+'</span></div>';
+ return '<label><input type="checkbox" value="'+c.id+'"'+(on?' checked':'')+'><span class="ck-cc">'+body+'</span></label>'}
+function renderMonth(){
+ $('ck-month').innerHTML=MON.filter(function(c){return !c.need||st.sel[c.need]}).map(function(c){return row(c,false,st.sel[c.id],false,true)}).join('')}
 function renderComps(){
- $('ck-more').style.display=st.plan==='help'?'none':'';
- var list=shown().sort(function(a,b){return isInc(b)-isInc(a)});
- $('ck-comps').innerHTML=list.map(function(c){var inc=isInc(c),on=inc||st.sel[c.id];
-  var tag=inc?'<span class="ck-ct">Incluído</span>':'<span class="ck-ct">+'+mt(c.p)+'<i>'+(c.t==='month'?'por mês':'valor único')+'</i></span>';
-  return '<label class="'+(inc?'inc':'')+'"><input type="checkbox" value="'+c.id+'"'+(on?' checked':'')+(inc?' disabled':'')+'><span class="ck-cc"><span class="ck-ic"><i class="'+c.ic+'"></i></span><span><span class="ck-cn">'+c.n+'</span><span class="ck-cd" style="display:block">'+c.d+'</span></span>'+tag+'</span></label>'}).join('');
-}
+ var has=st.plan&&st.plan!=='help';
+ $('ck-more').style.display=has?'':'none';$('ck-monthbox').style.display=has?'':'none';
+ $('n-dados').textContent=has?'4':'2';
+ if(!has){$('ck-comps').innerHTML='';$('ck-month').innerHTML='';return}
+ var solo=st.plan==='solo',list=shown(),gs=[];
+ list.forEach(function(c){if(gs.indexOf(c.g)<0)gs.push(c.g)});
+ $('h-ext-t').textContent=solo?'Escolha os serviços':'Extras opcionais';
+ $('ck-hint').textContent=solo?'Marque só o que precisa. O total atualiza sozinho.':'O que diz "Incluído" já faz parte do pacote. Marque os extras que quiser juntar.';
+ $('ck-comps').innerHTML=gs.map(function(g){
+  var it=list.filter(function(c){return c.g===g}).sort(function(a,b){return isInc(b)-isInc(a)});
+  return '<div class="ck-g"><h4>'+g+'</h4><div class="ck-comps">'+it.map(function(c){return row(c,isInc(c),st.sel[c.id],solo,false)}).join('')+'</div></div>'}).join('');
+ renderMonth()}
 function calc(){
- var p=PLANS[st.plan],once=p.t==='once'?p.p:0,mon=p.t==='month'?p.p:0,ex=[];
- shown().forEach(function(c){if(!isInc(c)&&st.sel[c.id]){ex.push(c);if(c.t==='month')mon+=c.p;else once+=c.p}});
- return {p:p,once:once,mon:mon,ex:ex};
-}
+ var p=PLANS[st.plan]||{n:'',p:0},once=p.p,mon=0,ex=[],ml=[];
+ shown().forEach(function(c){if(!isInc(c)&&st.sel[c.id]){ex.push(c);once+=c.p}});
+ if(st.plan&&st.plan!=='help')MON.forEach(function(c){if(st.sel[c.id]&&(!c.need||st.sel[c.need])){ml.push(c);mon+=c.p}});
+ return {p:p,once:once,mon:mon,ex:ex,ml:ml}}
 function totTxt(r){
  if(st.plan==='help')return 'Grátis';
- var a=[];if(r.once)a.push(mt(r.once));if(r.mon)a.push(mt(r.mon)+'/mês');return a.join(' + ')}
+ var a=[];if(r.once)a.push(mt(r.once));if(r.mon)a.push(mt(r.mon)+'/mês');return a.join(' + ')||'0 MT'}
 function renderSum(){
- var r=calc();
- var h='<div class="ck-ln"><span>Plano '+r.p.n+'</span><span>'+(st.plan==='help'?'Grátis':mt(r.p.p)+(r.p.t==='month'?'/mês':''))+'</span></div>';
- r.ex.forEach(function(c){h+='<div class="ck-ln"><span>'+c.n+'</span><span>+'+mt(c.p)+(c.t==='month'?'/mês':'')+'</span></div>'});
+ var r=calc(),h='';
+ if(!st.plan)h='<p class="ck-note">Escolha uma opção para ver o resumo.</p>';
+ else if(st.plan==='help')h=ln('Conversa gratuita','Grátis');
+ else{
+  if(r.p.p)h+=ln('Pacote '+r.p.n,mt(r.p.p));
+  r.ex.forEach(function(c){h+=ln(c.n,'+'+mt(c.p))});
+  r.ml.forEach(function(c){h+=ln(c.n,'+'+mt(c.p)+'/mês')});
+  if(!h)h='<p class="ck-note">Ainda não escolheu nada.</p>'}
  $('ck-lines').innerHTML=h;
  var t='';
  if(st.plan==='help')t='<div class="ck-tot"><span>Total</span><b>Grátis</b></div>';
  else{if(r.once)t+='<div class="ck-tot"><span>Valor único</span><b>'+mt(r.once)+'</b></div>';if(r.mon)t+='<div class="ck-tot"><span>Mensalidade</span><b>'+mt(r.mon)+'</b></div>'}
- $('ck-tots').innerHTML=t;
- $('ck-bt').textContent=totTxt(r);
-}
+ $('ck-tots').innerHTML=t;$('ck-bt').textContent=totTxt(r);
+ var near=(st.plan==='start'||st.plan==='solo')&&r.once>=17000,up=$('ck-up');
+ up.hidden=!near;if(near)up.textContent='Está perto do pacote Growth (20.400 MT), que inclui site até 10 páginas, SEO avançado e login de clientes. Vale a pena comparar.';
+ $('ck-selerr').hidden=true}
 function render(){renderPlans();renderComps();renderSum()}
 $('ck-plans').addEventListener('change',function(e){
  if(e.target.name==='plan'){st.plan=e.target.value;st.sel={};renderComps();renderSum()}});
 $('ck-comps').addEventListener('change',function(e){st.sel[e.target.value]=e.target.checked;renderSum()});
+$('ck-month').addEventListener('change',function(e){
+ st.sel[e.target.value]=e.target.checked;
+ if(e.target.value==='care'){if(!e.target.checked){delete st.sel.ads;delete st.sel.more}renderMonth();var f=document.querySelector('#ck-month input[value="care"]');if(f)f.focus()}
+ renderSum()});
 $('ck-go').addEventListener('click',function(e){e.preventDefault();$('ck-sum').scrollIntoView({behavior:'smooth',block:'start'})});
-function bad(id,on){$(id).classList.toggle('bad',on);return on}
+function bad(id,on){var w=$(id);w.classList.toggle('bad',on);w.querySelector('input').setAttribute('aria-invalid',on?'true':'false');return on}
 function orderText(r){
- var l=['Olá BGI! Quero agendar uma conversa sobre este pedido:','Plano: '+r.p.n+(st.plan==='help'?'':' ('+mt(r.p.p)+(r.p.t==='month'?'/mês':'')+')')];
- if(r.ex.length)l.push('Extras: '+r.ex.map(function(c){return c.n}).join(', '));
+ var l=['Olá BGI! Quero pedir um orçamento:','Opção: '+r.p.n+(r.p.p?' ('+mt(r.p.p)+')':'')];
+ if(r.ex.length)l.push((st.plan==='solo'?'Serviços: ':'Extras: ')+r.ex.map(function(c){return c.n}).join(', '));
+ if(r.ml.length)l.push('Mensal: '+r.ml.map(function(c){return c.n}).join(', '));
  l.push('Total: '+totTxt(r));
  l.push('Nome: '+$('ck-nome').value.trim());
  if($('ck-biz').value.trim())l.push('Negócio: '+$('ck-biz').value.trim());
-  if($('ck-msg').value.trim())l.push('Nota: '+$('ck-msg').value.trim());
+ if($('ck-msg').value.trim())l.push('Nota: '+$('ck-msg').value.trim());
  return l.join('\n')}
 function done(saved,r){
  $('ck-main').hidden=true;$('ck-done').hidden=false;
- $('ck-dt').textContent=saved?'Conversa agendada!':'Quase lá';
+ $('ck-dt').textContent=saved?'Pedido enviado!':'Quase lá';
  $('ck-dp').textContent=saved?'Entramos em contacto em até 24h úteis. Se preferir falar já, continue no WhatsApp.':'Não conseguimos guardar online. Envie o pedido pelo WhatsApp para não o perder.';
  $('ck-wa').href='https://wa.me/'+WA+'?text='+encodeURIComponent(orderText(r));
  window.scrollTo(0,0)}
-$('ck-send').addEventListener('click',function(){
+$('ck-form').addEventListener('submit',function(e){e.preventDefault();var r0=calc();if(!st.plan||(st.plan==='solo'&&!r0.ex.length)){var se=$('ck-selerr');se.textContent=!st.plan?'Escolha o que precisa antes de enviar.':'Escolha pelo menos um serviço.';se.hidden=false;$('ck-plans').scrollIntoView({behavior:'smooth',block:'center'});return}
  var b1=bad('f-nome',$('ck-nome').value.trim().length<2),b2=bad('f-tel',$('ck-tel').value.replace(/\D/g,'').length<9);
  if(b1||b2){(b1?$('ck-nome'):$('ck-tel')).focus();return}
- var r=calc(),btn=this;btn.disabled=true;btn.textContent='A enviar...';
+ var r=r0,btn=$('ck-send');btn.disabled=true;btn.textContent='A enviar...';
  var f=new FormData();
- f.append('Plano',r.p.n);f.append('Extras',r.ex.map(function(c){return c.n}).join(', ')||'nenhum');f.append('Total',totTxt(r));
+ f.append('Plano',r.p.n);f.append('Extras',r.ex.map(function(c){return c.n}).join(', ')||'nenhum');f.append('Mensal',r.ml.map(function(c){return c.n}).join(', ')||'nenhum');f.append('Total',totTxt(r));
  f.append('Nome',$('ck-nome').value);f.append('WhatsApp',$('ck-tel').value);f.append('Negócio',$('ck-biz').value);f.append('Email',$('ck-mail').value);
  f.append('Mensagem',$('ck-msg').value);
- fetch(FORM,{method:'POST',body:f,headers:{Accept:'application/json'}}).then(function(x){done(x.ok,r)}).catch(function(){done(false,r)}).then(function(){btn.disabled=false;btn.innerHTML='<i class="fas fa-calendar-check"></i> Agendar conversa'});
+ fetch(FORM,{method:'POST',body:f,headers:{Accept:'application/json'}}).then(function(x){done(x.ok,r)}).catch(function(){done(false,r)}).then(function(){btn.disabled=false;btn.innerHTML='<i class="fas fa-paper-plane"></i> Pedir orçamento'});
 });
 $('ck-new').addEventListener('click',function(){$('ck-done').hidden=true;$('ck-main').hidden=false;window.scrollTo(0,0)});
-window.ckInit=function(plan){if(plan&&PLANS[plan]&&plan!==st.plan){st.plan=plan;st.sel={}}$('ck-done').hidden=true;$('ck-main').hidden=false;render()};
+window.ckInit=function(plan,pre){if(plan&&PLANS[plan]&&plan!==st.plan){st.plan=plan;st.sel={}}if(pre&&plan===st.plan&&COMP.some(function(c){return c.id===pre}))st.sel[pre]=true;$('ck-done').hidden=true;$('ck-main').hidden=false;render()};
 render();
 })();
 </script>
@@ -1438,7 +1442,7 @@ function show(force){
  document.body.classList.toggle('on-pedido',page==='pedido');
  document.title=TITLES[page];
  var changed=cur!==page;cur=page;
- if(page==='pedido'&&window.ckInit)window.ckInit(anchor);
+ if(page==='pedido'&&window.ckInit)window.ckInit(anchor,p[2]);
  var el=(page!=='pedido'&&anchor)?document.getElementById(anchor):null;
  if(el){if(changed)jump(0);setTimeout(function(){el.scrollIntoView({behavior:changed?'auto':'smooth'})},40)}
  else if(changed||page==='pedido')jump(0);
