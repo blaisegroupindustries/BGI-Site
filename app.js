@@ -4,11 +4,11 @@
 function legacyRoute(){
  var h=location.hash;if(h.indexOf('#/')!==0)return;
  var p=h.slice(2).split('/').filter(Boolean),f=p[0]||'';
- var M={'':'index.html',branding:'branding.html',website:'website.html',marketing:'marketing.html',termos:'termos.html',pedido:'pedido.html'};
+ var M={'':'/',branding:'branding.html',website:'website.html',marketing:'marketing.html',termos:'termos.html',pedido:'pedido.html'};
  var to;
- if(f==='portfolio'||f==='precos')to='index.html#'+f;
+ if(f==='portfolio'||f==='precos')to='/#'+f;
  else if(M[f]!==undefined)to=M[f]+(p.length>1?'#'+p.slice(1).join('/'):'');
- else to='index.html';
+ else to='/';
  location.replace(to);
 }
 legacyRoute();
