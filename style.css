@@ -31,7 +31,7 @@ nav{ display: flex; justify-content: space-between; align-items: center; padding
 .btn-nav{ border: 2px solid var(--brand-color); padding: 10px 25px; border-radius: 50px; color: var(--brand-color) !important; transition: all 0.3s; }
 .btn-nav:hover{ background: var(--brand-color); color: #fff !important; }
 #p-home .hero-container{ position: relative; height: 100vh; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; }
-#p-home .hero-bg{ position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url(/'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=70&w=1400&auto=format'); background-size: cover; background-position: center; z-index: 0; }
+#p-home .hero-bg{ position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=70&w=1400&auto=format'); background-size: cover; background-position: center; z-index: 0; }
 #p-home .hero-overlay{ position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 100%); z-index: 1; }
 #p-home .hero-content{ position: relative; z-index: 2; padding: 0 8%; padding-top: 140px; }
 #p-home .hero-content h1{ font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 8vw, 5rem); line-height: 1.1; margin-bottom: 20px; }
@@ -276,7 +276,7 @@ footer{ background: #080808; color: #fff; padding: 80px 8% 40px; border-top: 1px
 #p-website .tech-card:hover{ border-bottom-color: var(--brand-color); transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
 #p-website .tech-card i{ font-size: 2rem; color: var(--brand-color); margin-bottom: 20px; display: block; }
 #p-website .tech-card h3{ font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 15px; }
-#p-website .wide-showcase{ width: 100%; height: 600px; background: url(/'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426') center/cover fixed; margin: 60px 0; border-radius: 4px; }
+#p-website .wide-showcase{ width: 100%; height: 600px; background: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426') center/cover fixed; margin: 60px 0; border-radius: 4px; }
 #p-website .web-cta{ text-align: center; background: var(--brand-color); color: #fff; padding: 100px 8%; border-radius: 4px; }
 #p-website .btn-web{ display: inline-block; padding: 22px 60px; background: #fff; color: var(--brand-color); text-decoration: none; border-radius: 50px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; transition: 0.4s; margin-top: 30px; }
 #p-website .btn-web:hover{ transform: scale(1.05); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
@@ -292,7 +292,7 @@ footer{ background: #080808; color: #fff; padding: 80px 8% 40px; border-top: 1px
             --transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 #p-marketing .mkt-hero{ height: 85vh; display: flex; align-items: center; justify-content: center; position: relative; background: #f4f7f6; overflow: hidden; }
-#p-marketing .hero-image-overlay{ position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url(/'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426') center/cover; opacity: 0.1; z-index: 1; transform: scale(1.1); transition: transform 2s ease; }
+#p-marketing .hero-image-overlay{ position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426') center/cover; opacity: 0.1; z-index: 1; transform: scale(1.1); transition: transform 2s ease; }
 #p-marketing .mkt-hero:hover .hero-image-overlay{ transform: scale(1); }
 #p-marketing .hero-content{ position: relative; z-index: 2; text-align: center; padding: 0 8%; }
 #p-marketing .hero-content h1{ font-family: 'Playfair Display', serif; font-size: clamp(3rem, 8vw, 5.5rem); line-height: 1; margin-bottom: 20px; color: var(--brand-color); }

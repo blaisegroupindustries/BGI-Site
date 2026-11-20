@@ -1,4 +1,3 @@
-
 // Promoção: preços atuais = promoção até PROMO.end; depois passam a normais (+20%). Mude a data/fator aqui.
 window.PROMO=(function(){var P={end:Date.parse('2026-12-31T23:59:59+02:00'),f:1.2};
 P.on=function(){return Date.now()<P.end};

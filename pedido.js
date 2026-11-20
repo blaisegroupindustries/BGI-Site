@@ -124,5 +124,13 @@ $('ck-form').addEventListener('submit',function(e){e.preventDefault();var r0=cal
 $('ck-new').addEventListener('click',function(){$('ck-done').hidden=true;$('ck-main').hidden=false;window.scrollTo(0,0)});
 window.ckInit=function(plan,pre){if(plan&&PLANS[plan]&&plan!==st.plan){st.plan=plan;st.sel={}}if(pre&&plan===st.plan&&COMP.some(function(c){return c.id===pre}))st.sel[pre]=true;$('ck-done').hidden=true;$('ck-main').hidden=false;render()};
 render();
+// Pré-seleção por endereço: pedido.html#start | #solo/logo | #growth
+function fromHash(first){
+ var h=location.hash.replace(/^#\/?/,'');
+ if(h&&!first&&!PLANS[h.split('/')[0]])return;
+ var p=h.split('/').filter(Boolean);
+ window.ckInit(p[0],p[1]);
+}
+window.addEventListener('hashchange',function(){fromHash(false)});
+fromHash(true);
 })();
-(function(){var q=new URLSearchParams(location.search);if(window.ckInit)window.ckInit(q.get('plano')||'',q.get('servico')||'')})();

@@ -1,11 +1,20 @@
-(function(){var bar=document.querySelector('.founder-bar'),lb=document.getElementById('founderLabel');if(!bar||!lb)return;
-var d=Math.ceil((PROMO.end-Date.now())/86400000);if(d<=0){bar.style.display='none'}else{lb.textContent=d===1?'Último dia':'Faltam '+d+' dias'}})();
-(function(){if(!document.getElementById("sp-slides"))return;
+// Barra do fundador e pop-up de tipos de site (apenas index.html)
+const FOUNDER_DEADLINE = new Date(2026, 11, 31, 23, 59, 59); // 31 Dez 2026
+    const founderBar = document.querySelector('.founder-bar');
+    const founderLabel = document.getElementById('founderLabel');
+    const daysLeft = Math.ceil((FOUNDER_DEADLINE - new Date()) / 86400000);
+    if (daysLeft <= 0) {
+        founderBar.style.display = 'none'; // oferta terminada
+    } else {
+        founderLabel.textContent = daysLeft === 1 ? 'Último dia' : 'Faltam ' + daysLeft + ' dias';
+    }
+
+(function(){
 // Edite aqui os tipos de site, preços e imagens do pop-up.
 var S=[
-{k:'Site institucional',d:'Até 5 páginas, rápido e feito para telemóvel.',n:9500,img:'/ZAV_ex.jpg',c:'Exemplo real: Zavanna Build'},
-{k:'Loja ou catálogo online',d:'Produtos, encomendas por WhatsApp e pagamento M-Pesa e E-Mola.',n:23100,img:'/CW_ex.jpg',c:'Exemplo real: Casa Windows'},
-{k:'Site com reservas',d:'Hotéis, residenciais e serviços com reserva direta no WhatsApp.',n:12900,img:'/REI_ex.jpg',c:'Exemplo real: Residencial Indelével'},
+{k:'Site institucional',d:'Até 5 páginas, rápido e feito para telemóvel.',n:9500,img:'ZAV_ex.jpg',c:'Exemplo real: Zavanna Build'},
+{k:'Loja ou catálogo online',d:'Produtos, encomendas por WhatsApp e pagamento M-Pesa e E-Mola.',n:23100,img:'CW_ex.jpg',c:'Exemplo real: Casa Windows'},
+{k:'Site com reservas',d:'Hotéis, residenciais e serviços com reserva direta no WhatsApp.',n:12900,img:'REI_ex.jpg',c:'Exemplo real: Residencial Indelével'},
 {k:'Sistema web à medida',d:'Painéis, áreas de cliente e automações com IA.',p:'sob orçamento'}];
 function lbl(s){return s.n?'a partir de '+(PROMO.on()?'<s>'+PROMO.fm(PROMO.reg(s.n))+'</s> ':'')+PROMO.fm(PROMO.ep(s.n))+' MT':s.p}
 var sl=document.getElementById('sp-slides'),dt=document.getElementById('sp-dots'),bar=document.getElementById('sp-bar'),box=document.getElementById('sp'),cur=0,t;
@@ -27,6 +36,3 @@ box.addEventListener('mouseenter',function(){clearTimeout(t);bar.classList.remov
 box.addEventListener('mouseleave',function(){go(cur)});
 go(0);
 })();
-(function(){var sp=document.getElementById('sp');if(!sp)return;var x0=null;
-sp.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
-sp.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(dx)>40)document.getElementById(dx<0?'sp-next':'sp-prev').click()},{passive:true})})();
