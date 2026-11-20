@@ -43,7 +43,7 @@ nav{ display: flex; justify-content: space-between; align-items: center; padding
 .btn-nav{ border: 2px solid var(--brand-color); padding: 10px 25px; border-radius: 50px; color: var(--brand-color) !important; transition: all 0.3s; }
 .btn-nav:hover{ background: var(--brand-color); color: #fff !important; }
 #p-home .hero-container{ position: relative; height: 100vh; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; }
-#p-home .hero-bg{ position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070'); background-size: cover; background-position: center; z-index: 0; }
+#p-home .hero-bg{ position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=70&w=1400&auto=format'); background-size: cover; background-position: center; z-index: 0; }
 #p-home .hero-overlay{ position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 100%); z-index: 1; }
 #p-home .hero-content{ position: relative; z-index: 2; padding: 0 8%; padding-top: 140px; }
 #p-home .hero-content h1{ font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 8vw, 5rem); line-height: 1.1; margin-bottom: 20px; }
@@ -463,6 +463,40 @@ footer{ background: #080808; color: #fff; padding: 80px 8% 40px; border-top: 1px
 .page{display:none}.page.on{display:block}
 [id]{scroll-margin-top:90px}
 body.on-pedido .whatsapp-float{display:none}
+/* v3: promoção, topo, atalhos, prova */
+.promo-bar{position:fixed;top:0;left:0;right:0;height:38px;z-index:2100;display:flex;align-items:center;justify-content:center;gap:14px;padding:0 12px;background:#0d1f30;color:#fff;font-size:.8rem;line-height:1}
+.promo-bar[hidden]{display:none}
+.promo-bar .pb-s{display:none}
+.promo-bar .pb-c{font-variant-numeric:tabular-nums;font-weight:700;color:#f5a63c;background:rgba(255,255,255,.08);padding:6px 10px;border-radius:4px;white-space:nowrap}
+.promo-bar a{background:#f5a63c;color:#0d1f30;font-weight:700;padding:7px 14px;border-radius:99px;text-decoration:none;white-space:nowrap}
+body.promo-on nav{top:38px}
+body.promo-on .page{padding-top:38px}
+@media(max-width:700px){.promo-bar{gap:8px;font-size:.72rem;height:36px}.promo-bar .pb-x,.promo-bar .pb-l{display:none}.promo-bar .pb-s{display:inline}.promo-bar a{padding:6px 10px}body.promo-on nav{top:36px}body.promo-on .page{padding-top:36px}}
+.p-old{text-decoration:line-through;opacity:.65;font-weight:400;margin-right:4px}
+.p-save{display:inline-block;background:#e8f5ee;color:#1f6b42;border-radius:99px;padding:3px 10px;font-size:.75rem;font-weight:700;margin:6px 0}
+.p-save[hidden]{display:none}
+.sp-badge s{opacity:.7;margin-right:4px}
+#sp-bar{display:none}
+#p-home .quick,#p-home .proof{padding:48px 8% 8px;text-align:center}
+#p-home .quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:980px;margin:24px auto 0}
+#p-home .quick-card{border:1px solid #e5ebf0;border-radius:6px;background:#fff;padding:24px 20px;display:flex;flex-direction:column;align-items:center;gap:6px}
+#p-home .quick-card>i{width:46px;height:46px;border-radius:50%;background:var(--brand-soft);color:var(--brand-color);display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:6px}
+#p-home .quick-card strong{font-size:1.05rem}
+#p-home .quick-card span{font-size:.85rem;color:#4a4a4a;margin-bottom:10px}
+#p-home .qc-act{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;width:100%}
+#p-home .qc-act a{flex:1 1 130px;min-height:44px;display:flex;align-items:center;justify-content:center;gap:6px;border-radius:99px;font-weight:700;font-size:.82rem;text-decoration:none}
+#p-home .qc-go{background:var(--brand-color);color:#fff}
+#p-home .qc-wa{border:1.5px solid #128c4a;color:#128c4a}
+#p-home .proof-t{font-size:.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#4a4a4a}
+#p-home .proof-row{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:16px}
+#p-home .proof-row a,#p-home .proof-24{border:1px solid #e5ebf0;background:#fff;border-radius:6px;padding:14px 20px;text-decoration:none;display:flex;flex-direction:column;gap:2px;text-align:left}
+#p-home .proof-24{background:var(--brand-soft);border-color:transparent}
+#p-home .proof-row strong{font-size:.95rem;color:var(--brand-color)}
+#p-home .proof-row span{font-size:.8rem;color:#4a4a4a}
+#p-home .pl-row{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+#p-home .pl-alt{opacity:.85}
+@media(max-width:700px){#p-home .quick-grid{grid-template-columns:1fr}#p-home .proof-row a,#p-home .proof-24{width:100%}}
+#p-pedido .ck-save{margin-top:8px;font-size:.85rem;font-weight:700;color:#1f6b42}
 /* v2: pacotes, extras e acessibilidade */
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 @media(min-width:901px){#p-home .pricing-grid{grid-template-columns:repeat(2,1fr);max-width:780px}}
@@ -560,10 +594,32 @@ footer{padding-bottom:16px}
 @keyframes spFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 }
 </style>
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 </head>
 <body>
 
 <div class="progress-bar" id="myBar"></div>
+<div class="promo-bar" id="promo-bar" hidden><strong><span class="pb-l">Promoção de Fim de Ano</span><span class="pb-s">Promoção</span></strong><span class="pb-x">preços especiais até 31 de dezembro</span><span class="pb-c" id="pb-c" role="timer" aria-label="Tempo restante da promoção">--</span><a href="#/pedido">Pedir orçamento</a></div>
+<script>
+// Promoção: preços atuais = promoção até PROMO.end; depois passam a normais (+20%). Mude a data/fator aqui.
+window.PROMO=(function(){var P={end:Date.parse('2026-12-31T23:59:59+02:00'),f:1.2};
+P.on=function(){return Date.now()<P.end};
+P.reg=function(n){return Math.round(n*P.f/100)*100};
+P.ep=function(n){return P.on()?n:P.reg(n)};
+P.fm=function(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,'.')};
+P.price=function(n,u){var o=P.fm(P.ep(n))+' <span>'+(u||'MT')+'</span>';return P.on()?'<s class="p-old">'+P.fm(P.reg(n))+'</s> '+o:o};
+function pad(x){return x<10?'0'+x:x}
+function tick(){var d=P.end-Date.now();if(d<=0){location.reload();return}
+var s=Math.floor(d/1000),dd=Math.floor(s/86400),hh=Math.floor(s%86400/3600),mm=Math.floor(s%3600/60);
+document.getElementById('pb-c').textContent=dd+'d '+pad(hh)+'h '+pad(mm)+'m '+pad(s%60)+'s'}
+P.apply=function(){
+ [].forEach.call(document.querySelectorAll('[data-p]'),function(e){e.innerHTML=P.price(+e.getAttribute('data-p'),e.getAttribute('data-u'))});
+ [].forEach.call(document.querySelectorAll('[data-ps]'),function(e){var n=+e.getAttribute('data-ps');e.textContent='Promoção: poupa '+P.fm(P.reg(n)-n)+' MT até 31/12';e.hidden=!P.on()});
+ if(P.on()){document.getElementById('promo-bar').hidden=false;document.body.classList.add('promo-on');tick();setInterval(tick,1000)}};
+document.addEventListener('DOMContentLoaded',P.apply);
+return P})();
+</script>
 
 <a href="https://wa.me/258864400354" class="whatsapp-float" target="_blank">
     <i class="fab fa-whatsapp"></i>
@@ -579,7 +635,7 @@ footer{padding-bottom:16px}
         <li><a href="#/marketing">Marketing</a></li>
         <li><a href="#/portfolio">Portfólio</a></li>
         <li><a href="#/precos">Preços</a></li>
-        <li><a href="#/pedido" class="btn-nav">Fazer pedido</a></li>
+        <li><a href="#/pedido" class="btn-nav">Pedir orçamento</a></li>
     </ul>
 </nav>
 <main><div class="page on" id="p-home">
@@ -596,42 +652,37 @@ footer{padding-bottom:16px}
                 A BGI constrói sites, estratégias de redes sociais e sistemas digitais para empresas moçambicanas que querem crescer.
             </p>
             <div class="reveal" style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
-                <a href="#/portfolio" class="btn-huge" style="padding: 18px 40px; font-size: 0.8rem;">Ver o Nosso Trabalho</a>
-                <a href="#/precos" class="btn-huge" style="padding: 18px 40px; font-size: 0.8rem; background: transparent; color: var(--brand-color); border: 2px solid var(--brand-color); box-shadow: none;">Ver Preços</a>
+                <a href="#/pedido" class="btn-huge" style="padding: 18px 40px; font-size: 0.8rem;">Pedir orçamento</a>
+<a href="https://wa.me/258864400354?text=Ol%C3%A1%20BGI%21%20Quero%20pedir%20um%20or%C3%A7amento." target="_blank" rel="noopener" class="btn-huge" style="padding: 18px 40px; font-size: 0.8rem; background:#128c4a; border:2px solid #128c4a; color:#fff; box-shadow:none;"><i class="fab fa-whatsapp" aria-hidden="true"></i>&nbsp; Falar no WhatsApp</a>
             </div>
             <div class="sp" id="sp" role="region" aria-label="Tipos de site e preços"><div class="sp-top"><i></i>Crie o seu site com a BGI</div><button class="sp-nav sp-prev" id="sp-prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button><button class="sp-nav sp-next" id="sp-next" aria-label="Seguinte"><i class="fas fa-chevron-right"></i></button><div id="sp-slides"></div><div class="sp-d" id="sp-dots"></div><div class="sp-bar" id="sp-bar"></div></div>
         </div>
     </div>
 
-    <!-- STATS -->
-    <section class="reveal" style="padding: 60px 8%;">
-        <div class="stats-grid">
-            <div class="stat-item"><h3>100%</h3><p>Foco em Resultados</p></div>
-            <div class="stat-item"><h3>24h</h3><p>Resposta Garantida</p></div>
-            <div class="stat-item"><h3>MZ</h3><p>Feito para Moçambique</p></div>
-        </div>
-    </section>
+    <section class="quick reveal" aria-labelledby="q-h"><h2 id="q-h">O que <span class="serif">precisa?</span></h2><div class="quick-grid"><div class="quick-card"><i class="fas fa-globe" aria-hidden="true"></i><strong>Um site</strong><span>Institucional, loja ou reservas</span><div class="qc-act"><a class="qc-go" href="#/pedido/start">Pedir orçamento</a><a class="qc-wa" href="https://wa.me/258864400354?text=Ol%C3%A1%20BGI%21%20Preciso%20de%20um%20site." target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a></div></div><div class="quick-card"><i class="fas fa-gem" aria-hidden="true"></i><strong>Um logótipo</strong><span>Identidade visual para a sua marca</span><div class="qc-act"><a class="qc-go" href="#/pedido/solo/logo">Pedir orçamento</a><a class="qc-wa" href="https://wa.me/258864400354?text=Ol%C3%A1%20BGI%21%20Preciso%20de%20um%20log%C3%B3tipo." target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a></div></div><div class="quick-card"><i class="fas fa-images" aria-hidden="true"></i><strong>Redes sociais</strong><span>Posts prontos e acompanhamento mensal</span><div class="qc-act"><a class="qc-go" href="#/pedido/solo/posts">Pedir orçamento</a><a class="qc-wa" href="https://wa.me/258864400354?text=Ol%C3%A1%20BGI%21%20Preciso%20de%20ajuda%20com%20redes%20sociais." target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a></div></div></div></section>
+<section class="proof reveal" aria-labelledby="pf-h"><p class="proof-t" id="pf-h">Projetos reais, já no ar</p><div class="proof-row"><a href="https://casawindows.online" target="_blank" rel="noopener"><strong>Casa Windows</strong><span>Loja online com catálogo</span></a><a href="https://blaisegroupindustries.github.io/ResidencialIndelevel/" target="_blank" rel="noopener"><strong>Residencial Indelével</strong><span>Site com reservas por WhatsApp</span></a><a href="https://blaisegroupindustries.github.io/ZavannaBuild/" target="_blank" rel="noopener"><strong>Zavanna Build</strong><span>Site de atelier de arquitetura</span></a><div class="proof-24"><strong>24h</strong><span>Resposta garantida</span></div></div></section>
+
 
     <!-- SERVIÇOS -->
     <section id="servicos">
         <h2 class="reveal">O que <span class="serif">fazemos</span></h2>
         <div class="grid-services">
             <a href="#/branding" class="service-card reveal">
-                <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=800" class="service-img" alt="Branding">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=800" class="service-img" alt="Branding">
                 <div class="service-info">
                     <h3>Branding & Identidade</h3>
                     <p>Logótipo, paleta de cores, tipografia e guia de marca que comunica autoridade e confiança.</p>
                 </div>
             </a>
             <a href="#/website" class="service-card reveal">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800" class="service-img" alt="Web Design">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800" class="service-img" alt="Web Design">
                 <div class="service-info">
                     <h3>Sites & Sistemas Web</h3>
-                    <p>Sites profissionais, rápidos e optimizados para mobile — incluindo IA integrada para atendimento automático.</p>
+                    <p>Sites profissionais, rápidos e optimizados para mobile — com extras como catálogo, pagamentos M-Pesa e E-Mola e atendimento automático com IA.</p>
                 </div>
             </a>
             <a href="#/marketing" class="service-card reveal">
-                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=800" class="service-img" alt="Marketing">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=800" class="service-img" alt="Marketing">
                 <div class="service-info">
                     <h3>Marketing Digital</h3>
                     <p>Gestão de redes sociais, estratégia de conteúdo e crescimento de seguidores com resultados mensuráveis.</p>
@@ -649,7 +700,7 @@ footer{padding-bottom:16px}
             <!-- Casa Windows -->
             <div class="portfolio-card reveal">
                 <div class="portfolio-img-wrap">
-                    <img src="CW_ex.jpg" alt="Casa Windows">
+                    <img loading="lazy" decoding="async" src="CW_ex.jpg" alt="Casa Windows">
                     <div class="portfolio-tag">Website + Marketing</div>
                 </div>
                 <div class="portfolio-body">
@@ -663,14 +714,14 @@ footer{padding-bottom:16px}
                         <span class="ptag">M-Pesa</span>
                         <span class="ptag">SEO</span>
                     </div>
-                    <a href="https://wa.me/258864400354?text=Ol%C3%A1%20BGI%21%20Gostei%20do%20site%20da%20Casa%20Windows%20e%20quero%20algo%20parecido." target="_blank" rel="noopener" class="portfolio-link">Quero um site assim <i class="fas fa-arrow-right" style="font-size:0.7rem;"></i></a>
+                    <div class="pl-row"><a href="https://wa.me/258864400354?text=Ol%C3%A1%20BGI%21%20Gostei%20do%20site%20da%20Casa%20Windows%20e%20quero%20algo%20parecido." target="_blank" rel="noopener" class="portfolio-link">Quero um site assim <i class="fas fa-arrow-right" style="font-size:0.7rem;"></i></a><a href="https://casawindows.online" target="_blank" rel="noopener" class="portfolio-link pl-alt">Ver site <i class="fas fa-arrow-right" style="font-size:0.7rem;"></i></a></div>
                 </div>
             </div>
 
             <!-- Residencial Indelével -->
             <div class="portfolio-card reveal">
                 <div class="portfolio-img-wrap">
-                    <img src="REI_ex.jpg" alt="Residencial Indelével">
+                    <img loading="lazy" decoding="async" src="REI_ex.jpg" alt="Residencial Indelével">
                     <div class="portfolio-tag">Website + Reservas</div>
                 </div>
                 <div class="portfolio-body">
@@ -683,14 +734,14 @@ footer{padding-bottom:16px}
                         <span class="ptag">WhatsApp</span>
                         <span class="ptag">Design</span>
                     </div>
-                    <a href="https://blaisegroupindustries.github.io/ResidencialIndelevel/" target="_blank" class="portfolio-link">Ver site <i class="fas fa-arrow-right" style="font-size:0.7rem;"></i></a>
+                    <div class="pl-row"><a href="https://wa.me/258864400354?text=Ol%C3%A1%20BGI%21%20Gostei%20do%20site%20do%20Residencial%20Indel%C3%A9vel%20e%20quero%20algo%20parecido." target="_blank" rel="noopener" class="portfolio-link">Quero um site assim <i class="fas fa-arrow-right" style="font-size:0.7rem;"></i></a><a href="https://blaisegroupindustries.github.io/ResidencialIndelevel/" target="_blank" rel="noopener" class="portfolio-link pl-alt">Ver site <i class="fas fa-arrow-right" style="font-size:0.7rem;"></i></a></div>
                 </div>
             </div>
 
             <!-- Zavanna -->
             <div class="portfolio-card reveal">
                 <div class="portfolio-img-wrap">
-                    <img src="ZAV_ex.jpg" alt="Zavanna Build">
+                    <img loading="lazy" decoding="async" src="ZAV_ex.jpg" alt="Zavanna Build">
                     <div class="portfolio-tag">Website</div>
                 </div>
                 <div class="portfolio-body">
@@ -702,7 +753,7 @@ footer{padding-bottom:16px}
                         <span class="ptag">Branding</span>
                         <span class="ptag">Design</span>
                     </div>
-                    <a href="https://wa.me/258864400354?text=Ol%C3%A1%20BGI%21%20Gostei%20do%20site%20da%20Zavanna%20Build%20e%20quero%20algo%20parecido." target="_blank" rel="noopener" class="portfolio-link">Quero um site assim <i class="fas fa-arrow-right" style="font-size:0.7rem;"></i></a>
+                    <div class="pl-row"><a href="https://wa.me/258864400354?text=Ol%C3%A1%20BGI%21%20Gostei%20do%20site%20da%20Zavanna%20Build%20e%20quero%20algo%20parecido." target="_blank" rel="noopener" class="portfolio-link">Quero um site assim <i class="fas fa-arrow-right" style="font-size:0.7rem;"></i></a><a href="https://blaisegroupindustries.github.io/ZavannaBuild/" target="_blank" rel="noopener" class="portfolio-link pl-alt">Ver site <i class="fas fa-arrow-right" style="font-size:0.7rem;"></i></a></div>
                 </div>
             </div>
 
@@ -713,12 +764,12 @@ footer{padding-bottom:16px}
     <section class="reveal">
         <div class="dna-grid">
             <div class="dna-image">
-                <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=800" alt="Workplace">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=800" alt="Workplace">
             </div>
             <div>
                 <h2 style="text-align: left; margin-bottom: 20px;">A nossa <span class="serif">abordagem</span></h2>
                 <p style="color: var(--sec); margin-bottom: 16px; line-height: 1.8;">Na BGI não fazemos apenas sites bonitos. Começamos sempre com uma pergunta simples: <strong>como é que isto vai trazer mais clientes para o seu negócio?</strong></p>
-                <p style="color: var(--sec); margin-bottom: 24px; line-height: 1.8;">Cada projecto inclui estratégia de conteúdo, SEO local para Moçambique, e sistemas que trabalham por si 24 horas — incluindo IA para atender e qualificar clientes automaticamente.</p>
+                <p style="color: var(--sec); margin-bottom: 24px; line-height: 1.8;">Cada projecto é pensado para Moçambique: SEO local, WhatsApp, M-Pesa e E-Mola quando faz sentido, e sistemas que trabalham por si 24 horas — com IA para atender e qualificar clientes, se precisar.</p>
                 <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
                     <div style="padding:16px; border-left:2px solid var(--brand-color); background:var(--brand-soft); border-radius:0 4px 4px 0;">
                         <h4 style="font-size:0.85rem; margin-bottom:4px;">Visão de Negócio</h4>
@@ -729,7 +780,7 @@ footer{padding-bottom:16px}
                         <p style="font-size:0.8rem; color:var(--sec);">M-Pesa, E-Mola, WhatsApp.</p>
                     </div>
                     <div style="padding:16px; border-left:2px solid var(--brand-color); background:var(--brand-soft); border-radius:0 4px 4px 0;">
-                        <h4 style="font-size:0.85rem; margin-bottom:4px;">IA Integrada</h4>
+                        <h4 style="font-size:0.85rem; margin-bottom:4px;">IA Opcional</h4>
                         <p style="font-size:0.8rem; color:var(--sec);">Atendimento automático 24h.</p>
                     </div>
                     <div style="padding:16px; border-left:2px solid var(--brand-color); background:var(--brand-soft); border-radius:0 4px 4px 0;">
@@ -772,7 +823,7 @@ footer{padding-bottom:16px}
                 <div class="price-name">Start</div>
                 <p class="price-ideal">Ideal para quem quer começar a ser encontrado online com um site profissional.</p>
                 <span class="price-from">A partir de</span>
-                <div class="price-amount">9.500 <span>MT</span></div>
+                <div class="price-amount" data-p="9500"></div><div class="p-save" data-ps="9500" hidden></div>
                 <div class="price-note">Pagamento único</div>
                 <div class="price-founder"><i class="fas fa-star"></i> Preço Fundador disponível</div>
                 <div class="price-divider"></div>
@@ -794,7 +845,7 @@ footer{padding-bottom:16px}
                 <div class="price-name">Growth</div>
                 <p class="price-ideal">Ideal para quem precisa de um site maior, mais visível e com área reservada para clientes.</p>
                 <span class="price-from">A partir de</span>
-                <div class="price-amount">20.400 <span>MT</span></div>
+                <div class="price-amount" data-p="20400"></div><div class="p-save" data-ps="20400" hidden></div>
                 <div class="price-note">Pagamento único</div>
                 <div class="price-founder"><i class="fas fa-star"></i> Preço Fundador disponível</div>
                 <div class="price-divider"></div>
@@ -804,7 +855,7 @@ footer{padding-bottom:16px}
             </div>
 
         </div>
-        <div class="month-strip reveal"><div><strong>Acompanhamento mensal (opcional)</strong><p>Depois de escolher o pacote, pode juntar a BGI a cuidar do site e das redes: gestão, 12–16 posts por mês, relatório e suporte.</p></div><div class="ms-price">6.800 <span>MT / mês</span></div></div>
+        <div class="month-strip reveal"><div><strong>Acompanhamento mensal (opcional)</strong><p>Depois de escolher o pacote, pode juntar a BGI a cuidar do site e das redes: gestão, 12–16 posts por mês, relatório e suporte.</p></div><div class="ms-price" data-p="6800" data-u="MT / mês"></div></div>
         <h3 class="pricing-block-title reveal">Compare os <span class="serif">pacotes</span></h3>
         <p class="pricing-block-sub reveal">Veja lado a lado o que cada pacote inclui.</p>
         <div class="compare-wrap reveal">
@@ -841,7 +892,7 @@ footer{padding-bottom:16px}
 <div class="page" id="p-branding">
 
     <header class="branding-hero">
-        <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=2000" class="hero-img-bg" alt="Branding Concept">
+        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=70&w=1400&auto=format" class="hero-img-bg" alt="Branding Concept">
         <div class="hero-content">
             <h1 class="reveal">Identidade de <br><span class="serif">Alto Valor.</span></h1>
             <p class="reveal">Projetamos a estética do sucesso através de sistemas visuais inteligentes.</p>
@@ -850,7 +901,7 @@ footer{padding-bottom:16px}
 
     <section class="split-section">
         <div class="split-image reveal">
-            <img src="https://images.unsplash.com/photo-1509343256512-d77a5cb3791b?q=80&w=1000" alt="Design Minimalista">
+            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1509343256512-d77a5cb3791b?q=70&w=800&auto=format" alt="Design Minimalista">
         </div>
         <div class="split-text reveal">
             <h2 class="serif" style="text-align: left; font-size: 2.8rem; margin-bottom: 30px; color: var(--text);">A Psicologia por trás do <span style="color: var(--brand-color)">Impacto</span>.</h2>
@@ -886,16 +937,16 @@ footer{padding-bottom:16px}
         
         <div class="gallery-grid">
             <div class="gallery-item item-1 reveal">
-                <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=1000" alt="Estúdio de Design">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=70&w=800&auto=format" alt="Estúdio de Design">
             </div>
             <div class="gallery-item item-2 reveal">
-                <img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=1000" alt="Texturas">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=70&w=800&auto=format" alt="Texturas">
             </div>
             <div class="gallery-item item-3 reveal">
-                <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1000" alt="Digital Branding">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=70&w=800&auto=format" alt="Digital Branding">
             </div>
             <div class="gallery-item item-4 reveal">
-                <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1000" alt="Minimalist Work">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=70&w=800&auto=format" alt="Minimalist Work">
             </div>
         </div>
     </section>
@@ -927,7 +978,7 @@ footer{padding-bottom:16px}
                 <p style="color: var(--sec);">Nossa engenharia garante tempos de carregamento instantâneos e uma interface que posiciona sua marca como líder do mercado.</p>
             </div>
             <div class="feature-image reveal">
-                <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2070" alt="Workplace BGI">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=70&w=1400&auto=format" alt="Workplace BGI">
             </div>
         </div>
     </section>
@@ -980,7 +1031,7 @@ footer{padding-bottom:16px}
     <section id="start">
         <div class="impact-grid">
             <div class="impact-image reveal">
-                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070" alt="Marketing BGI">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=70&w=1400&auto=format" alt="Marketing BGI">
             </div>
             <div class="impact-text reveal">
                 <h2>Venda mais, <br>gaste menos.</h2>
@@ -1202,7 +1253,7 @@ footer{padding-bottom:16px}
 
     </div>
 </main>
-<div class="mbar"><a class="a1" href="#/pedido">Fazer pedido</a><a class="a2" href="https://wa.me/258864400354" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a></div>
+<div class="mbar"><a class="a1" href="#/pedido">Pedir orçamento</a><a class="a2" href="https://wa.me/258864400354" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a></div>
 <footer>
     <div class="footer-grid">
         <div>
@@ -1214,7 +1265,7 @@ footer{padding-bottom:16px}
             <a href="#/" class="footer-link">Início</a>
             <a href="#/portfolio" class="footer-link">Portfólio</a>
             <a href="#/precos" class="footer-link">Preços</a>
-            <a href="#/pedido" class="footer-link">Fazer pedido</a>
+            <a href="#/pedido" class="footer-link">Pedir orçamento</a>
             <a href="#/termos" class="footer-link">Termos e Condições</a>
         </div>
         <div>
@@ -1269,21 +1320,22 @@ footer{padding-bottom:16px}
 (function(){
 // Edite aqui os tipos de site, preços e imagens do pop-up.
 var S=[
-{k:'Site institucional',d:'Até 5 páginas, rápido e feito para telemóvel.',p:'a partir de 9.500 MT',img:'ZAV_ex.jpg',c:'Exemplo real: Zavanna Build'},
-{k:'Loja ou catálogo online',d:'Produtos, encomendas por WhatsApp e pagamento M-Pesa e E-Mola.',p:'a partir de 20.400 MT',img:'CW_ex.jpg',c:'Exemplo real: Casa Windows'},
-{k:'Site com reservas',d:'Hotéis, residenciais e serviços com reserva direta no WhatsApp.',p:'a partir de 20.400 MT',img:'REI_ex.jpg',c:'Exemplo real: Residencial Indelével'},
+{k:'Site institucional',d:'Até 5 páginas, rápido e feito para telemóvel.',n:9500,img:'ZAV_ex.jpg',c:'Exemplo real: Zavanna Build'},
+{k:'Loja ou catálogo online',d:'Produtos, encomendas por WhatsApp e pagamento M-Pesa e E-Mola.',n:23100,img:'CW_ex.jpg',c:'Exemplo real: Casa Windows'},
+{k:'Site com reservas',d:'Hotéis, residenciais e serviços com reserva direta no WhatsApp.',n:12900,img:'REI_ex.jpg',c:'Exemplo real: Residencial Indelével'},
 {k:'Sistema web à medida',d:'Painéis, áreas de cliente e automações com IA.',p:'sob orçamento'}];
+function lbl(s){return s.n?'a partir de '+(PROMO.on()?'<s>'+PROMO.fm(PROMO.reg(s.n))+'</s> ':'')+PROMO.fm(PROMO.ep(s.n))+' MT':s.p}
 var sl=document.getElementById('sp-slides'),dt=document.getElementById('sp-dots'),bar=document.getElementById('sp-bar'),box=document.getElementById('sp'),cur=0,t;
 sl.innerHTML=S.map(function(s){
- var im=s.img?'<div class="sp-img" style="background-image:url('+s.img+')"><span class="sp-badge">'+s.p+'</span><span class="sp-cap">'+s.c+'</span></div>':'<div class="sp-img sp-dash"><span class="sp-badge">'+s.p+'</span><i></i><i></i><i></i><i></i></div>';
+ var im=s.img?'<div class="sp-img" style="background-image:url('+s.img+')"><span class="sp-badge">'+lbl(s)+'</span><span class="sp-cap">'+s.c+'</span></div>':'<div class="sp-img sp-dash"><span class="sp-badge">'+lbl(s)+'</span><i></i><i></i><i></i><i></i></div>';
  return '<div class="sp-s">'+im+'<div class="sp-b"><h4>'+s.k+'</h4><p>'+s.d+'</p><a href="https://wa.me/258864400354?text='+encodeURIComponent('Olá BGI! Tenho interesse em: '+s.k+'.')+'" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Pedir orçamento</a></div></div>'}).join('');
 dt.innerHTML=S.map(function(s,i){return '<button aria-label="Slide '+(i+1)+'" data-i="'+i+'"></button>'}).join('');
 function go(i){
  cur=(i+S.length)%S.length;
  [].forEach.call(sl.children,function(e,j){e.classList.toggle('on',j===cur)});
  [].forEach.call(dt.children,function(e,j){e.classList.toggle('on',j===cur)});
- bar.classList.remove('run');void bar.offsetWidth;bar.classList.add('run');
- clearTimeout(t);t=setTimeout(function(){go(cur+1)},5000);
+ 
+ clearTimeout(t);
 }
 dt.addEventListener('click',function(e){if(e.target.dataset.i)go(+e.target.dataset.i)});
 document.getElementById('sp-prev').onclick=function(){go(cur-1)};
@@ -1324,6 +1376,7 @@ var MON=[
  {id:'ads',n:'Gestão de anúncios',d:'Google e Meta, com resultados medidos.',ic:'fas fa-bullhorn',p:3400,need:'care'},
  {id:'more',n:'+8 posts por mês',d:'Mais conteúdo para as redes.',ic:'fas fa-plus',p:2550,need:'care'}
 ];
+(function(){function n(o){if(o.p){o.p0=o.p;o.p=PROMO.ep(o.p0);o.r=PROMO.reg(o.p0)}}for(var k in PLANS)n(PLANS[k]);COMP.forEach(n);MON.forEach(n)})();
 var WA='258864400354',FORM='https://formspree.io/f/xojjvvjk';
 var st={plan:'',sel:{}};
 function $(i){return document.getElementById(i)}
@@ -1333,11 +1386,11 @@ function isInc(c){return !!st.plan&&PLANS[st.plan].inc.indexOf(c.id)>-1}
 function ln(a,b){return '<div class="ck-ln"><span>'+a+'</span><span>'+b+'</span></div>'}
 function renderPlans(){
  $('ck-plans').innerHTML=PK.map(function(k){var p=PLANS[k];
-  var pr=k==='help'?'Grátis':k==='solo'?'<small>preço por serviço</small>':mt(p.p)+'<small>a partir de</small>';
+  var pr=k==='help'?'Grátis':k==='solo'?'<small>preço por serviço</small>':(PROMO.on()?'<s class="p-old">'+mt(p.r)+'</s> ':'')+mt(p.p)+'<small>a partir de</small>';
   return '<label><input type="radio" name="plan" value="'+k+'"'+(st.plan===k?' checked':'')+'><span class="ck-pc"><span class="ck-pn">'+p.n+(p.tag?'<em>'+p.tag+'</em>':'')+'</span><span class="ck-pp">'+pr+'</span><span class="ck-pd">'+p.d+'</span></span></label>'}).join('');
 }
 function row(c,inc,on,solo,mon){
- var tag=inc?'<span class="ck-ct">Incluído</span>':'<span class="ck-ct">+'+mt(c.p)+'<i>'+(mon?'por mês':'valor único')+'</i></span>';
+ var tag=inc?'<span class="ck-ct">Incluído</span>':'<span class="ck-ct">'+(PROMO.on()?'<s class="p-old">'+mt(c.r)+'</s> ':'')+'+'+mt(c.p)+'<i>'+(mon?'por mês':'valor único')+'</i></span>';
  var body='<span class="ck-ic"><i class="'+c.ic+'" aria-hidden="true"></i></span><span><span class="ck-cn">'+c.n+'</span><span class="ck-cd" style="display:block">'+c.d+(solo&&c.r?' Precisa de site.':'')+'</span></span>'+tag;
  if(inc)return '<div class="inc"><span class="ck-cc">'+body+'</span></div>';
  return '<label><input type="checkbox" value="'+c.id+'"'+(on?' checked':'')+'><span class="ck-cc">'+body+'</span></label>'}
@@ -1357,10 +1410,10 @@ function renderComps(){
   return '<div class="ck-g"><h4>'+g+'</h4><div class="ck-comps">'+it.map(function(c){return row(c,isInc(c),st.sel[c.id],solo,false)}).join('')+'</div></div>'}).join('');
  renderMonth()}
 function calc(){
- var p=PLANS[st.plan]||{n:'',p:0},once=p.p,mon=0,ex=[],ml=[];
- shown().forEach(function(c){if(!isInc(c)&&st.sel[c.id]){ex.push(c);once+=c.p}});
- if(st.plan&&st.plan!=='help')MON.forEach(function(c){if(st.sel[c.id]&&(!c.need||st.sel[c.need])){ml.push(c);mon+=c.p}});
- return {p:p,once:once,mon:mon,ex:ex,ml:ml}}
+ var p=PLANS[st.plan]||{n:'',p:0},once=p.p,mon=0,ex=[],ml=[],sv={o:p.r?p.r-p.p:0,m:0};
+ shown().forEach(function(c){if(!isInc(c)&&st.sel[c.id]){ex.push(c);once+=c.p;sv.o+=c.r-c.p}});
+ if(st.plan&&st.plan!=='help')MON.forEach(function(c){if(st.sel[c.id]&&(!c.need||st.sel[c.need])){ml.push(c);mon+=c.p;sv.m+=c.r-c.p}});
+ return {p:p,once:once,mon:mon,ex:ex,ml:ml,sv:sv}}
 function totTxt(r){
  if(st.plan==='help')return 'Grátis';
  var a=[];if(r.once)a.push(mt(r.once));if(r.mon)a.push(mt(r.mon)+'/mês');return a.join(' + ')||'0 MT'}
@@ -1377,9 +1430,9 @@ function renderSum(){
  var t='';
  if(st.plan==='help')t='<div class="ck-tot"><span>Total</span><b>Grátis</b></div>';
  else{if(r.once)t+='<div class="ck-tot"><span>Valor único</span><b>'+mt(r.once)+'</b></div>';if(r.mon)t+='<div class="ck-tot"><span>Mensalidade</span><b>'+mt(r.mon)+'</b></div>'}
- $('ck-tots').innerHTML=t;$('ck-bt').textContent=totTxt(r);
- var near=(st.plan==='start'||st.plan==='solo')&&r.once>=17000,up=$('ck-up');
- up.hidden=!near;if(near)up.textContent='Está perto do pacote Growth (20.400 MT), que inclui site até 10 páginas, SEO avançado e login de clientes. Vale a pena comparar.';
+ if(PROMO.on()&&st.plan!=='help'&&(r.sv.o||r.sv.m))t+='<div class="ck-save">Promoção de fim de ano: poupa '+(r.sv.o?mt(r.sv.o):'')+(r.sv.o&&r.sv.m?' + ':'')+(r.sv.m?mt(r.sv.m)+'/mês':'')+'</div>';$('ck-tots').innerHTML=t;$('ck-bt').textContent=totTxt(r);
+ var near=(st.plan==='start'||st.plan==='solo')&&r.once>=Math.round(PLANS.growth.p*.83),up=$('ck-up');
+ up.hidden=!near;if(near)up.textContent='Está perto do pacote Growth ('+mt(PLANS.growth.p)+'), que inclui site até 10 páginas, SEO avançado e login de clientes. Vale a pena comparar.';
  $('ck-selerr').hidden=true}
 function render(){renderPlans();renderComps();renderSum()}
 $('ck-plans').addEventListener('change',function(e){
@@ -1395,7 +1448,7 @@ function orderText(r){
  var l=['Olá BGI! Quero pedir um orçamento:','Opção: '+r.p.n+(r.p.p?' ('+mt(r.p.p)+')':'')];
  if(r.ex.length)l.push((st.plan==='solo'?'Serviços: ':'Extras: ')+r.ex.map(function(c){return c.n}).join(', '));
  if(r.ml.length)l.push('Mensal: '+r.ml.map(function(c){return c.n}).join(', '));
- l.push('Total: '+totTxt(r));
+ if(PROMO.on())l.push('Promoção de fim de ano (válida até 31/12)');l.push('Total: '+totTxt(r));
  l.push('Nome: '+$('ck-nome').value.trim());
  if($('ck-biz').value.trim())l.push('Negócio: '+$('ck-biz').value.trim());
  if($('ck-msg').value.trim())l.push('Nota: '+$('ck-msg').value.trim());
@@ -1411,7 +1464,7 @@ $('ck-form').addEventListener('submit',function(e){e.preventDefault();var r0=cal
  if(b1||b2){(b1?$('ck-nome'):$('ck-tel')).focus();return}
  var r=r0,btn=$('ck-send');btn.disabled=true;btn.textContent='A enviar...';
  var f=new FormData();
- f.append('Plano',r.p.n);f.append('Extras',r.ex.map(function(c){return c.n}).join(', ')||'nenhum');f.append('Mensal',r.ml.map(function(c){return c.n}).join(', ')||'nenhum');f.append('Total',totTxt(r));
+ f.append('Plano',r.p.n);f.append('Extras',r.ex.map(function(c){return c.n}).join(', ')||'nenhum');f.append('Mensal',r.ml.map(function(c){return c.n}).join(', ')||'nenhum');f.append('Promocao',PROMO.on()?'Promoção de fim de ano (até 31/12)':'nao');f.append('Total',totTxt(r));
  f.append('Nome',$('ck-nome').value);f.append('WhatsApp',$('ck-tel').value);f.append('Negócio',$('ck-biz').value);f.append('Email',$('ck-mail').value);
  f.append('Mensagem',$('ck-msg').value);
  fetch(FORM,{method:'POST',body:f,headers:{Accept:'application/json'}}).then(function(x){done(x.ok,r)}).catch(function(){done(false,r)}).then(function(){btn.disabled=false;btn.innerHTML='<i class="fas fa-paper-plane"></i> Pedir orçamento'});
