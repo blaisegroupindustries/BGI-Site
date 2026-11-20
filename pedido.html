@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Pedir orçamento | BGI</title>
+<meta name="description" content="Escolha o que precisa, ajuste os extras e peça o seu orçamento à BGI. Respondemos em até 24h úteis.">
+<link rel="canonical" href="https://bgiservicos.com/pedido/">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#225580">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BGI — Blaise Group Industries">
+<meta property="og:locale" content="pt_PT">
+<meta property="og:title" content="Pedir orçamento | BGI">
+<meta property="og:description" content="Escolha o que precisa, ajuste os extras e peça o seu orçamento à BGI. Respondemos em até 24h úteis.">
+<meta property="og:url" content="https://bgiservicos.com/pedido/">
+<meta property="og:image" content="https://bgiservicos.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="BGI — Blaise Group Industries">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="/assets/style.css?v=20261120">
+</head>
+<body class="on-pedido">
+<div class="progress-bar" id="myBar"></div>
+<div class="promo-bar" id="promo-bar" hidden><strong><span class="pb-l">Promoção de Fim de Ano</span><span class="pb-s">Promoção</span></strong><span class="pb-x">preços especiais até 31 de dezembro</span><span class="pb-c" id="pb-c" role="timer" aria-label="Tempo restante da promoção">--</span><a href="/pedido/">Pedir orçamento</a></div>
+<a href="https://wa.me/258864400354" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+<nav>
+    <div class="logo"><a href="/"><img src="/BGI_logo.png?v=2" alt="BGI"></a></div>
+    <div class="menu-icon" onclick="toggleMenu()" role="button" tabindex="0" aria-label="Abrir menu"><i class="fa fa-bars"></i></div>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="/">Início</a></li>
+        <li><a href="/branding/">Branding</a></li>
+        <li><a href="/website/">Website</a></li>
+        <li><a href="/marketing/">Marketing</a></li>
+        <li><a href="/#portfolio">Portfólio</a></li>
+        <li><a href="/#precos">Preços</a></li>
+        <li><a href="/pedido/" class="btn-nav">Pedir orçamento</a></li>
+    </ul>
+</nav>
+<main><div class="page on" id="p-pedido">
+<div id="ck-main">
+<header class="ck-head"><h1>Monte o seu pedido</h1><p>Escolha o que precisa, ajuste os extras e peça o seu orçamento. Respondemos em até 24h úteis.</p></header>
+<div class="ck-wrap">
+<form id="ck-form" novalidate>
+<h3 class="ck-h" id="h-plan"><b>1</b>O que precisa?</h3>
+<div class="ck-plans" id="ck-plans" role="radiogroup" aria-labelledby="h-plan"></div>
+<p class="ck-selerr" id="ck-selerr" role="alert" hidden></p>
+<div id="ck-more">
+<h3 class="ck-h" id="h-ext"><b>2</b><span id="h-ext-t">Extras opcionais</span></h3>
+<p class="ck-hint" id="ck-hint"></p>
+<div id="ck-comps" role="group" aria-labelledby="h-ext"></div>
+</div>
+<div id="ck-monthbox">
+<h3 class="ck-h" id="h-mes"><b>3</b>Acompanhamento mensal (opcional)</h3>
+<p class="ck-hint">Se quiser a BGI a cuidar do site e das redes depois do lançamento, junte aqui. Também pode decidir mais tarde.</p>
+<div class="ck-comps" id="ck-month" role="group" aria-labelledby="h-mes"></div>
+</div>
+<h3 class="ck-h" id="h-dados"><b id="n-dados">4</b>Os seus dados</h3>
+<div class="ck-f" id="f-nome"><label class="t" for="ck-nome">Nome</label><input type="text" id="ck-nome" autocomplete="name" aria-describedby="e-nome" placeholder="Ex.: João Silva"><div class="ck-err" id="e-nome">Escreva o seu nome.</div></div>
+<div class="ck-f" id="f-tel"><label class="t" for="ck-tel">WhatsApp</label><input type="tel" id="ck-tel" autocomplete="tel" aria-describedby="e-tel" inputmode="tel" placeholder="+258 84 000 0000"><div class="ck-err" id="e-tel">Escreva um número de WhatsApp com pelo menos 9 dígitos.</div></div>
+<div class="ck-f"><label class="t" for="ck-biz">Nome do negócio (opcional)</label><input type="text" id="ck-biz" autocomplete="organization" placeholder="Ex.: Padaria Esperança"></div>
+<div class="ck-f"><label class="t" for="ck-mail">Email (opcional)</label><input type="email" id="ck-mail" autocomplete="email" inputmode="email" placeholder="nome@exemplo.com"></div>
+
+<div class="ck-f"><label class="t" for="ck-msg">Quer contar mais? (opcional)</label><textarea id="ck-msg" rows="3" placeholder="O seu maior desafio hoje"></textarea></div>
+</form>
+<aside class="ck-sum" id="ck-sum">
+<h3>O seu pedido</h3>
+<div id="ck-lines"></div>
+<div id="ck-tots" aria-live="polite" aria-atomic="true"></div><p class="ck-up" id="ck-up" aria-live="polite" hidden></p>
+<p class="ck-note">Valores em Meticais. Confirmamos o orçamento final consigo em até 24h úteis. Isto é um pedido de orçamento, não um pagamento.</p>
+<button type="submit" form="ck-form" class="ck-btn" id="ck-send"><i class="fas fa-paper-plane"></i> Pedir orçamento</button>
+</aside>
+</div>
+<div class="ck-bar"><div>Total<b id="ck-bt">0 MT</b></div><a href="#ck-sum" id="ck-go">Ver resumo</a></div>
+</div>
+<div class="ck-done" id="ck-done" hidden>
+<div class="ok"><i class="fas fa-check"></i></div>
+<h2 id="ck-dt">Pedido recebido</h2>
+<p id="ck-dp">Respondemos em até 24h úteis.</p>
+<a class="ck-btn wa" id="ck-wa" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Continuar no WhatsApp</a>
+<button type="button" class="ck-btn ghost" id="ck-new">Fazer outro pedido</button>
+</div>
+</div>
+</main>
+<div class="mbar"><a class="a1" href="/pedido/">Pedir orçamento</a><a class="a2" href="https://wa.me/258864400354" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a></div>
+<footer>
+    <div class="footer-grid">
+        <div>
+            <img src="/BGI_logo.png?v=2" alt="BGI" style="height: 80px; width: auto; filter: brightness(0) invert(1); margin-bottom: 20px;">
+            <p style="opacity: 0.6; font-size: 0.85rem; line-height: 1.8;">BGI — Blaise Group Industries.<br>Agência de Presença Digital em Moçambique.<br>Sites, Branding, Marketing & IA.</p>
+        </div>
+        <div>
+            <h5 style="margin-bottom: 20px; color: var(--brand-color); font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;">Navegação</h5>
+            <a href="/" class="footer-link">Início</a>
+            <a href="/#portfolio" class="footer-link">Portfólio</a>
+            <a href="/#precos" class="footer-link">Preços</a>
+            <a href="/pedido/" class="footer-link">Pedir orçamento</a>
+            <a href="/termos/" class="footer-link">Termos e Condições</a>
+        </div>
+        <div>
+            <h5 style="margin-bottom: 20px; color: var(--brand-color); font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;">Contacto</h5>
+            <p style="opacity: 0.6; font-size: 0.85rem; margin-bottom: 8px;">+258 86 440 0354</p>
+            <p style="opacity: 0.6; font-size: 0.85rem; margin-bottom: 8px;">contacto@bgi.co.mz</p>
+            <p style="opacity: 0.6; font-size: 0.85rem;">Moçambique</p>
+        </div>
+    </div>
+    <p style="text-align: center; margin-top: 60px; font-size: 0.7rem; opacity: 0.3;">&copy; 2026 BGI — Blaise Group Industries. Todos os direitos reservados.</p>
+</footer>
+<script src="/assets/promo.js?v=20261120"></script>
+<script src="/assets/app.js?v=20261120"></script>
+<script src="/assets/pedido.js?v=20261120"></script>
+</body>
+</html>
