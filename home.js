@@ -1,11 +1,11 @@
 // Barra do fundador e pop-up de tipos de site (apenas index.html)
-const FOUNDER_DEADLINE = new Date(2026, 11, 31, 23, 59, 59); // 31 Dez 2026
+const FOUNDER_DEADLINE = new Date(PROMO.end); // mesma data da promoção (promo.js)
     const founderBar = document.querySelector('.founder-bar');
     const founderLabel = document.getElementById('founderLabel');
     const daysLeft = Math.ceil((FOUNDER_DEADLINE - new Date()) / 86400000);
     if (daysLeft <= 0) {
-        founderBar.style.display = 'none'; // oferta terminada
-    } else {
+        if (founderBar) founderBar.style.display = 'none'; // oferta terminada
+    } else if (founderLabel) {
         founderLabel.textContent = daysLeft === 1 ? 'Último dia' : 'Faltam ' + daysLeft + ' dias';
     }
 
